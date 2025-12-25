@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings - MovieBook Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-film"></i>
+            <h2>MovieBook</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="manage-movies.html"><i class="fas fa-film"></i> Manage Movies</a>
+            <a href="manage-showtimes.html"><i class="fas fa-clock"></i> Showtimes</a>
+            <a href="bookings.html" class="active"><i class="fas fa-ticket-alt"></i> Bookings</a>
+            <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+        <div class="admin-header">
+            <h1>All Bookings</h1>
+        </div>
+
+        <!-- Bookings Table -->
+        <div class="admin-section">
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Reference</th>
+                            <th>Customer Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Movie</th>
+                            <th>Show Date</th>
+                            <th>Show Time</th>
+                            <th>Seats</th>
+                            <th>Amount</th>
+                            <th>Booking Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsTable">
+                        <tr>
+                            <td colspan="10" class="text-center">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-bookings.js"></script>
+</body>
+</html>

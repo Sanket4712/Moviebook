@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Showtimes - MovieBook Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="admin-sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-film"></i>
+            <h2>MovieBook</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="manage-movies.html"><i class="fas fa-film"></i> Manage Movies</a>
+            <a href="manage-showtimes.html" class="active"><i class="fas fa-clock"></i> Showtimes</a>
+            <a href="bookings.html"><i class="fas fa-ticket-alt"></i> Bookings</a>
+            <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="admin-content">
+        <div class="admin-header">
+            <h1>Manage Showtimes</h1>
+            <button class="btn-primary" onclick="showAddShowtimeModal()">
+                <i class="fas fa-plus"></i> Add Showtime
+            </button>
+        </div>
+
+        <!-- Showtimes Table -->
+        <div class="admin-section">
+            <div class="table-container">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Movie</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Screen</th>
+                            <th>Price</th>
+                            <th>Available Seats</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="showtimesTable">
+                        <tr>
+                            <td colspan="7" class="text-center">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Showtime Modal -->
+    <div id="addShowtimeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add Showtime</h2>
+            <form id="addShowtimeForm">
+                <div class="form-group">
+                    <label>Select Movie</label>
+                    <select id="showtimeMovieId" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Show Date</label>
+                    <input type="date" id="showtimeDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Show Time</label>
+                    <input type="time" id="showtimeTime" required>
+                </div>
+                <div class="form-group">
+                    <label>Screen Number</label>
+                    <input type="number" id="screenNumber" min="1" max="10" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Ticket Price ($)</label>
+                    <input type="number" id="ticketPrice" step="0.01" min="0" value="12.99" required>
+                </div>
+                <button type="submit" class="btn-primary btn-block">Add Showtime</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Price Modal -->
+    <div id="editPriceModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Edit Price</h2>
+            <form id="editPriceForm">
+                <input type="hidden" id="editShowtimeId">
+                <div class="form-group">
+                    <label>New Price ($)</label>
+                    <input type="number" id="editPrice" step="0.01" min="0" required>
+                </div>
+                <button type="submit" class="btn-primary btn-block">Update Price</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin-showtimes.js"></script>
+</body>
+</html>

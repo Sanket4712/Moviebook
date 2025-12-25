@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth System Test - MovieBook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .test-section {
+            background: #2a2a2a;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #e50914;
+        }
+        .test-section h2 {
+            margin-top: 0;
+            color: #e50914;
+        }
+        button {
+            background: #e50914;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #ff1a2b;
+        }
+        .result {
+            background: #1a1a1a;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .success { color: #22c55e; }
+        .error { color: #ef4444; }
+        .info { color: #3b82f6; }
+    </style>
+</head>
+<body>
+    <h1>🔐 MovieBook Authentication System Test</h1>
+    <p>Test all authentication and library features</p>
+
+    <!-- Database Check -->
+    <div class="test-section">
+        <h2>1. Database Tables Check</h2>
+        <button onclick="checkTables()">Check Tables</button>
+        <div id="tablesResult" class="result"></div>
+    </div>
+
+    <!-- Registration Test -->
+    <div class="test-section">
+        <h2>2. User Registration</h2>
+        <input type="text" id="regUsername" placeholder="Username" style="margin: 5px; padding: 8px;">
+        <input type="email" id="regEmail" placeholder="Email" style="margin: 5px; padding: 8px;">
+        <input type="tel" id="regPhone" placeholder="Phone" style="margin: 5px; padding: 8px;">
+        <input type="password" id="regPassword" placeholder="Password" style="margin: 5px; padding: 8px;"><br>
+        <button onclick="testRegister()">Test Registration</button>
+        <div id="regResult" class="result"></div>
+    </div>
+
+    <!-- Login Test -->
+    <div class="test-section">
+        <h2>3. User Login</h2>
+        <input type="email" id="loginEmail" placeholder="Email" style="margin: 5px; padding: 8px;">
+        <input type="password" id="loginPassword" placeholder="Password" style="margin: 5px; padding: 8px;"><br>
+        <button onclick="testLogin()">Test Login</button>
+        <button onclick="testCheckSession()">Check Session</button>
+        <button onclick="testLogout()">Test Logout</button>
+        <div id="loginResult" class="result"></div>
+    </div>
+
+    <!-- Library Test -->
+    <div class="test-section">
+        <h2>4. Library Management</h2>
+        <button onclick="testAddToWatchlist()">Add to Watchlist</button>
+        <button onclick="testGetWatchlist()">Get Watchlist</button>
+        <button onclick="testRemoveFromWatchlist()">Remove from Watchlist</button>
+        <div id="libraryResult" class="result"></div>
+    </div>
+
+    <!-- Cache Test -->
+    <div class="test-section">
+        <h2>5. TMDB Cache System</h2>
+        <button onclick="testCache()">Test Cache</button>
+        <button onclick="checkCacheTable()">View Cache Table</button>
+        <div id="cacheResult" class="result"></div>
+    </div>
+
+    <!-- Review Test -->
+    <div class="test-section">
+        <h2>6. Review System</h2>
+        <input type="number" id="reviewRating" placeholder="Rating (1-5)" min="1" max="5" style="margin: 5px; padding: 8px;">
+        <textarea id="reviewText" placeholder="Review text" style="margin: 5px; padding: 8px; width: 80%;"></textarea><br>
+        <button onclick="testAddReview()">Add Review</button>
+        <button onclick="testGetReviews()">Get Reviews</button>
+        <div id="reviewResult" class="result"></div>
+    </div>
+
+    <script>
+        const API_BASE = './api';
+
+        async function checkTables() {
+            const result = document.getElementById('tablesResult');
+            result.innerHTML = '<span class="info">Checking tables...</span>';
+            
+            try {
+                const response = await fetch('test_db.php');
+                const text = await response.text();
+                result.innerHTML = `<span class="success">✓ Response received</span>\n${text}`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+
+        async function testRegister() {
+            const result = document.getElementById('regResult');
+            const data = {
+                username: document.getElementById('regUsername').value,
+                email: document.getElementById('regEmail').value,
+                phone: document.getElementById('regPhone').value,
+                password: document.getElementById('regPassword').value
+            };
+
+            result.innerHTML = '<span class="info">Registering...</span>';
+
+            try {
+                const response = await fetch(`${API_BASE}/auth.php?action=register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const json = await response.json();
+                result.innerHTML = json.success 
+                    ? `<span class="success">✓ Registration successful!</span>\n${JSON.stringify(json, null, 2)}`
+                    : `<span class="error">✗ ${json.message}</span>`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+
+        async function testLogin() {
+            const result = document.getElementById('loginResult');
+            const data = {
+                email: document.getElementById('loginEmail').value,
+                password: document.getElementById('loginPassword').value
+            };
+
+            result.innerHTML = '<span class="info">Logging in...</span>';
+
+            try {
+                const response = await fetch(`${API_BASE}/auth.php?action=login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const json = await response.json();
+                result.innerHTML = json.success 
+                    ? `<span class="success">✓ Login successful!</span>\n${JSON.stringify(json, null, 2)}`
+                    : `<span class="error">✗ ${json.message}</span>`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+
+        async function testCheckSession() {
+            const result = document.getElementById('loginResult');
+            result.innerHTML = '<span class="info">Checking session...</span>';
+
+            try {
+                const response = await fetch(`${API_BASE}/auth.php?action=check_session`);
+                const json = await response.json();
+                result.innerHTML = `<span class="${json.logged_in ? 'success' : 'info'}">Session Status:</span>\n${JSON.stringify(json, null, 2)}`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+
+        async function testLogout() {
+            const result = document.getElementById('loginResult');
+            result.innerHTML = '<span class="info">Logging out...</span>';
+
+            try {
+                const response = await fetch(`${API_BASE}/auth.php?action=logout`);
+                const json = await response.json();
+                result.innerHTML = `<span class="success">✓ Logged out</span>\n${JSON.stringify(json, null, 2)}`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+
+        async function testAddToWatchlist() {
+            const result = document.getElementById('libraryResult');
+            const data = {
+                tmdb_id: 550,
+                movie_title: 'Fight Club',
+                movie_poster: '/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
+                movie_year: '1999',
+                library_type: 'watchlist'
+            };
+
+            result.innerHTML = '<span class="info">Adding to watchlist...</span>';
+
+            try {
+                const response = await fetch(`${API_BASE}/library.php?action=add_to_library`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const json = await response.json();
+                result.innerHTML = json.success 
+                    ? `<span class="success">✓ ${json.message}</span>`
+                    : `<span class="error">✗ ${json.message}</span>`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+
+        async function testGetWatchlist() {
+            const result = document.getElementById('libraryResult');
+            result.innerHTML = '<span class="info">Loading watchlist...</span>';
+
+            try {
+                const response = await fetch(`${API_BASE}/library.php?action=get_library&type=watchlist`);
+                const json = await response.json();
+                result.innerHTML = json.success 
+                    ? `<span class="success">✓ Watchlist loaded (${json.items.length} items)</span>\n${JSON.stringify(json, null, 2)}`
+                    : `<span class="error">✗ ${json.message}</span>`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+
+        async function testRemoveFromWatchlist() {
+            const result = document.getElementById('libraryResult');
+            const data = {
+                tmdb_id: 550,
+                library_type: 'watchlist'
+            };
+
+            result.innerHTML = '<span class="info">Removing from watchlist...</span>';
+
+            try {
+                const response = await fetch(`${API_BASE}/library.php?action=remove_from_library`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const json = await response.json();
+                result.innerHTML = json.success 
+                    ? `<span class="success">✓ ${json.message}</span>`
+                    : `<span class="error">✗ ${json.message}</span>`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+
+        async function testCache() {
+            const result = document.getElementById('cacheResult');
+            result.innerHTML = '<span class="info">Testing cache...</span>';
+
+            try {
+                const response = await fetch(`${API_BASE}/movies.php?action=trending`);
+                const json = await response.json();
+                result.innerHTML = `<span class="success">✓ Cache working</span>\n${JSON.stringify(json.results?.slice(0, 3), null, 2)}...`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+
+        async function checkCacheTable() {
+            const result = document.getElementById('cacheResult');
+            result.innerHTML = '<span class="info">This requires a separate PHP script to query tmdb_cache table</span>';
+        }
+
+        async function testAddReview() {
+            const result = document.getElementById('reviewResult');
+            const formData = new FormData();
+            formData.append('tmdb_id', 550);
+            formData.append('movie_title', 'Fight Club');
+            formData.append('rating', document.getElementById('reviewRating').value);
+            formData.append('review_text', document.getElementById('reviewText').value);
+
+            result.innerHTML = '<span class="info">Submitting review...</span>';
+
+            try {
+                const response = await fetch(`${API_BASE}/reviews.php?action=add_review`, {
+                    method: 'POST',
+                    body: formData
+                });
+                const json = await response.json();
+                result.innerHTML = json.success 
+                    ? `<span class="success">✓ ${json.message}</span>`
+                    : `<span class="error">✗ ${json.message}</span>`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+
+        async function testGetReviews() {
+            const result = document.getElementById('reviewResult');
+            result.innerHTML = '<span class="info">Loading reviews...</span>';
+
+            try {
+                const response = await fetch(`${API_BASE}/reviews.php?action=get_reviews&tmdb_id=550`);
+                const json = await response.json();
+                result.innerHTML = json.success 
+                    ? `<span class="success">✓ Reviews loaded (${json.reviews.length} reviews)</span>\n${JSON.stringify(json, null, 2)}`
+                    : `<span class="error">✗ ${json.message}</span>`;
+            } catch (error) {
+                result.innerHTML = `<span class="error">✗ Error: ${error.message}</span>`;
+            }
+        }
+    </script>
+</body>
+</html>
