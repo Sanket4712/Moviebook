@@ -146,9 +146,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
     margin-bottom: 3rem;
-}
-
-.action-btn {
+}.action-btn {
     background: #221f1f;
     border: 1px solid #333;
     padding: 2rem 1.5rem;
@@ -181,6 +179,83 @@ body {
     font-size: 1rem;
     color: #fff;
 }
+
+/* Stats Section */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.stat-card {
+    background: #221f1f;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid #333;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: #E50914;
+    box-shadow: 0 6px 16px rgba(229, 9, 20, 0.2);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.stat-icon.blue {
+    background: rgba(52, 152, 219, 0.2);
+    color: #3498db;
+}
+
+.stat-icon.green {
+    background: rgba(70, 211, 105, 0.2);
+    color: #46d369;
+}
+
+.stat-icon.orange {
+    background: rgba(255, 165, 0, 0.2);
+    color: #ffa500;
+}
+
+.stat-details {
+    flex: 1;
+}
+
+.stat-details h3 {
+    color: #b3b3b3;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.stat-info {
+    color: #808080;
+    font-size: 0.85rem;
+}
+
+
 
 /* Schedule Section */
 .schedule-section {
@@ -607,10 +682,10 @@ body {
     background: #221f1f;
     padding: 1.5rem;
     border-radius: 6px;
-    border-left: 4px solid #333;
-    transition: all 0.2s ease;
-    color: #fff;
     border: 1px solid #333;
+    border-left: 4px solid #333;
+    color: #fff;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .sell-card.available {
@@ -629,7 +704,8 @@ body {
 .sell-card:hover {
     transform: translateY(-3px);
     border-color: #E50914;
-    background: #2a2a2a;
+    background-color: #2a2a2a;
+    box-shadow: 0 6px 16px rgba(229, 9, 20, 0.25);
 }
 
 .sell-card-header {
@@ -659,6 +735,24 @@ body {
 .movie-title {
     font-weight: 700;
     margin-bottom: 1rem;
+    color: #fff;
+}
+
+.sell-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #b3b3b3;
+}
+
+.sell-stats span {
+    color: #b3b3b3;
+    transition: color 0.3s ease;
+}
+
+.sell-card:hover .sell-stats span {
     color: #fff;
 }
 
@@ -712,13 +806,11 @@ body {
 .booking-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
 }
 
-.booking-stat-card:hover {
-    border-color: #E50914;
-    background: #2a2a2a;
-    box-shadow: 0 4px 12px rgba(229, 9, 20, 0.2)
+.booking-stat-card {
     background: #221f1f;
     padding: 1.5rem;
     border-radius: 6px;
@@ -726,12 +818,14 @@ body {
     display: flex;
     align-items: center;
     gap: 1.2rem;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .booking-stat-card:hover {
     border-color: #E50914;
     background: #2a2a2a;
+    box-shadow: 0 6px 16px rgba(229, 9, 20, 0.2);
+    transform: translateY(-2px);
 }
 
 .booking-stat-card i {
@@ -744,8 +838,10 @@ body {
 
 .booking-stat-card h3 {
     font-size: 0.85rem;
-    color: #808080;
+    color: #b3b3b3;
     margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .booking-stat-card p {
@@ -768,17 +864,32 @@ body {
     border-radius: 6px;
     border: 1px solid #333;
     border-left: 4px solid #333;
-    transition: all 0.2s ease;
-    color: #fff;
+    transition: all 0.3s ease;
+    color: #fff !important;
 }
 
 .booking-card.confirmed { border-left-color: #46d369; }
 .booking-card.pending { border-left-color: #ffa500; }
 .booking-card.cancelled { border-left-color: #E50914; }
 
+.booking-card * {
+    color: #fff !important;
+}
+
+.booking-card .booking-header p,
+.booking-card .detail-row span:first-child {
+    color: #808080 !important;
+}
+
+.booking-card .detail-row strong {
+    color: #E50914 !important;
+}
+
 .booking-card:hover {
     border-color: #E50914;
     background: #2a2a2a;
+    box-shadow: 0 6px 16px rgba(229, 9, 20, 0.25);
+    transform: translateY(-2px);
 }
 
 .booking-header {
@@ -793,12 +904,12 @@ body {
 .booking-header h4 {
     font-size: 1.1rem;
     margin-bottom: 0.3rem;
-    color: #fff;
+    color: #fff !important;
     font-weight: 700;
 }
 
 .booking-header p {
-    color: #808080;
+    color: #808080 !important;
     font-size: 0.85rem;
 }
 
@@ -832,12 +943,22 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0;
-    color: #fff;
+    color: #fff !important;
     font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
 }
 
 .detail-row span:first-child {
-    color: #808080;
+    color: #808080 !important;
+}
+
+.detail-row strong {
+    color: #E50914 !important;
+    font-weight: 600;
 }
 
 .booking-actions {
@@ -882,19 +1003,23 @@ body {
 
 .btn-view:hover { 
     background: #C41E3A;
-    box-shadow: 0 4px 10px rgba(229, 9, 20, 0.4);
+    box-shadow: 0 6px 14px rgba(229, 9, 20, 0.4);
+    transform: translateY(-2px);
 }
 .btn-print:hover { 
     background: #444;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
 }
 .btn-confirm:hover { 
     background: #3ca752;
-    box-shadow: 0 4px 10px rgba(70, 211, 105, 0.3);
+    box-shadow: 0 6px 14px rgba(70, 211, 105, 0.4);
+    transform: translateY(-2px);
 }
 .btn-cancel:hover { 
     background: #C41E3A;
-    box-shadow: 0 4px 10px rgba(229, 9, 20, 0.4);
+    box-shadow: 0 6px 14px rgba(229, 9, 20, 0.4);
+    transform: translateY(-2px);
 }
 
 /* Modals */
