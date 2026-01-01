@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section Management - MovieBook Admin</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h2>🎬 Admin Panel</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard/dashboard.html" class="nav-link">
+                    <i class="fas fa-th-large"></i> Dashboard
+                </a>
+                <a href="hero-section.html" class="nav-link active">
+                    <i class="fas fa-film"></i> Hero Section
+                </a>
+                <a href="../our picks/our-picks.html" class="nav-link">
+                    <i class="fas fa-star"></i> Our Picks
+                </a>
+                <a href="../cinema halls/theaters.html" class="nav-link">
+                    <i class="fas fa-building"></i> Theaters
+                </a>
+                <a href="../Tickets/tickets.html" class="nav-link">
+                    <i class="fas fa-ticket-alt"></i> Tickets
+                </a>
+                <a href="../users/users.html" class="nav-link">
+                    <i class="fas fa-users"></i> Users
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Hero Section Management</h1>
+                <button class="btn-primary" onclick="openAddModal()">
+                    <i class="fas fa-plus"></i> Add New Movie
+                </button>
+            </header>
+
+            <div class="admin-content">
+                <!-- Upload Section -->
+                <div class="upload-section">
+                    <div class="upload-box">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Upload Movie Poster</h3>
+                        <p>Drag and drop or click to browse</p>
+                        <input type="file" id="posterUpload" accept="image/*" style="display: none;">
+                        <button class="btn-upload" onclick="document.getElementById('posterUpload').click()">
+                            Browse Files
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hero Section Movies -->
+                <div class="section-content">
+                    <h2>Current Hero Movies</h2>
+                    <div class="admin-movie-grid">
+                        <div class="admin-movie-card">
+                            <img src="https://via.placeholder.com/300x400/667eea/ffffff?text=Movie+1" alt="Movie">
+                            <div class="movie-card-actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                <button class="btn-toggle active"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="movie-card-info">
+                                <h4>12 Angry Men</h4>
+                                <p>Position: 1</p>
+                            </div>
+                        </div>
+
+                        <div class="admin-movie-card">
+                            <img src="https://via.placeholder.com/300x400/f5576c/ffffff?text=Movie+2" alt="Movie">
+                            <div class="movie-card-actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                <button class="btn-toggle active"><i class="fas fa-eye"></i></button>
+                            </div>
+                            <div class="movie-card-info">
+                                <h4>Inception</h4>
+                                <p>Position: 2</p>
+                            </div>
+                        </div>
+
+                        <div class="admin-movie-card">
+                            <img src="https://via.placeholder.com/300x400/4facfe/ffffff?text=Movie+3" alt="Movie">
+                            <div class="movie-card-actions">
+                                <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                <button class="btn-toggle"><i class="fas fa-eye-slash"></i></button>
+                            </div>
+                            <div class="movie-card-info">
+                                <h4>The Dark Knight</h4>
+                                <p>Position: 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add/Edit Movie Modal -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Movie</h2>
+                <button class="btn-close" onclick="closeModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="movieForm">
+                    <div class="form-group">
+                        <label>Movie Title</label>
+                        <input type="text" placeholder="Enter movie title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Genre</label>
+                        <input type="text" placeholder="e.g., Action, Drama">
+                    </div>
+                    <div class="form-group">
+                        <label>Rating</label>
+                        <input type="number" step="0.1" min="0" max="10" placeholder="0.0">
+                    </div>
+                    <div class="form-group">
+                        <label>Position</label>
+                        <input type="number" min="1" placeholder="1">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeModal()">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Movie</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/admin.js"></script>
+</body>
+</html>

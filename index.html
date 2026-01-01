@@ -1,1 +1,126 @@
-Hello World 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieBook - Your Ultimate Movie Booking Platform</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎬 MovieBook</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="User/movie-list.html">Movies</a></li>
+                <li><a href="User/streaming/streaming.html">Streaming</a></li>
+                <li><a href="User/Profile/profile.html">Profile</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-secondary" onclick="location.href='auth/login.html'">Login</button>
+                <button class="btn-primary" onclick="location.href='auth/signup.html'">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Book Your Favorite Movies</h1>
+            <p class="hero-subtitle">Experience cinema like never before</p>
+            <div class="hero-search">
+                <input type="text" placeholder="Search for movies, theaters..." id="searchInput">
+                <button class="btn-search"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="quick-access">
+        <div class="container">
+            <div class="access-cards">
+                <div class="access-card" onclick="location.href='User/movie-list.html'">
+                    <i class="fas fa-film"></i>
+                    <h3>Browse Movies</h3>
+                    <p>Discover latest releases</p>
+                </div>
+                <div class="access-card" onclick="location.href='User/movie-booking/booking.html'">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h3>Book Tickets</h3>
+                    <p>Reserve your seats</p>
+                </div>
+                <div class="access-card" onclick="location.href='User/streaming/streaming.html'">
+                    <i class="fas fa-play-circle"></i>
+                    <h3>Stream Online</h3>
+                    <p>Watch from home</p>
+                </div>
+                <div class="access-card" onclick="location.href='User/Profile/watchlist.html'">
+                    <i class="fas fa-bookmark"></i>
+                    <h3>My Watchlist</h3>
+                    <p>Save for later</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portal Access -->
+    <section class="portal-section">
+        <div class="container">
+            <h2 class="section-title">Access Portals</h2>
+            <div class="portal-cards">
+                <div class="portal-card admin-portal">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Admin Portal</h3>
+                    <p>Manage platform content and users</p>
+                    <button class="btn-portal" onclick="location.href='Admin/dashboard/dashboard.html'">Enter Admin</button>
+                </div>
+                <div class="portal-card theater-portal">
+                    <i class="fas fa-theater-masks"></i>
+                    <h3>Theater Portal</h3>
+                    <p>Manage schedules and ticket sales</p>
+                    <button class="btn-portal" onclick="location.href='Theater/dashboard.html'">Enter Theater</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MovieBook</h3>
+                    <p>Your ultimate movie booking platform</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MovieBook. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

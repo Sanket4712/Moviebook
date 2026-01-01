@@ -1,0 +1,342 @@
+/* Booking Specific Styles */
+
+.booking-page {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    padding: 2rem 0;
+}
+
+.booking-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn-back {
+    background: transparent;
+    border: 2px solid #ddd;
+    padding: 0.7rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Movie Booking Info */
+.movie-booking-info {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.movie-booking-info img {
+    border-radius: var(--border-radius);
+}
+
+.movie-booking-details h2 {
+    margin-bottom: 0.5rem;
+}
+
+/* Booking Steps */
+.booking-steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.step {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.step::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    width: 100%;
+    height: 2px;
+    background: #ddd;
+    z-index: -1;
+}
+
+.step:last-child::after {
+    display: none;
+}
+
+.step.active .step-number {
+    background: var(--primary-color);
+    color: white;
+}
+
+.step.active::after {
+    background: var(--primary-color);
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Date Selection */
+.date-selection,
+.theater-selection,
+.seat-selection {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.date-selection h3,
+.theater-selection h3,
+.seat-selection h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.date-cards {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.date-card {
+    min-width: 100px;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.date-card:hover {
+    border-color: var(--primary-color);
+}
+
+.date-card.active {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+.date-card .day {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Theater Selection */
+.theater-card {
+    padding: 1.5rem;
+    border: 2px solid #ddd;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+.theater-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.theater-info p {
+    color: #666;
+}
+
+.showtime-slots {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.time-slot {
+    padding: 0.7rem 1.5rem;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.time-slot:hover {
+    border-color: var(--primary-color);
+}
+
+.time-slot.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Seat Selection */
+.screen-indicator {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.screen {
+    background: linear-gradient(to bottom, #ddd, #f8f9fa);
+    padding: 1rem 4rem;
+    border-radius: 10px 10px 50% 50%;
+    display: inline-block;
+    color: #666;
+    font-weight: bold;
+}
+
+.seat-map {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.seat-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+}
+
+.row-label {
+    width: 30px;
+    font-weight: bold;
+    color: #666;
+}
+
+.seat {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #4caf50;
+    background: white;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.seat:hover:not(.occupied) {
+    background: #e3f2fd;
+    border-color: var(--primary-color);
+}
+
+.seat.selected {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.seat.occupied {
+    background: #ddd;
+    border-color: #999;
+    cursor: not-allowed;
+}
+
+.seat-legend {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.seat.small {
+    width: 30px;
+    height: 30px;
+}
+
+/* Booking Summary */
+.booking-summary {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 100px;
+}
+
+.booking-summary h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.summary-details {
+    margin-bottom: 2rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-row.total {
+    border-bottom: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+.btn-proceed {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-proceed:hover {
+    background: #b20710;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+    .booking-steps {
+        flex-direction: column;
+    }
+    
+    .step::after {
+        display: none;
+    }
+    
+    .seat {
+        width: 30px;
+        height: 30px;
+    }
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Tickets - MovieBook</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎬 MovieBook</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../movie-list.html">Movies</a></li>
+                <li><a href="../streaming/streaming.html">Streaming</a></li>
+                <li><a href="../Profile/profile.html">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="booking-page">
+        <div class="container">
+            <div class="booking-header">
+                <button class="btn-back" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+                <h1>Book Tickets</h1>
+            </div>
+
+            <!-- Movie Info -->
+            <div class="movie-booking-info">
+                <img src="https://via.placeholder.com/100x150/667eea/ffffff?text=Movie" alt="Movie">
+                <div class="movie-booking-details">
+                    <h2>12 Angry Men</h2>
+                    <p><i class="fas fa-heart"></i> Add to Favorites</p>
+                </div>
+            </div>
+
+            <!-- Booking Steps -->
+            <div class="booking-steps">
+                <div class="step active">
+                    <span class="step-number">1</span>
+                    <span>Date & Time</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <span>Seats</span>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <span>Payment</span>
+                </div>
+            </div>
+
+            <!-- Date Selection -->
+            <section class="date-selection">
+                <h3>Select Date</h3>
+                <div class="date-cards">
+                    <div class="date-card">
+                        <span class="day">MON</span>
+                        <span class="date">Jan 1</span>
+                    </div>
+                    <div class="date-card active">
+                        <span class="day">TUE</span>
+                        <span class="date">Jan 2</span>
+                    </div>
+                    <div class="date-card">
+                        <span class="day">WED</span>
+                        <span class="date">Jan 3</span>
+                    </div>
+                    <div class="date-card">
+                        <span class="day">THU</span>
+                        <span class="date">Jan 4</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Theater & Time Selection -->
+            <section class="theater-selection">
+                <h3>Select Theater & Show Time</h3>
+                <div class="theater-card">
+                    <div class="theater-info">
+                        <h4>PVR INOX</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> Downtown Mall, 2.5 km</p>
+                    </div>
+                    <div class="showtime-slots">
+                        <button class="time-slot">10:00 AM</button>
+                        <button class="time-slot active">1:00 PM</button>
+                        <button class="time-slot">4:30 PM</button>
+                        <button class="time-slot">7:00 PM</button>
+                    </div>
+                </div>
+
+                <div class="theater-card">
+                    <div class="theater-info">
+                        <h4>Cinepolis</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> City Center, 3.1 km</p>
+                    </div>
+                    <div class="showtime-slots">
+                        <button class="time-slot">11:30 AM</button>
+                        <button class="time-slot">2:15 PM</button>
+                        <button class="time-slot">5:45 PM</button>
+                        <button class="time-slot">9:00 PM</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seat Selection -->
+            <section class="seat-selection" style="display: none;">
+                <h3>Select Seats</h3>
+                <div class="screen-indicator">
+                    <div class="screen">SCREEN</div>
+                </div>
+                
+                <div class="seat-map">
+                    <!-- Row A -->
+                    <div class="seat-row">
+                        <span class="row-label">A</span>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                    </div>
+                    <!-- Row B -->
+                    <div class="seat-row">
+                        <span class="row-label">B</span>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                    </div>
+                    <!-- Row C -->
+                    <div class="seat-row">
+                        <span class="row-label">C</span>
+                        <button class="seat"></button>
+                        <button class="seat occupied"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat occupied"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                    </div>
+                    <!-- Row D -->
+                    <div class="seat-row">
+                        <span class="row-label">D</span>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                        <button class="seat"></button>
+                    </div>
+                </div>
+
+                <div class="seat-legend">
+                    <div class="legend-item">
+                        <span class="seat small"></span>
+                        <span>Available</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="seat small selected"></span>
+                        <span>Selected</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="seat small occupied"></span>
+                        <span>Occupied</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Summary -->
+            <div class="booking-summary">
+                <h3>Booking Summary</h3>
+                <div class="summary-details">
+                    <div class="summary-row">
+                        <span>Movie:</span>
+                        <span>12 Angry Men</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Date & Time:</span>
+                        <span>Jan 2, 1:00 PM</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Theater:</span>
+                        <span>PVR INOX</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Seats:</span>
+                        <span id="selectedSeats">None</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="totalAmount">$0.00</span>
+                    </div>
+                </div>
+                <button class="btn-proceed" onclick="proceedToPayment()">
+                    Proceed to Payment
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MovieBook. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/booking.js"></script>
+</body>
+</html>

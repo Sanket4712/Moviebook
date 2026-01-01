@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - MovieBook</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎬 MovieBook</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="movie-list.html">Movies</a></li>
+                <li><a href="streaming/streaming.html">Streaming</a></li>
+                <li><a href="Profile/profile.html">Profile</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-icon"><i class="fas fa-user"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="movie-detail-page">
+        <div class="movie-banner">
+            <div class="movie-backdrop"></div>
+            <div class="movie-detail-content">
+                <div class="movie-poster-large">
+                    <img src="https://via.placeholder.com/300x450/667eea/ffffff?text=12+Angry+Men" alt="Movie Poster">
+                </div>
+                <div class="movie-details">
+                    <h1>12 Angry Men</h1>
+                    <div class="movie-meta-details">
+                        <span class="year">1957</span>
+                        <span class="duration">96 min</span>
+                        <span class="genre-tag">Drama</span>
+                        <span class="genre-tag">Crime</span>
+                    </div>
+                    <div class="rating-section">
+                        <div class="imdb-rating">
+                            <i class="fas fa-star"></i>
+                            <span class="rating-value">8.9</span>
+                            <span class="rating-count">/10</span>
+                        </div>
+                        <button class="btn-rate">
+                            <i class="fas fa-star"></i> Rate
+                        </button>
+                    </div>
+                    <p class="synopsis">
+                        A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues 
+                        to reconsider the evidence in a courtroom drama.
+                    </p>
+                    <div class="action-buttons">
+                        <button class="btn-book-tickets" onclick="location.href='movie-booking/booking.html'">
+                            <i class="fas fa-ticket-alt"></i> Book Tickets
+                        </button>
+                        <button class="btn-watchlist">
+                            <i class="far fa-bookmark"></i> Watchlist
+                        </button>
+                        <button class="btn-share">
+                            <i class="fas fa-share"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Reviews Section -->
+            <section class="reviews-section">
+                <h2>Reviews</h2>
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://via.placeholder.com/50/667eea/ffffff?text=U" alt="User" class="user-avatar">
+                        <div>
+                            <h4>John Doe</h4>
+                            <div class="user-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        An absolute masterpiece! The performances are incredible and the tension 
+                        keeps building throughout. A must-watch for any cinema lover.
+                    </p>
+                    <div class="review-footer">
+                        <button class="btn-review-action"><i class="far fa-thumbs-up"></i> Helpful (24)</button>
+                        <span class="review-date">2 days ago</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <img src="https://via.placeholder.com/50/f5576c/ffffff?text=U" alt="User" class="user-avatar">
+                        <div>
+                            <h4>Jane Smith</h4>
+                            <div class="user-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">
+                        Brilliant dialogue and character development. One of the best courtroom dramas ever made.
+                    </p>
+                    <div class="review-footer">
+                        <button class="btn-review-action"><i class="far fa-thumbs-up"></i> Helpful (15)</button>
+                        <span class="review-date">1 week ago</span>
+                    </div>
+                </div>
+
+                <button class="btn-load-more">Load More Reviews</button>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MovieBook. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/movie-details.js"></script>
+</body>
+</html>

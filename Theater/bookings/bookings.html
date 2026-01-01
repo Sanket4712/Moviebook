@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings - Theater Panel</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/theater.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="theater-layout">
+        <!-- Sidebar -->
+        <aside class="theater-sidebar">
+            <div class="sidebar-header">
+                <h2>🎭 Theater Panel</h2>
+                <p class="theater-name">PVR INOX</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-link">
+                    <i class="fas fa-th-large"></i> Dashboard
+                </a>
+                <a href="../schedule/schedule.html" class="nav-link">
+                    <i class="fas fa-calendar"></i> Schedule Movies
+                </a>
+                <a href="../Ticket sell/ticket-sell.html" class="nav-link">
+                    <i class="fas fa-ticket-alt"></i> Ticket Sales
+                </a>
+                <a href="bookings.html" class="nav-link active">
+                    <i class="fas fa-list"></i> See Bookings
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="theater-main">
+            <header class="theater-header">
+                <h1>See Bookings</h1>
+                <div class="header-actions">
+                    <input type="date" value="2026-01-01">
+                    <button class="btn-primary">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </header>
+
+            <div class="theater-content">
+                <!-- Booking Stats -->
+                <div class="booking-stats">
+                    <div class="booking-stat-card confirmed">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <h3>Confirmed</h3>
+                            <p>285</p>
+                        </div>
+                    </div>
+                    <div class="booking-stat-card pending">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Pending</h3>
+                            <p>32</p>
+                        </div>
+                    </div>
+                    <div class="booking-stat-card cancelled">
+                        <i class="fas fa-times-circle"></i>
+                        <div>
+                            <h3>Cancelled</h3>
+                            <p>8</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bookings Grid -->
+                <div class="bookings-grid">
+                    <div class="booking-card confirmed">
+                        <div class="booking-header">
+                            <div>
+                                <h4>12 Angry Men</h4>
+                                <p>Screen 1 • 10:00 AM</p>
+                            </div>
+                            <span class="status-badge green">Confirmed</span>
+                        </div>
+                        <div class="booking-details">
+                            <div class="detail-row">
+                                <span>Booking ID:</span>
+                                <strong>#BK12345</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Customer:</span>
+                                <strong>John Doe</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Seats:</span>
+                                <strong>A5, A6, A7</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Amount:</span>
+                                <strong>$45.00</strong>
+                            </div>
+                        </div>
+                        <div class="booking-actions">
+                            <button class="btn-view"><i class="fas fa-eye"></i> View</button>
+                            <button class="btn-print"><i class="fas fa-print"></i> Print</button>
+                        </div>
+                    </div>
+
+                    <div class="booking-card confirmed">
+                        <div class="booking-header">
+                            <div>
+                                <h4>Inception</h4>
+                                <p>Screen 1 • 1:00 PM</p>
+                            </div>
+                            <span class="status-badge green">Confirmed</span>
+                        </div>
+                        <div class="booking-details">
+                            <div class="detail-row">
+                                <span>Booking ID:</span>
+                                <strong>#BK12346</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Customer:</span>
+                                <strong>Jane Smith</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Seats:</span>
+                                <strong>C10, C11</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Amount:</span>
+                                <strong>$30.00</strong>
+                            </div>
+                        </div>
+                        <div class="booking-actions">
+                            <button class="btn-view"><i class="fas fa-eye"></i> View</button>
+                            <button class="btn-print"><i class="fas fa-print"></i> Print</button>
+                        </div>
+                    </div>
+
+                    <div class="booking-card pending">
+                        <div class="booking-header">
+                            <div>
+                                <h4>The Dark Knight</h4>
+                                <p>Screen 2 • 4:30 PM</p>
+                            </div>
+                            <span class="status-badge yellow">Pending</span>
+                        </div>
+                        <div class="booking-details">
+                            <div class="detail-row">
+                                <span>Booking ID:</span>
+                                <strong>#BK12347</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Customer:</span>
+                                <strong>Mike Johnson</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Seats:</span>
+                                <strong>D5</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Amount:</span>
+                                <strong>$15.00</strong>
+                            </div>
+                        </div>
+                        <div class="booking-actions">
+                            <button class="btn-confirm"><i class="fas fa-check"></i> Confirm</button>
+                            <button class="btn-cancel"><i class="fas fa-times"></i> Cancel</button>
+                        </div>
+                    </div>
+
+                    <div class="booking-card cancelled">
+                        <div class="booking-header">
+                            <div>
+                                <h4>Pulp Fiction</h4>
+                                <p>Screen 2 • 11:30 AM</p>
+                            </div>
+                            <span class="status-badge red">Cancelled</span>
+                        </div>
+                        <div class="booking-details">
+                            <div class="detail-row">
+                                <span>Booking ID:</span>
+                                <strong>#BK12348</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Customer:</span>
+                                <strong>Sarah Williams</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Seats:</span>
+                                <strong>B8, B9</strong>
+                            </div>
+                            <div class="detail-row">
+                                <span>Refund:</span>
+                                <strong>$30.00</strong>
+                            </div>
+                        </div>
+                        <div class="booking-actions">
+                            <button class="btn-view"><i class="fas fa-eye"></i> View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="btn-page" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn-page active">1</button>
+                    <button class="btn-page">2</button>
+                    <button class="btn-page">3</button>
+                    <button class="btn-page"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/theater.js"></script>
+</body>
+</html>

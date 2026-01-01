@@ -1,0 +1,667 @@
+/* Theater Panel Styles */
+
+.theater-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.theater-sidebar {
+    width: 260px;
+    background: #1a237e;
+    color: white;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.theater-sidebar .sidebar-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.theater-sidebar .sidebar-header h2 {
+    color: #ffc107;
+    font-size: 1.5rem;
+}
+
+.theater-name {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+.theater-main {
+    flex: 1;
+    margin-left: 260px;
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+.theater-header {
+    background: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theater-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.theater-user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.theater-content {
+    padding: 2rem;
+}
+
+/* Quick Actions */
+.quick-actions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.action-btn {
+    background: white;
+    border: none;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.action-btn i {
+    font-size: 3rem;
+}
+
+.action-btn.blue { color: #2196f3; }
+.action-btn.green { color: #4caf50; }
+.action-btn.orange { color: #ff9800; }
+
+.action-btn span {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* Schedule Section */
+.schedule-section {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.schedule-section h2 {
+    margin-bottom: 1.5rem;
+}
+
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.schedule-item {
+    display: grid;
+    grid-template-columns: 150px 1fr 200px;
+    gap: 2rem;
+    padding: 1.5rem;
+    border: 2px solid #eee;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.schedule-item:hover {
+    border-color: var(--primary-color);
+}
+
+.schedule-time {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.schedule-time .time {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.schedule-time .screen {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.schedule-movie h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.schedule-movie p {
+    color: #666;
+}
+
+.schedule-stats {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.seats-sold {
+    font-weight: bold;
+    color: #4caf50;
+}
+
+.revenue {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Performance Section */
+.performance-section {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.performance-section h2 {
+    margin-bottom: 1.5rem;
+}
+
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.performance-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.performance-day {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.performance-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.performance-tickets {
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+/* Search & Filter */
+.search-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Movie Schedule List */
+.movie-schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.movie-schedule-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    gap: 2rem;
+}
+
+.movie-poster-thumb img {
+    width: 100px;
+    border-radius: var(--border-radius);
+}
+
+.movie-schedule-info {
+    flex: 1;
+}
+
+.movie-schedule-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.movie-meta {
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.show-times {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.show-time-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+    background: #f8f9fa;
+    border-radius: 25px;
+}
+
+.screen-badge {
+    background: #2196f3;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+}
+
+.time {
+    font-weight: bold;
+}
+
+.btn-edit-show,
+.btn-delete-show {
+    background: transparent;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 0.3rem;
+    transition: color 0.3s ease;
+}
+
+.btn-edit-show:hover {
+    color: #2196f3;
+}
+
+.btn-delete-show:hover {
+    color: var(--primary-color);
+}
+
+.btn-add-show {
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-add-show:hover {
+    background: #b20710;
+}
+
+/* Ticket Sales */
+.date-selector input {
+    padding: 0.7rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.sales-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.summary-card {
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    color: white;
+    text-align: center;
+}
+
+.summary-card.total { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+.summary-card.online { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+.summary-card.counter { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+
+.summary-card h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.amount {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.tickets {
+    opacity: 0.9;
+}
+
+/* Ticket Sell Grid */
+.ticket-sell-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.screen-section h2 {
+    margin-bottom: 1.5rem;
+}
+
+.sell-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.sell-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 5px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.sell-card.available {
+    border-left-color: #4caf50;
+}
+
+.sell-card.limited {
+    border-left-color: #ff9800;
+}
+
+.sell-card.housefull {
+    border-left-color: var(--primary-color);
+    opacity: 0.7;
+}
+
+.sell-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.sell-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.status-indicator.green { background: #4caf50; }
+.status-indicator.yellow { background: #ff9800; }
+.status-indicator.red { background: var(--primary-color); }
+
+.movie-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.sell-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.btn-sell-ticket {
+    width: 100%;
+    padding: 0.8rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-sell-ticket:hover:not(:disabled) {
+    background: #b20710;
+}
+
+.btn-sell-ticket:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
+/* Bookings */
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.booking-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.booking-stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.booking-stat-card i {
+    font-size: 2.5rem;
+}
+
+.booking-stat-card.confirmed i { color: #4caf50; }
+.booking-stat-card.pending i { color: #ff9800; }
+.booking-stat-card.cancelled i { color: var(--primary-color); }
+
+.booking-stat-card h3 {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.booking-stat-card p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.bookings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.booking-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-left: 5px solid transparent;
+}
+
+.booking-card.confirmed { border-left-color: #4caf50; }
+.booking-card.pending { border-left-color: #ff9800; }
+.booking-card.cancelled { border-left-color: var(--primary-color); }
+
+.booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.booking-header h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.booking-header p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.status-badge.green {
+    background: #e8f5e9;
+    color: #4caf50;
+}
+
+.status-badge.yellow {
+    background: #fff3e0;
+    color: #ff9800;
+}
+
+.status-badge.red {
+    background: #ffebee;
+    color: var(--primary-color);
+}
+
+.booking-details {
+    margin-bottom: 1rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.detail-row span:first-child {
+    color: #666;
+}
+
+.booking-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-view,
+.btn-print,
+.btn-confirm,
+.btn-cancel {
+    flex: 1;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-view {
+    background: #2196f3;
+    color: white;
+}
+
+.btn-print {
+    background: #666;
+    color: white;
+}
+
+.btn-confirm {
+    background: #4caf50;
+    color: white;
+}
+
+.btn-cancel {
+    background: var(--primary-color);
+    color: white;
+}
+
+.btn-view:hover { background: #1976d2; }
+.btn-print:hover { background: #444; }
+.btn-confirm:hover { background: #388e3c; }
+.btn-cancel:hover { background: #b20710; }
+
+/* Sell Ticket Modal */
+.ticket-info {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+}
+
+.price-summary {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.price-row.total {
+    border-top: 2px solid #ddd;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .theater-sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .theater-main {
+        margin-left: 0;
+    }
+    
+    .schedule-item {
+        grid-template-columns: 1fr;
+    }
+    
+    .bookings-grid {
+        grid-template-columns: 1fr;
+    }
+}

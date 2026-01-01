@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Movies - Theater Panel</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/theater.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="theater-layout">
+        <!-- Sidebar -->
+        <aside class="theater-sidebar">
+            <div class="sidebar-header">
+                <h2>🎭 Theater Panel</h2>
+                <p class="theater-name">PVR INOX</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard.html" class="nav-link">
+                    <i class="fas fa-th-large"></i> Dashboard
+                </a>
+                <a href="schedule.html" class="nav-link active">
+                    <i class="fas fa-calendar"></i> Schedule Movies
+                </a>
+                <a href="../Ticket sell/ticket-sell.html" class="nav-link">
+                    <i class="fas fa-ticket-alt"></i> Ticket Sales
+                </a>
+                <a href="../bookings/bookings.html" class="nav-link">
+                    <i class="fas fa-list"></i> See Bookings
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="theater-main">
+            <header class="theater-header">
+                <h1>Schedule Movies</h1>
+                <button class="btn-primary" onclick="openScheduleModal()">
+                    <i class="fas fa-plus"></i> Add New Show
+                </button>
+            </header>
+
+            <div class="theater-content">
+                <!-- Search & Filter -->
+                <div class="search-filter">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search movies...">
+                    </div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active">All Screens</button>
+                        <button class="filter-btn">Screen 1</button>
+                        <button class="filter-btn">Screen 2</button>
+                        <button class="filter-btn">Screen 3</button>
+                    </div>
+                </div>
+
+                <!-- Movie Schedule List -->
+                <div class="movie-schedule-list">
+                    <div class="movie-schedule-card">
+                        <div class="movie-poster-thumb">
+                            <img src="https://via.placeholder.com/100x150/667eea/ffffff?text=Movie" alt="Movie">
+                        </div>
+                        <div class="movie-schedule-info">
+                            <h3>12 Angry Men</h3>
+                            <p class="movie-meta">Drama • 96 min • Rating: 8.9</p>
+                            <div class="show-times">
+                                <div class="show-time-chip">
+                                    <span class="screen-badge">Screen 1</span>
+                                    <span class="time">10:00 AM</span>
+                                    <button class="btn-edit-show"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete-show"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="show-time-chip">
+                                    <span class="screen-badge">Screen 1</span>
+                                    <span class="time">1:00 PM</span>
+                                    <button class="btn-edit-show"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete-show"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="show-time-chip">
+                                    <span class="screen-badge">Screen 2</span>
+                                    <span class="time">7:00 PM</span>
+                                    <button class="btn-edit-show"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete-show"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-add-show">
+                            <i class="fas fa-plus"></i> Add Show Time
+                        </button>
+                    </div>
+
+                    <div class="movie-schedule-card">
+                        <div class="movie-poster-thumb">
+                            <img src="https://via.placeholder.com/100x150/f5576c/ffffff?text=Movie" alt="Movie">
+                        </div>
+                        <div class="movie-schedule-info">
+                            <h3>Inception</h3>
+                            <p class="movie-meta">Sci-Fi • 148 min • Rating: 8.8</p>
+                            <div class="show-times">
+                                <div class="show-time-chip">
+                                    <span class="screen-badge">Screen 2</span>
+                                    <span class="time">11:30 AM</span>
+                                    <button class="btn-edit-show"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete-show"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="show-time-chip">
+                                    <span class="screen-badge">Screen 3</span>
+                                    <span class="time">4:30 PM</span>
+                                    <button class="btn-edit-show"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete-show"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-add-show">
+                            <i class="fas fa-plus"></i> Add Show Time
+                        </button>
+                    </div>
+
+                    <div class="movie-schedule-card">
+                        <div class="movie-poster-thumb">
+                            <img src="https://via.placeholder.com/100x150/4facfe/ffffff?text=Movie" alt="Movie">
+                        </div>
+                        <div class="movie-schedule-info">
+                            <h3>The Dark Knight</h3>
+                            <p class="movie-meta">Action • 152 min • Rating: 9.0</p>
+                            <div class="show-times">
+                                <div class="show-time-chip">
+                                    <span class="screen-badge">Screen 1</span>
+                                    <span class="time">4:30 PM</span>
+                                    <button class="btn-edit-show"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-delete-show"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn-add-show">
+                            <i class="fas fa-plus"></i> Add Show Time
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Schedule Modal -->
+    <div id="scheduleModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add New Show</h2>
+                <button class="btn-close" onclick="closeScheduleModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="scheduleForm">
+                    <div class="form-group">
+                        <label>Select Movie</label>
+                        <select required>
+                            <option value="">Choose a movie...</option>
+                            <option>12 Angry Men</option>
+                            <option>Inception</option>
+                            <option>The Dark Knight</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Screen</label>
+                        <select required>
+                            <option value="">Choose screen...</option>
+                            <option>Screen 1</option>
+                            <option>Screen 2</option>
+                            <option>Screen 3</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Time</label>
+                        <input type="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Ticket Price</label>
+                        <input type="number" placeholder="$15.00" step="0.01" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeScheduleModal()">Cancel</button>
+                        <button type="submit" class="btn-primary">Schedule Show</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/theater.js"></script>
+</body>
+</html>

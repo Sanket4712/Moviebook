@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - MovieBook</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎬 MovieBook</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../movie-list.html">Movies</a></li>
+                <li><a href="../streaming/streaming.html">Streaming</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="profile-page">
+        <div class="container">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <img src="https://via.placeholder.com/150/667eea/ffffff?text=YP" alt="Profile">
+                    <button class="btn-edit-avatar"><i class="fas fa-camera"></i></button>
+                </div>
+                <div class="profile-info">
+                    <h1>Yash Patil</h1>
+                    <p class="profile-email">yash.patil@example.com</p>
+                    <div class="profile-stats">
+                        <div class="stat">
+                            <span class="stat-value">42</span>
+                            <span class="stat-label">Movies Watched</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">15</span>
+                            <span class="stat-label">Reviews</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">28</span>
+                            <span class="stat-label">Watchlist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Tabs -->
+            <div class="profile-tabs">
+                <button class="tab-btn active" data-tab="watchlist">
+                    <i class="fas fa-bookmark"></i> Watchlist
+                </button>
+                <button class="tab-btn" data-tab="watched">
+                    <i class="fas fa-eye"></i> Watched
+                </button>
+                <button class="tab-btn" data-tab="favorites">
+                    <i class="fas fa-heart"></i> Favorites
+                </button>
+                <button class="tab-btn" data-tab="reviews">
+                    <i class="fas fa-comment"></i> Reviews
+                </button>
+            </div>
+
+            <!-- Watchlist Tab -->
+            <div class="tab-content active" id="watchlist">
+                <h2>Watch Later</h2>
+                <div class="movie-grid">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="https://via.placeholder.com/200x300/667eea/ffffff?text=Movie" alt="Movie">
+                            <button class="btn-remove"><i class="fas fa-times"></i></button>
+                        </div>
+                        <h4>Inception</h4>
+                        <p><i class="fas fa-star"></i> 8.8</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="https://via.placeholder.com/200x300/f5576c/ffffff?text=Movie" alt="Movie">
+                            <button class="btn-remove"><i class="fas fa-times"></i></button>
+                        </div>
+                        <h4>The Shawshank Redemption</h4>
+                        <p><i class="fas fa-star"></i> 9.3</p>
+                    </div>
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="https://via.placeholder.com/200x300/4facfe/ffffff?text=Movie" alt="Movie">
+                            <button class="btn-remove"><i class="fas fa-times"></i></button>
+                        </div>
+                        <h4>Interstellar</h4>
+                        <p><i class="fas fa-star"></i> 8.6</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Favorites Tab -->
+            <div class="tab-content" id="favorites">
+                <h2>Best Movies</h2>
+                <div class="movie-grid">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="https://via.placeholder.com/200x300/43e97b/ffffff?text=Movie" alt="Movie">
+                            <span class="rating-badge">9.5</span>
+                        </div>
+                        <h4>The Godfather</h4>
+                        <p>Your Rating: <i class="fas fa-star"></i> 10</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Tab -->
+            <div class="tab-content" id="reviews">
+                <h2>Your Reviews</h2>
+                <div class="review-list">
+                    <div class="user-review-card">
+                        <div class="review-movie">
+                            <img src="https://via.placeholder.com/80x120/667eea/ffffff?text=M" alt="Movie">
+                            <div>
+                                <h4>12 Angry Men</h4>
+                                <div class="user-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            An absolute masterpiece of cinema. The dialogue, performances, and direction are all top-notch.
+                        </p>
+                        <div class="review-actions">
+                            <button class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="btn-delete"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MovieBook. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/profile.js"></script>
+</body>
+</html>

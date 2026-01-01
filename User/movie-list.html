@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies & Series - MovieBook</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>🎬 MovieBook</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="movie-list.html" class="active">Movies</a></li>
+                <li><a href="streaming/streaming.html">Streaming</a></li>
+                <li><a href="Profile/profile.html">Profile</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-icon"><i class="fas fa-search"></i></button>
+                <button class="btn-icon"><i class="fas fa-user"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Movies & Series</h1>
+        <p>Discover your next favorite movie</p>
+    </div>
+
+    <div class="container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Movies</button>
+            <button class="filter-btn">Series</button>
+            <button class="filter-btn">Our Picks</button>
+        </div>
+
+        <!-- Hero Movies Carousel -->
+        <section class="hero-movies">
+            <h2>In Theaters</h2>
+            <div class="movie-carousel">
+                <div class="movie-card-large" onclick="location.href='movie-details.html?id=1'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x400/667eea/ffffff?text=Movie+1" alt="Movie">
+                        <div class="movie-overlay">
+                            <button class="btn-play"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>12 Angry Men</h3>
+                        <div class="movie-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 8.9</span>
+                            <span class="genre">Drama</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-card-large" onclick="location.href='movie-details.html?id=2'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x400/f5576c/ffffff?text=Movie+2" alt="Movie">
+                        <div class="movie-overlay">
+                            <button class="btn-play"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Inception</h3>
+                        <div class="movie-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 8.8</span>
+                            <span class="genre">Sci-Fi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-card-large" onclick="location.href='movie-details.html?id=3'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/300x400/4facfe/ffffff?text=Movie+3" alt="Movie">
+                        <div class="movie-overlay">
+                            <button class="btn-play"><i class="fas fa-play"></i></button>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>The Dark Knight</h3>
+                        <div class="movie-meta">
+                            <span class="rating"><i class="fas fa-star"></i> 9.0</span>
+                            <span class="genre">Action</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular This Week -->
+        <section class="section-movies">
+            <h2>Popular This Week</h2>
+            <div class="movie-grid">
+                <div class="movie-card" onclick="location.href='movie-details.html?id=4'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/200x300/43e97b/ffffff?text=Movie+4" alt="Movie">
+                        <button class="btn-bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <h4>Pulp Fiction</h4>
+                    <p><i class="fas fa-star"></i> 8.9</p>
+                </div>
+                <div class="movie-card" onclick="location.href='movie-details.html?id=5'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/200x300/fa709a/ffffff?text=Movie+5" alt="Movie">
+                        <button class="btn-bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <h4>Fight Club</h4>
+                    <p><i class="fas fa-star"></i> 8.8</p>
+                </div>
+                <div class="movie-card" onclick="location.href='movie-details.html?id=6'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/200x300/fee140/000000?text=Movie+6" alt="Movie">
+                        <button class="btn-bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <h4>Forrest Gump</h4>
+                    <p><i class="fas fa-star"></i> 8.8</p>
+                </div>
+                <div class="movie-card" onclick="location.href='movie-details.html?id=7'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/200x300/30cfd0/ffffff?text=Movie+7" alt="Movie">
+                        <button class="btn-bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <h4>The Matrix</h4>
+                    <p><i class="fas fa-star"></i> 8.7</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Series Section -->
+        <section class="section-movies">
+            <h2>Trending Series</h2>
+            <div class="movie-grid">
+                <div class="movie-card" onclick="location.href='movie-details.html?id=8'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/200x300/a8edea/000000?text=Series+1" alt="Series">
+                        <span class="badge-series">SERIES</span>
+                        <button class="btn-bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <h4>Breaking Bad</h4>
+                    <p><i class="fas fa-star"></i> 9.5</p>
+                </div>
+                <div class="movie-card" onclick="location.href='movie-details.html?id=9'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/200x300/fed6e3/000000?text=Series+2" alt="Series">
+                        <span class="badge-series">SERIES</span>
+                        <button class="btn-bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <h4>Game of Thrones</h4>
+                    <p><i class="fas fa-star"></i> 9.2</p>
+                </div>
+                <div class="movie-card" onclick="location.href='movie-details.html?id=10'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/200x300/c1c8e4/000000?text=Series+3" alt="Series">
+                        <span class="badge-series">SERIES</span>
+                        <button class="btn-bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <h4>Stranger Things</h4>
+                    <p><i class="fas fa-star"></i> 8.7</p>
+                </div>
+                <div class="movie-card" onclick="location.href='movie-details.html?id=11'">
+                    <div class="movie-poster">
+                        <img src="https://via.placeholder.com/200x300/ffeaa7/000000?text=Series+4" alt="Series">
+                        <span class="badge-series">SERIES</span>
+                        <button class="btn-bookmark"><i class="far fa-bookmark"></i></button>
+                    </div>
+                    <h4>The Crown</h4>
+                    <p><i class="fas fa-star"></i> 8.6</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 MovieBook. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/movies.js"></script>
+</body>
+</html>

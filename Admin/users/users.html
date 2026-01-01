@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Management - MovieBook Admin</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <h2>🎬 Admin Panel</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard/dashboard.html" class="nav-link">
+                    <i class="fas fa-th-large"></i> Dashboard
+                </a>
+                <a href="../Hero secation/hero-section.html" class="nav-link">
+                    <i class="fas fa-film"></i> Hero Section
+                </a>
+                <a href="../our picks/our-picks.html" class="nav-link">
+                    <i class="fas fa-star"></i> Our Picks
+                </a>
+                <a href="../cinema halls/theaters.html" class="nav-link">
+                    <i class="fas fa-building"></i> Theaters
+                </a>
+                <a href="../Tickets/tickets.html" class="nav-link">
+                    <i class="fas fa-ticket-alt"></i> Tickets
+                </a>
+                <a href="users.html" class="nav-link active">
+                    <i class="fas fa-users"></i> Users
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>Users Management</h1>
+                <div class="search-box">
+                    <input type="text" placeholder="Search users...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </header>
+
+            <div class="admin-content">
+                <!-- User Stats -->
+                <div class="user-stats">
+                    <div class="user-stat-card">
+                        <h3>Total Users</h3>
+                        <p class="stat-number">8,432</p>
+                    </div>
+                    <div class="user-stat-card">
+                        <h3>Active Today</h3>
+                        <p class="stat-number">1,245</p>
+                    </div>
+                    <div class="user-stat-card">
+                        <h3>New This Week</h3>
+                        <p class="stat-number">342</p>
+                    </div>
+                </div>
+
+                <!-- Users Table -->
+                <div class="table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Joined</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://via.placeholder.com/40/667eea/ffffff?text=U" alt="User">
+                                        <span>John Doe</span>
+                                    </div>
+                                </td>
+                                <td>john.doe@example.com</td>
+                                <td>Jan 15, 2026</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <button class="btn-action" title="Edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action" title="Block"><i class="fas fa-ban"></i></button>
+                                    <button class="btn-action" title="Delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://via.placeholder.com/40/f5576c/ffffff?text=U" alt="User">
+                                        <span>Jane Smith</span>
+                                    </div>
+                                </td>
+                                <td>jane.smith@example.com</td>
+                                <td>Jan 10, 2026</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <button class="btn-action" title="Edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action" title="Block"><i class="fas fa-ban"></i></button>
+                                    <button class="btn-action" title="Delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="user-cell">
+                                        <img src="https://via.placeholder.com/40/4facfe/ffffff?text=U" alt="User">
+                                        <span>Mike Johnson</span>
+                                    </div>
+                                </td>
+                                <td>mike.j@example.com</td>
+                                <td>Jan 5, 2026</td>
+                                <td><span class="status-badge inactive">Inactive</span></td>
+                                <td>
+                                    <button class="btn-action" title="Edit"><i class="fas fa-edit"></i></button>
+                                    <button class="btn-action" title="Unblock"><i class="fas fa-check"></i></button>
+                                    <button class="btn-action" title="Delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="btn-page" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn-page active">1</button>
+                    <button class="btn-page">2</button>
+                    <button class="btn-page">3</button>
+                    <button class="btn-page"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/admin.js"></script>
+</body>
+</html>
