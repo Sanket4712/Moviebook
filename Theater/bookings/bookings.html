@@ -6,28 +6,28 @@
     <title>Bookings - Theater Panel</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/theater.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 </head>
 <body>
     <div class="theater-layout">
         <!-- Sidebar -->
         <aside class="theater-sidebar">
             <div class="sidebar-header">
-                <h2>🎭 Theater Panel</h2>
+                <h2>Theater Panel</h2>
                 <p class="theater-name">PVR INOX</p>
             </div>
             <nav class="sidebar-nav">
                 <a href="../dashboard.html" class="nav-link">
-                    <i class="fas fa-th-large"></i> Dashboard
+                    <i class="bi bi-speedometer2"></i> Dashboard
                 </a>
                 <a href="../schedule/schedule.html" class="nav-link">
-                    <i class="fas fa-calendar"></i> Schedule Movies
+                    <i class="bi bi-calendar-event"></i> Schedule Movies
                 </a>
                 <a href="../Ticket sell/ticket-sell.html" class="nav-link">
-                    <i class="fas fa-ticket-alt"></i> Ticket Sales
+                    <i class="bi bi-ticket-perforated"></i> Ticket Sales
                 </a>
                 <a href="bookings.html" class="nav-link active">
-                    <i class="fas fa-list"></i> See Bookings
+                    <i class="bi bi-list-check"></i> See Bookings
                 </a>
             </nav>
         </aside>
@@ -39,7 +39,7 @@
                 <div class="header-actions">
                     <input type="date" value="2026-01-01">
                     <button class="btn-primary">
-                        <i class="fas fa-download"></i> Export
+                        <i class="bi bi-download"></i> Export
                     </button>
                 </div>
             </header>
@@ -48,21 +48,21 @@
                 <!-- Booking Stats -->
                 <div class="booking-stats">
                     <div class="booking-stat-card confirmed">
-                        <i class="fas fa-check-circle"></i>
+                        <i class="bi bi-check-circle"></i>
                         <div>
                             <h3>Confirmed</h3>
                             <p>285</p>
                         </div>
                     </div>
                     <div class="booking-stat-card pending">
-                        <i class="fas fa-clock"></i>
+                        <i class="bi bi-hourglass-split"></i>
                         <div>
                             <h3>Pending</h3>
                             <p>32</p>
                         </div>
                     </div>
                     <div class="booking-stat-card cancelled">
-                        <i class="fas fa-times-circle"></i>
+                        <i class="bi bi-x-circle"></i>
                         <div>
                             <h3>Cancelled</h3>
                             <p>8</p>
@@ -99,8 +99,8 @@
                             </div>
                         </div>
                         <div class="booking-actions">
-                            <button class="btn-view"><i class="fas fa-eye"></i> View</button>
-                            <button class="btn-print"><i class="fas fa-print"></i> Print</button>
+                            <button class="btn-view"><i class="bi bi-eye"></i> View</button>
+                            <button class="btn-print"><i class="bi bi-printer"></i> Print</button>
                         </div>
                     </div>
 
@@ -131,8 +131,8 @@
                             </div>
                         </div>
                         <div class="booking-actions">
-                            <button class="btn-view"><i class="fas fa-eye"></i> View</button>
-                            <button class="btn-print"><i class="fas fa-print"></i> Print</button>
+                            <button class="btn-view"><i class="bi bi-eye"></i> View</button>
+                            <button class="btn-print"><i class="bi bi-printer"></i> Print</button>
                         </div>
                     </div>
 
@@ -163,8 +163,8 @@
                             </div>
                         </div>
                         <div class="booking-actions">
-                            <button class="btn-confirm"><i class="fas fa-check"></i> Confirm</button>
-                            <button class="btn-cancel"><i class="fas fa-times"></i> Cancel</button>
+                            <button class="btn-confirm"><i class="bi bi-check"></i> Confirm</button>
+                            <button class="btn-cancel"><i class="bi bi-x"></i> Cancel</button>
                         </div>
                     </div>
 
@@ -195,18 +195,18 @@
                             </div>
                         </div>
                         <div class="booking-actions">
-                            <button class="btn-view"><i class="fas fa-eye"></i> View</button>
+                            <button class="btn-view"><i class="bi bi-eye"></i> View</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Pagination -->
                 <div class="pagination">
-                    <button class="btn-page" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn-page" disabled><i class="bi bi-chevron-left"></i></button>
                     <button class="btn-page active">1</button>
                     <button class="btn-page">2</button>
                     <button class="btn-page">3</button>
-                    <button class="btn-page"><i class="fas fa-chevron-right"></i></button>
+                    <button class="btn-page"><i class="bi bi-chevron-right"></i></button>
                 </div>
             </div>
         </main>
