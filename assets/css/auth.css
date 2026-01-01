@@ -1,0 +1,244 @@
+/* Netflix-Style Authentication Pages */
+@import url('https://fonts.cdnfonts.com/css/gotham');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gotham', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.auth-wrapper {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+    background: #000;
+}
+
+.auth-wrapper::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../User/images/backimg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+.auth-wrapper::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.9));
+    z-index: 1;
+}
+
+.auth-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.auth-box {
+    background: rgba(0, 0, 0, 0.75);
+    padding: 60px 68px 40px;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.auth-box h1 {
+    color: #e50914;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.auth-box h2 {
+    color: #fff;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.auth-form {
+    width: 100%;
+}
+
+.input-group {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.input-group input {
+    width: 100%;
+    height: 50px;
+    padding: 16px 20px;
+    background: #333;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.input-group input::placeholder {
+    color: #8c8c8c;
+}
+
+.input-group input:focus {
+    background: #454545;
+}
+
+.submit-btn {
+    width: 100%;
+    height: 50px;
+    background: #e50914;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #f40612;
+}
+
+.form-help {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.remember-me input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.remember-me label {
+    color: #b3b3b3;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.help-link {
+    color: #b3b3b3;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.help-link:hover {
+    text-decoration: underline;
+}
+
+.form-terms {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.form-terms input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.form-terms label {
+    color: #b3b3b3;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.form-footer {
+    margin-top: 16px;
+    padding-top: 16px;
+}
+
+.form-footer p {
+    color: #737373;
+    font-size: 16px;
+}
+
+.form-footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-box {
+        padding: 48px 32px;
+    }
+    
+    .auth-box h1 {
+        font-size: 28px;
+    }
+    
+    .auth-box h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-wrapper {
+        padding: 10px;
+    }
+    
+    .auth-box {
+        padding: 40px 24px;
+    }
+    
+    .auth-box h1 {
+        font-size: 24px;
+    }
+    
+    .auth-box h2 {
+        font-size: 24px;
+    }
+    
+    .form-help {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}

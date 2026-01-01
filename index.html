@@ -3,86 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MovieBook - Your Ultimate Movie Booking Platform</title>
+    <title>MovieBook - Book Tickets & Share Your Reviews</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/landing.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
+<body class="landing-body">
+    <!-- Header -->
+    <header class="landing-header">
+        <div class="header-content">
             <div class="logo">
-                <h1>🎬 MovieBook</h1>
+                <h1>🎬 MOVIEBOOK</h1>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="User/movie-list.html">Movies</a></li>
-                <li><a href="User/streaming/streaming.html">Streaming</a></li>
-                <li><a href="User/Profile/profile.html">Profile</a></li>
-            </ul>
-            <div class="nav-actions">
-                <button class="btn-secondary" onclick="location.href='auth/login.html'">Login</button>
-                <button class="btn-primary" onclick="location.href='auth/signup.html'">Sign Up</button>
+            <div class="header-actions">
+                <button class="btn-signin" onclick="location.href='auth/login.html'">Sign In</button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
+    <!-- Hero Showcase -->
+    <section class="hero-showcase">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+        </div>
         <div class="hero-content">
-            <h1 class="hero-title">Book Your Favorite Movies</h1>
-            <p class="hero-subtitle">Experience cinema like never before</p>
-            <div class="hero-search">
-                <input type="text" placeholder="Search for movies, theaters..." id="searchInput">
-                <button class="btn-search"><i class="fas fa-search"></i></button>
+            <h1 class="hero-title">Your Movie Experience Starts Here</h1>
+            <p class="hero-subtitle">Book tickets for the latest releases and share your movie reviews with fellow film enthusiasts.</p>
+            <div class="hero-cta">
+                <button class="btn-get-started" onclick="location.href='auth/signup.html'">
+                    Get Started <i class="bi bi-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Quick Access -->
-    <section class="quick-access">
-        <div class="container">
-            <div class="access-cards">
-                <div class="access-card" onclick="location.href='User/movie-list.html'">
-                    <i class="fas fa-film"></i>
-                    <h3>Browse Movies</h3>
-                    <p>Discover latest releases</p>
+    <!-- Curved Separator -->
+    <div class="curved-separator">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,0 Q720,120 1440,0 L1440,120 L0,120 Z" fill="#000"></path>
+        </svg>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features-showcase">
+        <div class="features-wrapper">
+            <h2 class="features-title">Why Choose MovieBook?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-ticket-perforated-fill"></i>
+                    </div>
+                    <h3>Book Tickets Instantly</h3>
+                    <p>Reserve your seats for the latest blockbusters. Choose your preferred cinema, showtime, and seats with our easy booking system.</p>
                 </div>
-                <div class="access-card" onclick="location.href='User/movie-booking/booking.html'">
-                    <i class="fas fa-ticket-alt"></i>
-                    <h3>Book Tickets</h3>
-                    <p>Reserve your seats</p>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <h3>Rate and Review Movies</h3>
+                    <p>Share your thoughts on the latest films. Read reviews from other movie lovers and discover what's worth watching.</p>
                 </div>
-                <div class="access-card" onclick="location.href='User/streaming/streaming.html'">
-                    <i class="fas fa-play-circle"></i>
-                    <h3>Stream Online</h3>
-                    <p>Watch from home</p>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-film"></i>
+                    </div>
+                    <h3>Discover New Releases</h3>
+                    <p>Browse through our extensive collection of currently showing and upcoming movies. Filter by genre, rating, and theater location.</p>
                 </div>
-                <div class="access-card" onclick="location.href='User/Profile/watchlist.html'">
-                    <i class="fas fa-bookmark"></i>
-                    <h3>My Watchlist</h3>
-                    <p>Save for later</p>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h3>Join the Community</h3>
+                    <p>Connect with fellow movie enthusiasts. Follow users with similar tastes, create watchlists, and get personalized recommendations.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portal Access -->
-    <section class="portal-section">
+    <!-- Curved Separator -->
+    <div class="curved-separator">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,0 Q720,120 1440,0 L1440,120 L0,120 Z" fill="#000"></path>
+        </svg>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
         <div class="container">
-            <h2 class="section-title">Access Portals</h2>
-            <div class="portal-cards">
-                <div class="portal-card admin-portal">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Admin Portal</h3>
-                    <p>Manage platform content and users</p>
-                    <button class="btn-portal" onclick="location.href='Admin/dashboard/dashboard.html'">Enter Admin</button>
+            <h2 class="section-heading">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is MovieBook?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>MovieBook is your one-stop platform for booking movie tickets and sharing reviews. Discover the latest releases, reserve your seats at nearby theaters, and connect with a community of movie lovers.</p>
+                    </div>
                 </div>
-                <div class="portal-card theater-portal">
-                    <i class="fas fa-theater-masks"></i>
-                    <h3>Theater Portal</h3>
-                    <p>Manage schedules and ticket sales</p>
-                    <button class="btn-portal" onclick="location.href='Theater/dashboard.html'">Enter Theater</button>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is MovieBook free to use?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Creating an account and browsing movies is completely free. You only pay for the movie tickets you book. There are no subscription fees or hidden charges.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I book tickets?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Simply browse movies, select your preferred theater and showtime, choose your seats, and complete the payment. You'll receive a confirmation email with your ticket details instantly.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I cancel my booking?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, you can cancel your booking up to 2 hours before the showtime. Refunds will be processed according to the theater's cancellation policy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cta-signup">
+                <p>Ready to book your next movie? Join thousands of movie lovers today.</p>
+                <div class="hero-signup">
+                    <input type="email" placeholder="Email address" class="email-input">
+                    <button class="btn-get-started" onclick="location.href='auth/signup.html'">
+                        Get Started <i class="bi bi-chevron-right"></i>
+                    </button>
                 </div>
             </div>
         </div>
