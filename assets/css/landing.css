@@ -32,6 +32,16 @@
     letter-spacing: 2px;
 }
 
+.logo-img {
+    height: 50px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
 .btn-signin {
     background: #e50914;
     color: white;

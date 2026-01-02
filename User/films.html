@@ -12,7 +12,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <h1>🎬 MOVIEBOOK</h1>
+                <img src="../logo.png" alt="MOVIEBOOK" class="logo-img">
             </div>
             <ul class="nav-menu">
                 <li><a href="films.html" class="active">Films</a></li>
@@ -29,11 +29,31 @@
                     <i class="bi bi-search"></i>
                     <input type="text" placeholder="Search for Movies">
                 </div>
-                <button class="btn-profile" onclick="location.href='Profile/profile.html'">
+                <button class="btn-profile" onclick="location.href='profile.html'">
                     <i class="bi bi-person-circle"></i>
                 </button>
             </div>
         </div>
+    </nav>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="bottom-nav">
+        <a href="films.html" class="bottom-nav-item active">
+            <i class="bi bi-film"></i>
+            <span>Films</span>
+        </a>
+        <a href="home.html" class="bottom-nav-item">
+            <i class="bi bi-ticket-perforated"></i>
+            <span>Tickets</span>
+        </a>
+        <a href="collections.html" class="bottom-nav-item">
+            <i class="bi bi-collection"></i>
+            <span>Collection</span>
+        </a>
+        <a href="profile.html" class="bottom-nav-item">
+            <i class="bi bi-person-circle"></i>
+            <span>Profile</span>
+        </a>
     </nav>
 
     <!-- Main Content -->
@@ -61,14 +81,20 @@
             <div class="movie-grid">
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/bhavesh-joshi-et00043575-04-10-2016-03-46-01.jpg" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>9.2/10</span>
                         </div>
+                        <div class="platform-badges">
+                            <img src="images/Netlifx.png" alt="Netflix" class="platform-logo">
+                        </div>
                     </div>
                     <div class="movie-info">
-                        <h3>Editor's Choice 1</h3>
+                        <h3>Bhavesh Joshi</h3>
+                        <div class="platform-badges">
+                            <img src="images/Primevid.png" alt="Prime Video" class="platform-logo">
+                        </div>
                         <p class="genre">Drama/Thriller</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -76,7 +102,7 @@
 
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>8.8/10</span>
@@ -84,6 +110,9 @@
                     </div>
                     <div class="movie-info">
                         <h3>Editor's Choice 2</h3>
+                        <div class="platform-badges">
+                            <img src="images/Primevid.png" alt="Prime Video" class="platform-logo">
+                        </div>
                         <p class="genre">Sci-Fi/Action</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -91,7 +120,7 @@
 
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BOGMwZGJiM2EtMzEwZC00YTYzLWIxNzYtMmJmZWNlZjgxZTMwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>9.5/10</span>
@@ -99,6 +128,9 @@
                     </div>
                     <div class="movie-info">
                         <h3>Editor's Choice 3</h3>
+                        <div class="platform-badges">
+                            <img src="images/Hotstar.png" alt="Hotstar" class="platform-logo">
+                        </div>
                         <p class="genre">Romance/Comedy</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -106,14 +138,17 @@
 
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://m.media-amazon.com/images/I/71jwFEfJ80L.jpg" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>8.6/10</span>
                         </div>
                     </div>
                     <div class="movie-info">
-                        <h3>Editor's Choice 4</h3>
+                        <h3>Editor's Choice 1</h3>
+                        <div class="platform-badges">
+                            <img src="images/Netlifx.png" alt="Netflix" class="platform-logo">
+                        </div>
                         <p class="genre">Horror/Mystery</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -129,6 +164,9 @@
                     </div>
                     <div class="movie-info">
                         <h3>Editor's Choice 5</h3>
+                        <div class="platform-badges">
+                            <img src="images/Primevid.png" alt="Prime Video" class="platform-logo">
+                        </div>
                         <p class="genre">Biography/Drama</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -145,17 +183,17 @@
             <div class="movie-grid">
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://upload.wikimedia.org/wikipedia/en/b/bf/Minnal_Murali.jpg" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>8.3/10</span>
                         </div>
-                        <div class="platform-badges">
-                            <img src="images/Netlifx.png" alt="Netflix" class="platform-logo">
-                        </div>
                     </div>
                     <div class="movie-info">
                         <h3>New Release 1</h3>
+                        <div class="platform-badges">
+                            <img src="images/Netlifx.png" alt="Netflix" class="platform-logo">
+                        </div>
                         <p class="genre">Action/Adventure</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -163,18 +201,17 @@
 
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://m.media-amazon.com/images/I/71LRJ2NzVPL.jpg" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>7.9/10</span>
                         </div>
-                        <div class="platform-badges">
-                            <img src="images/Primevid.png" alt="Prime Video" class="platform-logo">
-                            <img src="images/Hotstar.png" alt="Hotstar" class="platform-logo">
-                        </div>
                     </div>
                     <div class="movie-info">
                         <h3>New Release 2</h3>
+                        <div class="platform-badges">
+                            <img src="images/Hotstar.png" alt="Hotstar" class="platform-logo">
+                        </div>
                         <p class="genre">Drama/Romance</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -182,17 +219,17 @@
 
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/96245c69898165.5b96482709d56.jpg" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>8.7/10</span>
                         </div>
-                        <div class="platform-badges">
-                            <img src="images/Hotstar.png" alt="Hotstar" class="platform-logo">
-                        </div>
                     </div>
                     <div class="movie-info">
                         <h3>New Release 3</h3>
+                        <div class="platform-badges">
+                            <img src="images/Primevid.png" alt="Prime Video" class="platform-logo">
+                        </div>
                         <p class="genre">Thriller/Crime</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -200,17 +237,17 @@
 
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://lumiere-a.akamaihd.net/v1/images/p_shangchiandthelegendofthetenringshomeentupdate_22055_7b62fa67.jpeg?region=0%2C0%2C540%2C800" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>8.1/10</span>
                         </div>
-                        <div class="platform-badges">
-                            <img src="images/Netlifx.png" alt="Netflix" class="platform-logo">
-                        </div>
                     </div>
                     <div class="movie-info">
                         <h3>New Release 4</h3>
+                        <div class="platform-badges">
+                            <img src="images/Netlifx.png" alt="Netflix" class="platform-logo">
+                        </div>
                         <p class="genre">Comedy</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -218,18 +255,17 @@
 
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BNDAzNmYwZjgtNDc3YS00ZDMyLTk0MjktMTg4MGNmNGU3MjlhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>9.1/10</span>
                         </div>
-                        <div class="platform-badges">
-                            <img src="images/Primevid.png" alt="Prime Video" class="platform-logo">
-                            <img src="images/Netlifx.png" alt="Netflix" class="platform-logo">
-                        </div>
                     </div>
                     <div class="movie-info">
                         <h3>New Release 5</h3>
+                        <div class="platform-badges">
+                            <img src="images/Hotstar.png" alt="Hotstar" class="platform-logo">
+                        </div>
                         <p class="genre">Sci-Fi/Fantasy</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -246,7 +282,7 @@
             <div class="movie-grid">
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://i.etsystatic.com/20512669/r/il/a3bfb3/4678859606/il_fullxfull.4678859606_160z.jpg" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>9.8/10</span>
@@ -254,6 +290,9 @@
                     </div>
                     <div class="movie-info">
                         <h3>Top Rated Film 1</h3>
+                        <div class="platform-badges">
+                            <img src="images/Primevid.png" alt="Prime Video" class="platform-logo">
+                        </div>
                         <p class="genre">Classic/Drama</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -261,7 +300,7 @@
 
                 <div class="movie-card">
                     <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMDljN2UxMzQtNzVmYS00NjhiLWE5MDctYTBhM2FjMGIyMWQxXkEyXkFqcGc@._V1_.jpg" alt="Movie">
                         <div class="rating">
                             <i class="bi bi-star-fill"></i>
                             <span>9.7/10</span>
@@ -269,6 +308,9 @@
                     </div>
                     <div class="movie-info">
                         <h3>Top Rated Film 2</h3>
+                        <div class="platform-badges">
+                            <img src="images/Netlifx.png" alt="Netflix" class="platform-logo">
+                        </div>
                         <p class="genre">Crime/Drama</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
@@ -281,25 +323,14 @@
                             <i class="bi bi-star-fill"></i>
                             <span>9.6/10</span>
                         </div>
+
                     </div>
                     <div class="movie-info">
                         <h3>Top Rated Film 3</h3>
-                        <p class="genre">Epic/Adventure</p>
-                        <button class="btn-book-ticket">Add to Watchlist</button>
-                    </div>
-                </div>
-
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="../Theater/images/image.png" alt="Movie">
-                        <div class="rating">
-                            <i class="bi bi-star-fill"></i>
-                            <span>9.5/10</span>
+                        <div class="platform-badges">
+                            <img src="images/Primevid.png" alt="Prime Video" class="platform-logo">
                         </div>
-                    </div>
-                    <div class="movie-info">
-                        <h3>Top Rated Film 4</h3>
-                        <p class="genre">Thriller/Mystery</p>
+                        <p class="genre">Epic/Adventure</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
                 </div>
@@ -314,6 +345,27 @@
                     </div>
                     <div class="movie-info">
                         <h3>Top Rated Film 5</h3>
+                        <div class="platform-badges">
+                            <img src="images/Netlifx.png" alt="Netflix" class="platform-logo">
+                        </div>
+                        <p class="genre">War/Drama</p>
+                        <button class="btn-book-ticket">Add to Watchlist</button>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="../Theater/images/image.png" alt="Movie">
+                        <div class="rating">
+                            <i class="bi bi-star-fill"></i>
+                            <span>9.4/10</span>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h3>Top Rated Film 5</h3>
+                        <div class="platform-badges">
+                            <img src="images/Netlifx.png" alt="Netflix" class="platform-logo">
+                        </div>
                         <p class="genre">War/Drama</p>
                         <button class="btn-book-ticket">Add to Watchlist</button>
                     </div>
