@@ -3,145 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users Management - MovieBook Admin</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../../assets/css/admin.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>User Management - MovieBook Admin</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-    <div class="admin-layout">
+    <div class="admin-container">
         <!-- Sidebar -->
         <aside class="admin-sidebar">
             <div class="sidebar-header">
-                <h2>🎬 Admin Panel</h2>
+                <img src="../logo.png" alt="MOVIEBOOK" class="admin-logo">
+                <h2>Admin Control</h2>
             </div>
             <nav class="sidebar-nav">
-                <a href="../dashboard/dashboard.html" class="nav-link">
-                    <i class="fas fa-th-large"></i> Dashboard
-                </a>
-                <a href="../Hero secation/hero-section.html" class="nav-link">
-                    <i class="fas fa-film"></i> Hero Section
-                </a>
-                <a href="../our picks/our-picks.html" class="nav-link">
-                    <i class="fas fa-star"></i> Our Picks
-                </a>
-                <a href="../cinema halls/theaters.html" class="nav-link">
-                    <i class="fas fa-building"></i> Theaters
-                </a>
-                <a href="../Tickets/tickets.html" class="nav-link">
-                    <i class="fas fa-ticket-alt"></i> Tickets
+                <a href="dashboard.html" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
                 </a>
                 <a href="users.html" class="nav-link active">
-                    <i class="fas fa-users"></i> Users
+                    <i class="bi bi-people"></i>
+                    <span>Users Management</span>
+                </a>
+                <a href="theaters.html" class="nav-link">
+                    <i class="bi bi-building"></i>
+                    <span>Theater Requests</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="movies.html" class="nav-link">
+                    <i class="bi bi-film"></i>
+                    <span>Movies</span>
+                </a>
+                <a href="bookings.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="revenue.html" class="nav-link">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Revenue & Earnings</span>
+                </a>
+                <a href="analytics.html" class="nav-link">
+                    <i class="bi bi-graph-up"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="reports.html" class="nav-link">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
                 </a>
             </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link logout">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
         </aside>
 
         <!-- Main Content -->
         <main class="admin-main">
-            <header class="admin-header">
-                <h1>Users Management</h1>
-                <div class="search-box">
-                    <input type="text" placeholder="Search users...">
-                    <i class="fas fa-search"></i>
+            <!-- Top Bar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h1>User Management</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search users...">
+                    </div>
+                    <button class="notification-btn">
+                        <i class="bi bi-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="admin-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&size=40&background=e50914&color=fff" alt="Admin">
+                        <span>Admin</span>
+                    </div>
                 </div>
             </header>
 
-            <div class="admin-content">
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
                 <!-- User Stats -->
-                <div class="user-stats">
-                    <div class="user-stat-card">
-                        <h3>Total Users</h3>
-                        <p class="stat-number">8,432</p>
+                <section class="stats-section">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Users</h3>
+                            <p class="stat-number">45,678</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> +234 this week
+                            </span>
+                        </div>
                     </div>
-                    <div class="user-stat-card">
-                        <h3>Active Today</h3>
-                        <p class="stat-number">1,245</p>
-                    </div>
-                    <div class="user-stat-card">
-                        <h3>New This Week</h3>
-                        <p class="stat-number">342</p>
-                    </div>
-                </div>
 
-                <!-- Users Table -->
-                <div class="table-container">
-                    <table class="admin-table">
-                        <thead>
-                            <tr>
-                                <th>User</th>
-                                <th>Email</th>
-                                <th>Joined</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="https://via.placeholder.com/40/667eea/ffffff?text=U" alt="User">
-                                        <span>John Doe</span>
-                                    </div>
-                                </td>
-                                <td>john.doe@example.com</td>
-                                <td>Jan 15, 2026</td>
-                                <td><span class="status-badge active">Active</span></td>
-                                <td>
-                                    <button class="btn-action" title="Edit"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-action" title="Block"><i class="fas fa-ban"></i></button>
-                                    <button class="btn-action" title="Delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="https://via.placeholder.com/40/f5576c/ffffff?text=U" alt="User">
-                                        <span>Jane Smith</span>
-                                    </div>
-                                </td>
-                                <td>jane.smith@example.com</td>
-                                <td>Jan 10, 2026</td>
-                                <td><span class="status-badge active">Active</span></td>
-                                <td>
-                                    <button class="btn-action" title="Edit"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-action" title="Block"><i class="fas fa-ban"></i></button>
-                                    <button class="btn-action" title="Delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="user-cell">
-                                        <img src="https://via.placeholder.com/40/4facfe/ffffff?text=U" alt="User">
-                                        <span>Mike Johnson</span>
-                                    </div>
-                                </td>
-                                <td>mike.j@example.com</td>
-                                <td>Jan 5, 2026</td>
-                                <td><span class="status-badge inactive">Inactive</span></td>
-                                <td>
-                                    <button class="btn-action" title="Edit"><i class="fas fa-edit"></i></button>
-                                    <button class="btn-action" title="Unblock"><i class="fas fa-check"></i></button>
-                                    <button class="btn-action" title="Delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <div class="stat-card success">
+                        <div class="stat-icon">
+                            <i class="bi bi-person-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Users</h3>
+                            <p class="stat-number">42,345</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> 92.7% active
+                            </span>
+                        </div>
+                    </div>
 
-                <!-- Pagination -->
-                <div class="pagination">
-                    <button class="btn-page" disabled><i class="fas fa-chevron-left"></i></button>
-                    <button class="btn-page active">1</button>
-                    <button class="btn-page">2</button>
-                    <button class="btn-page">3</button>
-                    <button class="btn-page"><i class="fas fa-chevron-right"></i></button>
-                </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon">
+                            <i class="bi bi-person-plus"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>New Users (30d)</h3>
+                            <p class="stat-number">845</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> +12.3%
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card danger">
+                        <div class="stat-icon">
+                            <i class="bi bi-person-x"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Banned Users</h3>
+                            <p class="stat-number">2,488</p>
+                            <span class="stat-change">
+                                5.4% of total
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- User Management Table -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-people"></i> All Users</h2>
+                        <div style="display: flex; gap: 1rem;">
+                            <select style="background: var(--admin-dark); border: 1px solid var(--admin-border); color: var(--admin-text); padding: 0.6rem 1rem; border-radius: 6px;">
+                                <option>All Users</option>
+                                <option>Active Users</option>
+                                <option>Banned Users</option>
+                                <option>New Users</option>
+                            </select>
+                            <button class="btn-approve">
+                                <i class="bi bi-funnel"></i> Filter
+                            </button>
+                        </div>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--admin-border);">
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">User ID</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Name</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Email</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Phone</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Bookings</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Status</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--admin-border);">
+                                    <td style="padding: 1rem;">#U10001</td>
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; align-items: center; gap: 0.8rem;">
+                                            <img src="https://ui-avatars.com/api/?name=Rahul+Sharma&size=40&background=e50914&color=fff" style="border-radius: 50%; width: 40px; height: 40px;">
+                                            <span>Rahul Sharma</span>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem; color: var(--admin-text-muted);">rahul.sharma@email.com</td>
+                                    <td style="padding: 1rem;">+91 98765 43210</td>
+                                    <td style="padding: 1rem;">45</td>
+                                    <td style="padding: 1rem;">
+                                        <span style="background: var(--admin-success); padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.85rem;">Active</span>
+                                    </td>
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; gap: 0.5rem;">
+                                            <button class="btn-danger">
+                                                <i class="bi bi-person-x"></i> Ban
+                                            </button>
+                                            <button class="btn-secondary">
+                                                <i class="bi bi-eye"></i> View
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr style="border-bottom: 1px solid var(--admin-border);">
+                                    <td style="padding: 1rem;">#U10002</td>
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; align-items: center; gap: 0.8rem;">
+                                            <img src="https://ui-avatars.com/api/?name=Priya+Patel&size=40&background=e50914&color=fff" style="border-radius: 50%; width: 40px; height: 40px;">
+                                            <span>Priya Patel</span>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem; color: var(--admin-text-muted);">priya.patel@email.com</td>
+                                    <td style="padding: 1rem;">+91 87654 32109</td>
+                                    <td style="padding: 1rem;">32</td>
+                                    <td style="padding: 1rem;">
+                                        <span style="background: var(--admin-success); padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.85rem;">Active</span>
+                                    </td>
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; gap: 0.5rem;">
+                                            <button class="btn-danger">
+                                                <i class="bi bi-person-x"></i> Ban
+                                            </button>
+                                            <button class="btn-secondary">
+                                                <i class="bi bi-eye"></i> View
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr style="border-bottom: 1px solid var(--admin-border);">
+                                    <td style="padding: 1rem;">#U10003</td>
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; align-items: center; gap: 0.8rem;">
+                                            <img src="https://ui-avatars.com/api/?name=Amit+Kumar&size=40&background=e50914&color=fff" style="border-radius: 50%; width: 40px; height: 40px;">
+                                            <span>Amit Kumar</span>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem; color: var(--admin-text-muted);">amit.k@email.com</td>
+                                    <td style="padding: 1rem;">+91 76543 21098</td>
+                                    <td style="padding: 1rem;">28</td>
+                                    <td style="padding: 1rem;">
+                                        <span style="background: var(--admin-danger); padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.85rem;">Banned</span>
+                                    </td>
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; gap: 0.5rem;">
+                                            <button class="btn-approve">
+                                                <i class="bi bi-person-check"></i> Unban
+                                            </button>
+                                            <button class="btn-secondary">
+                                                <i class="bi bi-eye"></i> View
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr style="border-bottom: 1px solid var(--admin-border);">
+                                    <td style="padding: 1rem;">#U10004</td>
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; align-items: center; gap: 0.8rem;">
+                                            <img src="https://ui-avatars.com/api/?name=Sneha+Reddy&size=40&background=e50914&color=fff" style="border-radius: 50%; width: 40px; height: 40px;">
+                                            <span>Sneha Reddy</span>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem; color: var(--admin-text-muted);">sneha.reddy@email.com</td>
+                                    <td style="padding: 1rem;">+91 65432 10987</td>
+                                    <td style="padding: 1rem;">52</td>
+                                    <td style="padding: 1rem;">
+                                        <span style="background: var(--admin-success); padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.85rem;">Active</span>
+                                    </td>
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; gap: 0.5rem;">
+                                            <button class="btn-danger">
+                                                <i class="bi bi-person-x"></i> Ban
+                                            </button>
+                                            <button class="btn-secondary">
+                                                <i class="bi bi-eye"></i> View
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr style="border-bottom: 1px solid var(--admin-border);">
+                                    <td style="padding: 1rem;">#U10005</td>
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; align-items: center; gap: 0.8rem;">
+                                            <img src="https://ui-avatars.com/api/?name=Vikram+Singh&size=40&background=e50914&color=fff" style="border-radius: 50%; width: 40px; height: 40px;">
+                                            <span>Vikram Singh</span>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem; color: var(--admin-text-muted);">vikram.singh@email.com</td>
+                                    <td style="padding: 1rem;">+91 54321 09876</td>
+                                    <td style="padding: 1rem;">19</td>
+                                    <td style="padding: 1rem;">
+                                        <span style="background: var(--admin-success); padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.85rem;">Active</span>
+                                    </td>
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; gap: 0.5rem;">
+                                            <button class="btn-danger">
+                                                <i class="bi bi-person-x"></i> Ban
+                                            </button>
+                                            <button class="btn-secondary">
+                                                <i class="bi bi-eye"></i> View
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-top: 1px solid var(--admin-border);">
+                        <p style="color: var(--admin-text-muted);">Showing 1-5 of 45,678 users</p>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button style="padding: 0.5rem 1rem; background: var(--admin-dark); border: 1px solid var(--admin-border); color: var(--admin-text); border-radius: 6px; cursor: pointer;">Previous</button>
+                            <button style="padding: 0.5rem 1rem; background: var(--admin-red); border: none; color: #fff; border-radius: 6px; cursor: pointer;">1</button>
+                            <button style="padding: 0.5rem 1rem; background: var(--admin-dark); border: 1px solid var(--admin-border); color: var(--admin-text); border-radius: 6px; cursor: pointer;">2</button>
+                            <button style="padding: 0.5rem 1rem; background: var(--admin-dark); border: 1px solid var(--admin-border); color: var(--admin-text); border-radius: 6px; cursor: pointer;">3</button>
+                            <button style="padding: 0.5rem 1rem; background: var(--admin-dark); border: 1px solid var(--admin-border); color: var(--admin-text); border-radius: 6px; cursor: pointer;">Next</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Activity -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-clock-history"></i> Recent User Activity</h2>
+                    </div>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-icon user">
+                                <i class="bi bi-person-plus"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>New user registered:</strong> Arjun Mehta</p>
+                                <span>2 minutes ago</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon booking">
+                                <i class="bi bi-ticket"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>Booking confirmed:</strong> Rahul Sharma - Jawan</p>
+                                <span>15 minutes ago</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon theater">
+                                <i class="bi bi-person-x"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>User banned:</strong> Spam Account #12345</p>
+                                <span>1 hour ago</span>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="activity-icon movie">
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                            <div class="activity-details">
+                                <p><strong>Review posted:</strong> Priya Patel rated Pathaan 5★</p>
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </main>
     </div>
 
-    <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/admin.js"></script>
+    <script src="../assets/js/admin.js"></script>
 </body>
 </html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theater Requests - MovieBook Admin</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../logo.png" alt="MOVIEBOOK" class="admin-logo">
+                <h2>Admin Control</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="users.html" class="nav-link">
+                    <i class="bi bi-people"></i>
+                    <span>Users Management</span>
+                </a>
+                <a href="theaters.html" class="nav-link active">
+                    <i class="bi bi-building"></i>
+                    <span>Theater Requests</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="movies.html" class="nav-link">
+                    <i class="bi bi-film"></i>
+                    <span>Movies</span>
+                </a>
+                <a href="bookings.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="revenue.html" class="nav-link">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Revenue & Earnings</span>
+                </a>
+                <a href="analytics.html" class="nav-link">
+                    <i class="bi bi-graph-up"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="reports.html" class="nav-link">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link logout">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Top Bar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h1>Theater Management</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search theaters...">
+                    </div>
+                    <button class="notification-btn">
+                        <i class="bi bi-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="admin-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&size=40&background=e50914&color=fff" alt="Admin">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Theater Stats -->
+                <section class="stats-section">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Theaters</h3>
+                            <p class="stat-number">245</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> 8 new this week
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <div class="stat-icon">
+                            <i class="bi bi-hourglass-split"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Pending Requests</h3>
+                            <p class="stat-number">5</p>
+                            <span class="stat-change">
+                                Awaiting approval
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card success">
+                        <div class="stat-icon">
+                            <i class="bi bi-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Approved This Month</h3>
+                            <p class="stat-number">12</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> Great progress
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card danger">
+                        <div class="stat-icon">
+                            <i class="bi bi-x-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Rejected</h3>
+                            <p class="stat-number">8</p>
+                            <span class="stat-change">
+                                This month
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pending Requests -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2>
+                            <i class="bi bi-building-add"></i>
+                            Pending Theater Requests
+                        </h2>
+                        <span class="badge-danger">5 Pending</span>
+                    </div>
+                    <div class="request-list">
+                        <div class="request-item">
+                            <div class="request-info">
+                                <h4>PVR Cinemas - Pune</h4>
+                                <p>Owner: Rajesh Kumar | Email: rajesh@pvr.com</p>
+                                <p style="margin-top: 0.5rem; color: var(--admin-text-muted); font-size: 0.85rem;">
+                                    Screens: 8 | Seats: 1,200 | Location: Phoenix Market City, Pune
+                                </p>
+                                <span class="request-date">Requested 2 hours ago</span>
+                            </div>
+                            <div class="request-actions">
+                                <button class="btn-approve">
+                                    <i class="bi bi-check-circle"></i> Approve
+                                </button>
+                                <button class="btn-reject">
+                                    <i class="bi bi-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="request-item">
+                            <div class="request-info">
+                                <h4>INOX - Mumbai Central</h4>
+                                <p>Owner: Priya Sharma | Email: priya@inox.com</p>
+                                <p style="margin-top: 0.5rem; color: var(--admin-text-muted); font-size: 0.85rem;">
+                                    Screens: 6 | Seats: 850 | Location: R City Mall, Mumbai
+                                </p>
+                                <span class="request-date">Requested 5 hours ago</span>
+                            </div>
+                            <div class="request-actions">
+                                <button class="btn-approve">
+                                    <i class="bi bi-check-circle"></i> Approve
+                                </button>
+                                <button class="btn-reject">
+                                    <i class="bi bi-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="request-item">
+                            <div class="request-info">
+                                <h4>Cinepolis - Bengaluru</h4>
+                                <p>Owner: Amit Patel | Email: amit@cinepolis.com</p>
+                                <p style="margin-top: 0.5rem; color: var(--admin-text-muted); font-size: 0.85rem;">
+                                    Screens: 10 | Seats: 1,500 | Location: Orion Mall, Bengaluru
+                                </p>
+                                <span class="request-date">Requested 1 day ago</span>
+                            </div>
+                            <div class="request-actions">
+                                <button class="btn-approve">
+                                    <i class="bi bi-check-circle"></i> Approve
+                                </button>
+                                <button class="btn-reject">
+                                    <i class="bi bi-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="request-item">
+                            <div class="request-info">
+                                <h4>Carnival Cinemas - Delhi</h4>
+                                <p>Owner: Sunita Verma | Email: sunita@carnival.com</p>
+                                <p style="margin-top: 0.5rem; color: var(--admin-text-muted); font-size: 0.85rem;">
+                                    Screens: 5 | Seats: 600 | Location: Pacific Mall, Delhi
+                                </p>
+                                <span class="request-date">Requested 2 days ago</span>
+                            </div>
+                            <div class="request-actions">
+                                <button class="btn-approve">
+                                    <i class="bi bi-check-circle"></i> Approve
+                                </button>
+                                <button class="btn-reject">
+                                    <i class="bi bi-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="request-item">
+                            <div class="request-info">
+                                <h4>MovieMax - Hyderabad</h4>
+                                <p>Owner: Kiran Reddy | Email: kiran@moviemax.com</p>
+                                <p style="margin-top: 0.5rem; color: var(--admin-text-muted); font-size: 0.85rem;">
+                                    Screens: 7 | Seats: 980 | Location: Forum Mall, Hyderabad
+                                </p>
+                                <span class="request-date">Requested 3 days ago</span>
+                            </div>
+                            <div class="request-actions">
+                                <button class="btn-approve">
+                                    <i class="bi bi-check-circle"></i> Approve
+                                </button>
+                                <button class="btn-reject">
+                                    <i class="bi bi-x-circle"></i> Reject
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Approved Theaters -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-building-check"></i> Approved Theaters</h2>
+                        <span class="badge-danger">245 Active</span>
+                    </div>
+                    <div class="two-column-section" style="margin-bottom: 0;">
+                        <div class="movie-rank-item">
+                            <span class="rank gold">1</span>
+                            <div class="movie-rank-info">
+                                <h4>PVR Cinemas - Mumbai</h4>
+                                <p>12 Screens | 1,800 Seats</p>
+                            </div>
+                            <span class="revenue-badge">₹8,45,000/month</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank silver">2</span>
+                            <div class="movie-rank-info">
+                                <h4>INOX - Bengaluru</h4>
+                                <p>10 Screens | 1,500 Seats</p>
+                            </div>
+                            <span class="revenue-badge">₹6,20,000/month</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank bronze">3</span>
+                            <div class="movie-rank-info">
+                                <h4>Cinepolis - Delhi</h4>
+                                <p>9 Screens | 1,350 Seats</p>
+                            </div>
+                            <span class="revenue-badge">₹5,85,000/month</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank">4</span>
+                            <div class="movie-rank-info">
+                                <h4>Carnival - Kolkata</h4>
+                                <p>7 Screens | 1,100 Seats</p>
+                            </div>
+                            <span class="revenue-badge">₹4,50,000/month</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

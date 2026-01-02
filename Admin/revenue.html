@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue & Earnings - MovieBook Admin</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../logo.png" alt="MOVIEBOOK" class="admin-logo">
+                <h2>Admin Control</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="users.html" class="nav-link">
+                    <i class="bi bi-people"></i>
+                    <span>Users Management</span>
+                </a>
+                <a href="theaters.html" class="nav-link">
+                    <i class="bi bi-building"></i>
+                    <span>Theater Requests</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="movies.html" class="nav-link">
+                    <i class="bi bi-film"></i>
+                    <span>Movies</span>
+                </a>
+                <a href="bookings.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="revenue.html" class="nav-link active">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Revenue & Earnings</span>
+                </a>
+                <a href="analytics.html" class="nav-link">
+                    <i class="bi bi-graph-up"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="reports.html" class="nav-link">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link logout">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Top Bar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h1>Revenue & Earnings</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <button class="notification-btn">
+                        <i class="bi bi-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="admin-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&size=40&background=e50914&color=fff" alt="Admin">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Revenue Stats -->
+                <section class="stats-section">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <i class="bi bi-cash-stack"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Revenue</h3>
+                            <p class="stat-number">₹12,45,890</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> ₹45,230 today
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card danger">
+                        <div class="stat-icon">
+                            <i class="bi bi-percent"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Platform Charges (15%)</h3>
+                            <p class="stat-number">₹1,86,883</p>
+                            <span class="stat-change">
+                                From total revenue
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card success">
+                        <div class="stat-icon">
+                            <i class="bi bi-wallet2"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Net Earnings</h3>
+                            <p class="stat-number">₹10,59,007</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> After deductions
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <div class="stat-icon">
+                            <i class="bi bi-building-check"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Theater Payouts</h3>
+                            <p class="stat-number">₹8,50,000</p>
+                            <span class="stat-change">
+                                To be processed
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Revenue Breakdown -->
+                <section class="revenue-section">
+                    <div class="section-card">
+                        <div class="card-header">
+                            <h2>Revenue Analytics</h2>
+                            <select class="time-filter">
+                                <option>This Week</option>
+                                <option>This Month</option>
+                                <option>This Year</option>
+                            </select>
+                        </div>
+                        <div class="revenue-grid">
+                            <div class="revenue-item">
+                                <div class="revenue-label">
+                                    <i class="bi bi-wallet2"></i>
+                                    <span>Gross Revenue</span>
+                                </div>
+                                <p class="revenue-amount">₹12,45,890</p>
+                            </div>
+                            <div class="revenue-item">
+                                <div class="revenue-label">
+                                    <i class="bi bi-percent"></i>
+                                    <span>Platform Charges (15%)</span>
+                                </div>
+                                <p class="revenue-amount red">- ₹1,86,883</p>
+                            </div>
+                            <div class="revenue-item">
+                                <div class="revenue-label">
+                                    <i class="bi bi-cash-coin"></i>
+                                    <span>Net Earnings</span>
+                                </div>
+                                <p class="revenue-amount green">₹10,59,007</p>
+                            </div>
+                            <div class="revenue-item">
+                                <div class="revenue-label">
+                                    <i class="bi bi-building-check"></i>
+                                    <span>Theater Payouts</span>
+                                </div>
+                                <p class="revenue-amount">₹8,50,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Revenue by Source -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-pie-chart"></i> Revenue by Source</h2>
+                    </div>
+                    <div class="revenue-grid">
+                        <div class="revenue-item">
+                            <div class="revenue-label">
+                                <i class="bi bi-ticket-perforated"></i>
+                                <span>Ticket Sales</span>
+                            </div>
+                            <p class="revenue-amount">₹11,20,000</p>
+                            <p style="font-size: 0.85rem; color: var(--admin-text-muted); margin-top: 0.5rem;">90% of total</p>
+                        </div>
+                        <div class="revenue-item">
+                            <div class="revenue-label">
+                                <i class="bi bi-cup-straw"></i>
+                                <span>Concessions</span>
+                            </div>
+                            <p class="revenue-amount">₹85,600</p>
+                            <p style="font-size: 0.85rem; color: var(--admin-text-muted); margin-top: 0.5rem;">6.8% of total</p>
+                        </div>
+                        <div class="revenue-item">
+                            <div class="revenue-label">
+                                <i class="bi bi-gift"></i>
+                                <span>Vouchers & Offers</span>
+                            </div>
+                            <p class="revenue-amount">₹25,450</p>
+                            <p style="font-size: 0.85rem; color: var(--admin-text-muted); margin-top: 0.5rem;">2% of total</p>
+                        </div>
+                        <div class="revenue-item">
+                            <div class="revenue-label">
+                                <i class="bi bi-star"></i>
+                                <span>Premium Services</span>
+                            </div>
+                            <p class="revenue-amount">₹14,840</p>
+                            <p style="font-size: 0.85rem; color: var(--admin-text-muted); margin-top: 0.5rem;">1.2% of total</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Top Earning Theaters -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-trophy"></i> Top Earning Theaters</h2>
+                    </div>
+                    <div class="top-movies">
+                        <div class="movie-rank-item">
+                            <span class="rank gold">1</span>
+                            <div class="movie-rank-info">
+                                <h4>PVR Cinemas - Mumbai</h4>
+                                <p>Total Revenue: ₹8,45,000 | Platform Fee: ₹1,26,750</p>
+                            </div>
+                            <span class="revenue-badge">₹7,18,250 Payout</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank silver">2</span>
+                            <div class="movie-rank-info">
+                                <h4>INOX - Bengaluru</h4>
+                                <p>Total Revenue: ₹6,20,000 | Platform Fee: ₹93,000</p>
+                            </div>
+                            <span class="revenue-badge">₹5,27,000 Payout</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank bronze">3</span>
+                            <div class="movie-rank-info">
+                                <h4>Cinepolis - Delhi</h4>
+                                <p>Total Revenue: ₹5,85,000 | Platform Fee: ₹87,750</p>
+                            </div>
+                            <span class="revenue-badge">₹4,97,250 Payout</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank">4</span>
+                            <div class="movie-rank-info">
+                                <h4>Carnival - Kolkata</h4>
+                                <p>Total Revenue: ₹4,50,000 | Platform Fee: ₹67,500</p>
+                            </div>
+                            <span class="revenue-badge">₹3,82,500 Payout</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank">5</span>
+                            <div class="movie-rank-info">
+                                <h4>MovieMax - Hyderabad</h4>
+                                <p>Total Revenue: ₹3,95,000 | Platform Fee: ₹59,250</p>
+                            </div>
+                            <span class="revenue-badge">₹3,35,750 Payout</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Payment History -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-credit-card"></i> Recent Transactions</h2>
+                        <button class="btn-approve">
+                            <i class="bi bi-download"></i> Export
+                        </button>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="border-bottom: 1px solid var(--admin-border);">
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Transaction ID</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Theater</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Amount</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Platform Fee</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Payout</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Status</th>
+                                    <th style="padding: 1rem; text-align: left; color: var(--admin-text-muted);">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--admin-border);">
+                                    <td style="padding: 1rem;">#TX98754</td>
+                                    <td style="padding: 1rem;">PVR Mumbai</td>
+                                    <td style="padding: 1rem;">₹45,600</td>
+                                    <td style="padding: 1rem; color: var(--admin-danger);">- ₹6,840</td>
+                                    <td style="padding: 1rem; color: var(--admin-success);">₹38,760</td>
+                                    <td style="padding: 1rem;">
+                                        <span style="background: var(--admin-success); padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.85rem;">Completed</span>
+                                    </td>
+                                    <td style="padding: 1rem; color: var(--admin-text-muted);">Today</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--admin-border);">
+                                    <td style="padding: 1rem;">#TX98753</td>
+                                    <td style="padding: 1rem;">INOX Bengaluru</td>
+                                    <td style="padding: 1rem;">₹32,400</td>
+                                    <td style="padding: 1rem; color: var(--admin-danger);">- ₹4,860</td>
+                                    <td style="padding: 1rem; color: var(--admin-success);">₹27,540</td>
+                                    <td style="padding: 1rem;">
+                                        <span style="background: var(--admin-success); padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.85rem;">Completed</span>
+                                    </td>
+                                    <td style="padding: 1rem; color: var(--admin-text-muted);">Today</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--admin-border);">
+                                    <td style="padding: 1rem;">#TX98752</td>
+                                    <td style="padding: 1rem;">Cinepolis Delhi</td>
+                                    <td style="padding: 1rem;">₹28,900</td>
+                                    <td style="padding: 1rem; color: var(--admin-danger);">- ₹4,335</td>
+                                    <td style="padding: 1rem; color: var(--admin-success);">₹24,565</td>
+                                    <td style="padding: 1rem;">
+                                        <span style="background: var(--admin-warning); color: #000; padding: 0.3rem 0.8rem; border-radius: 12px; font-size: 0.85rem;">Processing</span>
+                                    </td>
+                                    <td style="padding: 1rem; color: var(--admin-text-muted);">Yesterday</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

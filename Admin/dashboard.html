@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MovieBook</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../logo.png" alt="MOVIEBOOK" class="admin-logo">
+                <h2>Admin Control</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link active">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="users.html" class="nav-link">
+                    <i class="bi bi-people"></i>
+                    <span>Users Management</span>
+                </a>
+                <a href="theaters.html" class="nav-link">
+                    <i class="bi bi-building"></i>
+                    <span>Theater Requests</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="movies.html" class="nav-link">
+                    <i class="bi bi-film"></i>
+                    <span>Movies</span>
+                </a>
+                <a href="bookings.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="revenue.html" class="nav-link">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Revenue & Earnings</span>
+                </a>
+                <a href="analytics.html" class="nav-link">
+                    <i class="bi bi-graph-up"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="reports.html" class="nav-link">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link logout">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Top Bar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h1>Dashboard Overview</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+                    <button class="notification-btn">
+                        <i class="bi bi-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="admin-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&size=40&background=e50914&color=fff" alt="Admin">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Stats Overview -->
+                <section class="stats-section">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Users</h3>
+                            <p class="stat-number">12,847</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> 12.5% from last month
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card success">
+                        <div class="stat-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Theaters</h3>
+                            <p class="stat-number">245</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> 8 new this week
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <div class="stat-icon">
+                            <i class="bi bi-ticket-perforated-fill"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Bookings</h3>
+                            <p class="stat-number">45,678</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> 23% this month
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card danger">
+                        <div class="stat-icon">
+                            <i class="bi bi-currency-dollar"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Revenue</h3>
+                            <p class="stat-number">₹8,95,450</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> ₹45,230 today
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Revenue Breakdown -->
+                <section class="revenue-section">
+                    <div class="section-card">
+                        <div class="card-header">
+                            <h2>Revenue Analytics</h2>
+                            <select class="time-filter">
+                                <option>This Week</option>
+                                <option>This Month</option>
+                                <option>This Year</option>
+                            </select>
+                        </div>
+                        <div class="revenue-grid">
+                            <div class="revenue-item">
+                                <div class="revenue-label">
+                                    <i class="bi bi-wallet2"></i>
+                                    <span>Gross Revenue</span>
+                                </div>
+                                <p class="revenue-amount">₹12,45,890</p>
+                            </div>
+                            <div class="revenue-item">
+                                <div class="revenue-label">
+                                    <i class="bi bi-percent"></i>
+                                    <span>Platform Charges (15%)</span>
+                                </div>
+                                <p class="revenue-amount red">- ₹1,86,883</p>
+                            </div>
+                            <div class="revenue-item">
+                                <div class="revenue-label">
+                                    <i class="bi bi-cash-coin"></i>
+                                    <span>Net Earnings</span>
+                                </div>
+                                <p class="revenue-amount green">₹10,59,007</p>
+                            </div>
+                            <div class="revenue-item">
+                                <div class="revenue-label">
+                                    <i class="bi bi-building-check"></i>
+                                    <span>Theater Payouts</span>
+                                </div>
+                                <p class="revenue-amount">₹8,50,000</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Theater Requests & Recent Activity -->
+                <div class="two-column-section">
+                    <!-- Theater Requests -->
+                    <section class="section-card">
+                        <div class="card-header">
+                            <h2>
+                                <i class="bi bi-building-add"></i>
+                                Theater Requests
+                            </h2>
+                            <span class="badge-danger">5 Pending</span>
+                        </div>
+                        <div class="request-list">
+                            <div class="request-item">
+                                <div class="request-info">
+                                    <h4>PVR Cinemas - Pune</h4>
+                                    <p>Owner: Rajesh Kumar</p>
+                                    <span class="request-date">2 hours ago</span>
+                                </div>
+                                <div class="request-actions">
+                                    <button class="btn-approve">
+                                        <i class="bi bi-check-circle"></i> Approve
+                                    </button>
+                                    <button class="btn-reject">
+                                        <i class="bi bi-x-circle"></i> Reject
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="request-item">
+                                <div class="request-info">
+                                    <h4>INOX - Mumbai Central</h4>
+                                    <p>Owner: Priya Sharma</p>
+                                    <span class="request-date">5 hours ago</span>
+                                </div>
+                                <div class="request-actions">
+                                    <button class="btn-approve">
+                                        <i class="bi bi-check-circle"></i> Approve
+                                    </button>
+                                    <button class="btn-reject">
+                                        <i class="bi bi-x-circle"></i> Reject
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="request-item">
+                                <div class="request-info">
+                                    <h4>Cinepolis - Bengaluru</h4>
+                                    <p>Owner: Amit Patel</p>
+                                    <span class="request-date">1 day ago</span>
+                                </div>
+                                <div class="request-actions">
+                                    <button class="btn-approve">
+                                        <i class="bi bi-check-circle"></i> Approve
+                                    </button>
+                                    <button class="btn-reject">
+                                        <i class="bi bi-x-circle"></i> Reject
+                                    </button>
+                                </div>
+                            </div>
+
+                            <a href="theaters.html" class="view-all-link">
+                                View All Requests <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </section>
+
+                    <!-- Recent Activity -->
+                    <section class="section-card">
+                        <div class="card-header">
+                            <h2>
+                                <i class="bi bi-activity"></i>
+                                Recent Activity
+                            </h2>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon user">
+                                    <i class="bi bi-person-plus"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p><strong>New user registered</strong></p>
+                                    <span>John Doe - 5 min ago</span>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon booking">
+                                    <i class="bi bi-ticket"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p><strong>Booking completed</strong></p>
+                                    <span>₹1,200 - 15 min ago</span>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon warning">
+                                    <i class="bi bi-exclamation-triangle"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p><strong>User reported</strong></p>
+                                    <span>Spam complaint - 1 hour ago</span>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon theater">
+                                    <i class="bi bi-building"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p><strong>Theater approved</strong></p>
+                                    <span>Carnival Cinemas - 2 hours ago</span>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon movie">
+                                    <i class="bi bi-film"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p><strong>New movie added</strong></p>
+                                    <span>Avatar 3 - 3 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Quick Actions & Top Movies -->
+                <div class="two-column-section">
+                    <!-- Quick Actions -->
+                    <section class="section-card">
+                        <div class="card-header">
+                            <h2>
+                                <i class="bi bi-lightning"></i>
+                                Quick Actions
+                            </h2>
+                        </div>
+                        <div class="quick-actions">
+                            <button class="action-btn">
+                                <i class="bi bi-film"></i>
+                                <span>Add New Movie</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="bi bi-building-add"></i>
+                                <span>Review Theaters</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="bi bi-person-x"></i>
+                                <span>Ban Users</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="bi bi-megaphone"></i>
+                                <span>Send Notification</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="bi bi-file-earmark-arrow-down"></i>
+                                <span>Export Report</span>
+                            </button>
+                            <button class="action-btn">
+                                <i class="bi bi-percent"></i>
+                                <span>Set Platform Fee</span>
+                            </button>
+                        </div>
+                    </section>
+
+                    <!-- Top Performing Movies -->
+                    <section class="section-card">
+                        <div class="card-header">
+                            <h2>
+                                <i class="bi bi-trophy"></i>
+                                Top Performing Movies
+                            </h2>
+                        </div>
+                        <div class="top-movies">
+                            <div class="movie-rank-item">
+                                <span class="rank gold">1</span>
+                                <div class="movie-rank-info">
+                                    <h4>Avengers: Endgame</h4>
+                                    <p>12,450 bookings</p>
+                                </div>
+                                <span class="revenue-badge">₹3,45,600</span>
+                            </div>
+
+                            <div class="movie-rank-item">
+                                <span class="rank silver">2</span>
+                                <div class="movie-rank-info">
+                                    <h4>Inception</h4>
+                                    <p>8,340 bookings</p>
+                                </div>
+                                <span class="revenue-badge">₹2,10,400</span>
+                            </div>
+
+                            <div class="movie-rank-item">
+                                <span class="rank bronze">3</span>
+                                <div class="movie-rank-info">
+                                    <h4>Interstellar</h4>
+                                    <p>7,890 bookings</p>
+                                </div>
+                                <span class="revenue-badge">₹1,95,200</span>
+                            </div>
+
+                            <div class="movie-rank-item">
+                                <span class="rank">4</span>
+                                <div class="movie-rank-info">
+                                    <h4>The Dark Knight</h4>
+                                    <p>6,520 bookings</p>
+                                </div>
+                                <span class="revenue-badge">₹1,65,800</span>
+                            </div>
+
+                            <div class="movie-rank-item">
+                                <span class="rank">5</span>
+                                <div class="movie-rank-info">
+                                    <h4>Oppenheimer</h4>
+                                    <p>5,890 bookings</p>
+                                </div>
+                                <span class="revenue-badge">₹1,48,900</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>
