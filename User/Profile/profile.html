@@ -6,46 +6,72 @@
     <title>Profile - MovieBook</title>
     <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <h1>🎬 MovieBook</h1>
+                <h1>🎬 MOVIEBOOK</h1>
             </div>
             <ul class="nav-menu">
-                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../home.html">Home</a></li>
                 <li><a href="../movie-list.html">Movies</a></li>
                 <li><a href="../streaming/streaming.html">Streaming</a></li>
                 <li><a href="profile.html" class="active">Profile</a></li>
             </ul>
+            <div class="nav-actions">
+                <button class="btn-signout" onclick="handleSignOut()">
+                    <i class="bi bi-box-arrow-right"></i> Sign Out
+                </button>
+            </div>
         </div>
     </nav>
 
     <div class="profile-page">
-        <div class="container">
+        <div class="profile-container">
             <!-- Profile Header -->
             <div class="profile-header">
-                <div class="profile-avatar">
-                    <img src="https://via.placeholder.com/150/667eea/ffffff?text=YP" alt="Profile">
-                    <button class="btn-edit-avatar"><i class="fas fa-camera"></i></button>
-                </div>
-                <div class="profile-info">
-                    <h1>Yash Patil</h1>
-                    <p class="profile-email">yash.patil@example.com</p>
+                <div class="profile-banner"></div>
+                <div class="profile-content">
+                    <div class="profile-avatar">
+                        <img src="https://ui-avatars.com/api/?name=Yash+Patil&size=200&background=e50914&color=fff&bold=true" alt="Profile">
+                        <button class="btn-edit-avatar">
+                            <i class="bi bi-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-info">
+                        <h1>Yash Patil</h1>
+                        <p class="profile-email"><i class="bi bi-envelope"></i> yash.patil@example.com</p>
+                        <p class="profile-joined"><i class="bi bi-calendar3"></i> Member since Jan 2024</p>
+                    </div>
                     <div class="profile-stats">
-                        <div class="stat">
-                            <span class="stat-value">42</span>
-                            <span class="stat-label">Movies Watched</span>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="bi bi-film"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-value">42</span>
+                                <span class="stat-label">Movies Watched</span>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-value">15</span>
-                            <span class="stat-label">Reviews</span>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="bi bi-chat-left-text"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-value">15</span>
+                                <span class="stat-label">Reviews</span>
+                            </div>
                         </div>
-                        <div class="stat">
-                            <span class="stat-value">28</span>
-                            <span class="stat-label">Watchlist</span>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="bi bi-bookmark-heart"></i>
+                            </div>
+                            <div class="stat-details">
+                                <span class="stat-value">28</span>
+                                <span class="stat-label">Watchlist</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,97 +80,260 @@
             <!-- Profile Tabs -->
             <div class="profile-tabs">
                 <button class="tab-btn active" data-tab="watchlist">
-                    <i class="fas fa-bookmark"></i> Watchlist
+                    <i class="bi bi-bookmark-fill"></i> Watchlist
                 </button>
                 <button class="tab-btn" data-tab="watched">
-                    <i class="fas fa-eye"></i> Watched
+                    <i class="bi bi-eye-fill"></i> Watched
                 </button>
                 <button class="tab-btn" data-tab="favorites">
-                    <i class="fas fa-heart"></i> Favorites
+                    <i class="bi bi-heart-fill"></i> Favorites
                 </button>
                 <button class="tab-btn" data-tab="reviews">
-                    <i class="fas fa-comment"></i> Reviews
+                    <i class="bi bi-chat-square-text-fill"></i> Reviews
+                </button>
+                <button class="tab-btn" data-tab="settings">
+                    <i class="bi bi-gear-fill"></i> Settings
                 </button>
             </div>
 
             <!-- Watchlist Tab -->
             <div class="tab-content active" id="watchlist">
-                <h2>Watch Later</h2>
+                <div class="tab-header">
+                    <h2><i class="bi bi-bookmark"></i> Watch Later</h2>
+                    <p class="tab-subtitle">Movies you want to watch</p>
+                </div>
                 <div class="movie-grid">
                     <div class="movie-card">
                         <div class="movie-poster">
-                            <img src="https://via.placeholder.com/200x300/667eea/ffffff?text=Movie" alt="Movie">
-                            <button class="btn-remove"><i class="fas fa-times"></i></button>
+                            <img src="https://via.placeholder.com/200x300/1a1a1a/e50914?text=Inception" alt="Movie">
+                            <button class="btn-remove" onclick="removeFromWatchlist(this)">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <div class="movie-overlay">
+                                <button class="btn-play"><i class="bi bi-play-fill"></i></button>
+                            </div>
                         </div>
-                        <h4>Inception</h4>
-                        <p><i class="fas fa-star"></i> 8.8</p>
+                        <div class="movie-info">
+                            <h4>Inception</h4>
+                            <div class="movie-meta">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 8.8</span>
+                                <span class="year">2010</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="movie-card">
                         <div class="movie-poster">
-                            <img src="https://via.placeholder.com/200x300/f5576c/ffffff?text=Movie" alt="Movie">
-                            <button class="btn-remove"><i class="fas fa-times"></i></button>
+                            <img src="https://via.placeholder.com/200x300/1a1a1a/e50914?text=Shawshank" alt="Movie">
+                            <button class="btn-remove" onclick="removeFromWatchlist(this)">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <div class="movie-overlay">
+                                <button class="btn-play"><i class="bi bi-play-fill"></i></button>
+                            </div>
                         </div>
-                        <h4>The Shawshank Redemption</h4>
-                        <p><i class="fas fa-star"></i> 9.3</p>
+                        <div class="movie-info">
+                            <h4>The Shawshank Redemption</h4>
+                            <div class="movie-meta">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 9.3</span>
+                                <span class="year">1994</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="movie-card">
                         <div class="movie-poster">
-                            <img src="https://via.placeholder.com/200x300/4facfe/ffffff?text=Movie" alt="Movie">
-                            <button class="btn-remove"><i class="fas fa-times"></i></button>
+                            <img src="https://via.placeholder.com/200x300/1a1a1a/e50914?text=Interstellar" alt="Movie">
+                            <button class="btn-remove" onclick="removeFromWatchlist(this)">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+                            <div class="movie-overlay">
+                                <button class="btn-play"><i class="bi bi-play-fill"></i></button>
+                            </div>
                         </div>
-                        <h4>Interstellar</h4>
-                        <p><i class="fas fa-star"></i> 8.6</p>
+                        <div class="movie-info">
+                            <h4>Interstellar</h4>
+                            <div class="movie-meta">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 8.6</span>
+                                <span class="year">2014</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Watched Tab -->
+            <div class="tab-content" id="watched">
+                <div class="tab-header">
+                    <h2><i class="bi bi-eye"></i> Recently Watched</h2>
+                    <p class="tab-subtitle">Your viewing history</p>
+                </div>
+                <div class="movie-grid">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="https://via.placeholder.com/200x300/1a1a1a/e50914?text=The+Godfather" alt="Movie">
+                            <span class="watched-badge"><i class="bi bi-check-circle-fill"></i></span>
+                            <div class="movie-overlay">
+                                <button class="btn-play"><i class="bi bi-play-fill"></i></button>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h4>The Godfather</h4>
+                            <div class="movie-meta">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 9.2</span>
+                                <span class="watched-date">Watched Dec 25</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Favorites Tab -->
             <div class="tab-content" id="favorites">
-                <h2>Best Movies</h2>
+                <div class="tab-header">
+                    <h2><i class="bi bi-heart"></i> Favorite Movies</h2>
+                    <p class="tab-subtitle">Your all-time favorites</p>
+                </div>
                 <div class="movie-grid">
                     <div class="movie-card">
                         <div class="movie-poster">
-                            <img src="https://via.placeholder.com/200x300/43e97b/ffffff?text=Movie" alt="Movie">
-                            <span class="rating-badge">9.5</span>
+                            <img src="https://via.placeholder.com/200x300/1a1a1a/e50914?text=Pulp+Fiction" alt="Movie">
+                            <span class="favorite-badge"><i class="bi bi-heart-fill"></i></span>
+                            <div class="movie-overlay">
+                                <button class="btn-play"><i class="bi bi-play-fill"></i></button>
+                            </div>
                         </div>
-                        <h4>The Godfather</h4>
-                        <p>Your Rating: <i class="fas fa-star"></i> 10</p>
+                        <div class="movie-info">
+                            <h4>Pulp Fiction</h4>
+                            <div class="movie-meta">
+                                <span class="rating"><i class="bi bi-star-fill"></i> 8.9</span>
+                                <span class="your-rating">Your Rating: 10</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Reviews Tab -->
             <div class="tab-content" id="reviews">
-                <h2>Your Reviews</h2>
+                <div class="tab-header">
+                    <h2><i class="bi bi-chat-square-text"></i> Your Reviews</h2>
+                    <p class="tab-subtitle">Share your thoughts with the community</p>
+                </div>
                 <div class="review-list">
-                    <div class="user-review-card">
-                        <div class="review-movie">
-                            <img src="https://via.placeholder.com/80x120/667eea/ffffff?text=M" alt="Movie">
-                            <div>
-                                <h4>12 Angry Men</h4>
-                                <div class="user-rating">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-movie">
+                                <img src="https://via.placeholder.com/80x120/1a1a1a/e50914?text=12AM" alt="Movie">
+                                <div class="review-movie-info">
+                                    <h4>12 Angry Men</h4>
+                                    <div class="user-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <span class="rating-text">5.0</span>
+                                    </div>
+                                    <span class="review-date"><i class="bi bi-calendar3"></i> Dec 20, 2025</span>
                                 </div>
+                            </div>
+                            <div class="review-actions">
+                                <button class="btn-icon-action"><i class="bi bi-pencil"></i></button>
+                                <button class="btn-icon-action danger"><i class="bi bi-trash"></i></button>
                             </div>
                         </div>
                         <p class="review-text">
-                            An absolute masterpiece of cinema. The dialogue, performances, and direction are all top-notch.
+                            An absolute masterpiece of cinema. The dialogue, performances, and direction are all top-notch. 
+                            This film proves that you don't need elaborate sets or action sequences to create a compelling story.
                         </p>
-                        <div class="review-actions">
-                            <button class="btn-edit"><i class="fas fa-edit"></i> Edit</button>
-                            <button class="btn-delete"><i class="fas fa-trash"></i> Delete</button>
+                        <div class="review-footer">
+                            <button class="btn-helpful"><i class="bi bi-hand-thumbs-up"></i> 24 helpful</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <footer class="footer">
+            <!-- Settings Tab -->
+            <div class="tab-content" id="settings">
+                <div class="tab-header">
+                    <h2><i class="bi bi-gear"></i> Account Settings</h2>
+                    <p class="tab-subtitle">Manage your account preferences</p>
+                </div>
+                <div class="settings-section">
+                    <div class="settings-card">
+                        <h3><i class="bi bi-person"></i> Personal Information</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="Yash Patil" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="yash.patil@example.com" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label>Bio</label>
+                                <textarea rows="3" placeholder="Tell us about yourself">Movie enthusiast and film critic</textarea>
+                            </div>
+                            <button type="submit" class="btn-save">
+                                <i class="bi bi-check-circle"></i> Save Changes
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3><i class="bi bi-lock"></i> Change Password</h3>
+                        <form class="settings-form">
+                            <div class="form-group">
+                                <label>Current Password</label>
+                                <input type="password" placeholder="Enter current password">
+                            </div>
+                            <div class="form-group">
+                                <label>New Password</label>
+                                <input type="password" placeholder="Enter new password">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password</label>
+                                <input type="password" placeholder="Confirm new password">
+                            </div>
+                            <button type="submit" class="btn-save">
+                                <i class="bi bi-shield-check"></i> Update Password
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3><i class="bi bi-bell"></i> Notifications</h3>
+                        <div class="notification-settings">
+                            <div class="notification-item">
+                                <div>
+                                    <strong>New Releases</strong>
+                                    <p>Get notified about new movie releases</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="notification-item">
+                                <div>
+                                    <strong>Watchlist Updates</strong>
+                                    <p>Alerts when watchlist movies are available</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="notification-item">
+                                <div>
+                                    <strong>Review Responses</strong>
+                                    <p>Notifications when someone responds to your reviews</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
         <div class="container">
             <p>&copy; 2026 MovieBook. All rights reserved.</p>
         </div>

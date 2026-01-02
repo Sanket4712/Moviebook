@@ -42,13 +42,24 @@
             </header>
 
             <div class="theater-content">
+                <!-- Search Bar -->
+                <div class="search-section">
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" id="movieSearchInput" placeholder="Search movies by title, genre, or rating..." oninput="searchMovies()">
+                        <button class="btn-clear" id="clearSearch" onclick="clearSearch()" style="display: none;">
+                            <i class="bi bi-x-circle-fill"></i>
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Movie Schedule Grid -->
-                <div class="movie-schedule-grid">
-                    <div class="movie-card">
+                <div class="movie-schedule-grid" id="movieGrid">
+                    <div class="movie-card" data-movie-id="12-angry-men" data-movie-name="12 Angry Men" data-genre="Drama" data-rating="8.9">
                         <div class="movie-poster">
                             <img src="../../Theater/images/image.png" alt="12 Angry Men">
                             <div class="movie-overlay">
-                                <button class="btn-schedule" onclick="openScheduleModal()">
+                                <button class="btn-schedule" onclick="openScheduleModalWithMovie('12-angry-men', '12 Angry Men')">
                                     <i class="bi bi-calendar-plus"></i> Schedule Show
                                 </button>
                             </div>
@@ -59,24 +70,17 @@
                                 <span class="genre">Drama</span>
                                 <span class="duration">96 min</span>
                             </div>
-                            <div class="movie-rating">
-                                <div class="rating-stars">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                </div>
-                                <span class="rating-value">8.9</span>
+                            <div class="scheduled-shows" data-movie-id="12-angry-men">
+                                <!-- Scheduled shows will appear here -->
                             </div>
                         </div>
                     </div>
 
-                    <div class="movie-card">
+                    <div class="movie-card" data-movie-id="inception" data-movie-name="Inception" data-genre="Sci-Fi" data-rating="8.8">
                         <div class="movie-poster">
                             <img src="../../Theater/images/image.png" alt="Inception">
                             <div class="movie-overlay">
-                                <button class="btn-schedule" onclick="openScheduleModal()">
+                                <button class="btn-schedule" onclick="openScheduleModalWithMovie('inception', 'Inception')">
                                     <i class="bi bi-calendar-plus"></i> Schedule Show
                                 </button>
                             </div>
@@ -87,24 +91,17 @@
                                 <span class="genre">Sci-Fi</span>
                                 <span class="duration">148 min</span>
                             </div>
-                            <div class="movie-rating">
-                                <div class="rating-stars">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                </div>
-                                <span class="rating-value">8.8</span>
+                            <div class="scheduled-shows" data-movie-id="inception">
+                                <!-- Scheduled shows will appear here -->
                             </div>
                         </div>
                     </div>
 
-                    <div class="movie-card">
+                    <div class="movie-card" data-movie-id="the-dark-knight" data-movie-name="The Dark Knight" data-genre="Action" data-rating="9.0">
                         <div class="movie-poster">
                             <img src="../../Theater/images/image.png" alt="The Dark Knight">
                             <div class="movie-overlay">
-                                <button class="btn-schedule" onclick="openScheduleModal()">
+                                <button class="btn-schedule" onclick="openScheduleModalWithMovie('the-dark-knight', 'The Dark Knight')">
                                     <i class="bi bi-calendar-plus"></i> Schedule Show
                                 </button>
                             </div>
@@ -115,15 +112,71 @@
                                 <span class="genre">Action</span>
                                 <span class="duration">152 min</span>
                             </div>
-                            <div class="movie-rating">
-                                <div class="rating-stars">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                </div>
-                                <span class="rating-value">9.0</span>
+                            <div class="scheduled-shows" data-movie-id="the-dark-knight">
+                                <!-- Scheduled shows will appear here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="movie-card" data-movie-id="pulp-fiction" data-movie-name="Pulp Fiction" data-genre="Crime" data-rating="8.9">
+                        <div class="movie-poster">
+                            <img src="../../Theater/images/image.png" alt="Pulp Fiction">
+                            <div class="movie-overlay">
+                                <button class="btn-schedule" onclick="openScheduleModalWithMovie('pulp-fiction', 'Pulp Fiction')">
+                                    <i class="bi bi-calendar-plus"></i> Schedule Show
+                                </button>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h3>Pulp Fiction</h3>
+                            <div class="movie-meta">
+                                <span class="genre">Crime</span>
+                                <span class="duration">154 min</span>
+                            </div>
+                            <div class="scheduled-shows" data-movie-id="pulp-fiction">
+                                <!-- Scheduled shows will appear here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="movie-card" data-movie-id="forrest-gump" data-movie-name="Forrest Gump" data-genre="Drama" data-rating="8.8">
+                        <div class="movie-poster">
+                            <img src="../../Theater/images/image.png" alt="Forrest Gump">
+                            <div class="movie-overlay">
+                                <button class="btn-schedule" onclick="openScheduleModalWithMovie('forrest-gump', 'Forrest Gump')">
+                                    <i class="bi bi-calendar-plus"></i> Schedule Show
+                                </button>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h3>Forrest Gump</h3>
+                            <div class="movie-meta">
+                                <span class="genre">Drama</span>
+                                <span class="duration">142 min</span>
+                            </div>
+                            <div class="scheduled-shows" data-movie-id="forrest-gump">
+                                <!-- Scheduled shows will appear here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="movie-card" data-movie-id="the-shawshank-redemption" data-movie-name="The Shawshank Redemption" data-genre="Drama" data-rating="9.3">
+                        <div class="movie-poster">
+                            <img src="../../Theater/images/image.png" alt="The Shawshank Redemption">
+                            <div class="movie-overlay">
+                                <button class="btn-schedule" onclick="openScheduleModalWithMovie('the-shawshank-redemption', 'The Shawshank Redemption')">
+                                    <i class="bi bi-calendar-plus"></i> Schedule Show
+                                </button>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h3>The Shawshank Redemption</h3>
+                            <div class="movie-meta">
+                                <span class="genre">Drama</span>
+                                <span class="duration">142 min</span>
+                            </div>
+                            <div class="scheduled-shows" data-movie-id="the-shawshank-redemption">
+                                <!-- Scheduled shows will appear here -->
                             </div>
                         </div>
                     </div>
@@ -134,7 +187,7 @@
 
     <!-- Schedule Modal -->
     <div id="scheduleModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content modal-content-large">
             <div class="modal-header">
                 <h2>Add New Show</h2>
                 <button class="btn-close" onclick="closeScheduleModal()">
@@ -142,22 +195,240 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="scheduleForm">
+                <!-- Movie Search in Modal -->
+                <div class="modal-search-section">
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" id="modalMovieSearch" placeholder="Search movies to schedule..." oninput="searchMoviesInModal()">
+                    </div>
+                </div>
+
+                <!-- Movies Grid in Modal -->
+                <div class="modal-movies-grid" id="modalMoviesGrid">
+                    <div class="modal-movie-item" data-movie-id="12-angry-men" data-movie-name="12 Angry Men" data-genre="Drama" onclick="selectMovieForSchedule('12-angry-men', '12 Angry Men')">
+                        <img src="../../Theater/images/image.png" alt="12 Angry Men">
+                        <div class="modal-movie-info">
+                            <h4>12 Angry Men</h4>
+                            <p>Drama • 96 min</p>
+                        </div>
+                        <div class="select-overlay">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Select to Schedule</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-movie-item" data-movie-id="inception" data-movie-name="Inception" data-genre="Sci-Fi" onclick="selectMovieForSchedule('inception', 'Inception')">
+                        <img src="../../Theater/images/image.png" alt="Inception">
+                        <div class="modal-movie-info">
+                            <h4>Inception</h4>
+                            <p>Sci-Fi • 148 min</p>
+                        </div>
+                        <div class="select-overlay">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Select to Schedule</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-movie-item" data-movie-id="the-dark-knight" data-movie-name="The Dark Knight" data-genre="Action" onclick="selectMovieForSchedule('the-dark-knight', 'The Dark Knight')">
+                        <img src="../../Theater/images/image.png" alt="The Dark Knight">
+                        <div class="modal-movie-info">
+                            <h4>The Dark Knight</h4>
+                            <p>Action • 152 min</p>
+                        </div>
+                        <div class="select-overlay">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Select to Schedule</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-movie-item" data-movie-id="pulp-fiction" data-movie-name="Pulp Fiction" data-genre="Crime" onclick="selectMovieForSchedule('pulp-fiction', 'Pulp Fiction')">
+                        <img src="../../Theater/images/image.png" alt="Pulp Fiction">
+                        <div class="modal-movie-info">
+                            <h4>Pulp Fiction</h4>
+                            <p>Crime • 154 min</p>
+                        </div>
+                        <div class="select-overlay">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Select to Schedule</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-movie-item" data-movie-id="forrest-gump" data-movie-name="Forrest Gump" data-genre="Drama" onclick="selectMovieForSchedule('forrest-gump', 'Forrest Gump')">
+                        <img src="../../Theater/images/image.png" alt="Forrest Gump">
+                        <div class="modal-movie-info">
+                            <h4>Forrest Gump</h4>
+                            <p>Drama • 142 min</p>
+                        </div>
+                        <div class="select-overlay">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Select to Schedule</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-movie-item" data-movie-id="the-shawshank-redemption" data-movie-name="The Shawshank Redemption" data-genre="Drama" onclick="selectMovieForSchedule('the-shawshank-redemption', 'The Shawshank Redemption')">
+                        <img src="../../Theater/images/image.png" alt="The Shawshank Redemption">
+                        <div class="modal-movie-info">
+                            <h4>The Shawshank Redemption</h4>
+                            <p>Drama • 142 min</p>
+                        </div>
+                        <div class="select-overlay">
+                            <i class="bi bi-check-circle-fill"></i>
+                            <span>Select to Schedule</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schedule Details Modal -->
+    <div id="scheduleDetailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Schedule Show - <span id="selectedMovieTitle"></span></h2>
+                <button class="btn-close" onclick="closeScheduleDetailsModal()">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="scheduleForm" onsubmit="handleScheduleSubmit(event)">
+                    <input type="hidden" id="movieSelect">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="screenSelect">
+                                <i class="bi bi-display"></i> Select Screen/Hall
+                            </label>
+                            <select id="screenSelect" required>
+                                <option value="">Choose a screen...</option>
+                                <option value="screen-1">Screen 1 (150 seats)</option>
+                                <option value="screen-2">Screen 2 (200 seats)</option>
+                                <option value="screen-3">Screen 3 (120 seats)</option>
+                                <option value="screen-4">Screen 4 (180 seats)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="showDate">
+                                <i class="bi bi-calendar3"></i> Show Date
+                            </label>
+                            <input type="date" id="showDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="showTime">
+                                <i class="bi bi-clock"></i> Show Time
+                            </label>
+                            <input type="time" id="showTime" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ticketPrice">
+                                <i class="bi bi-currency-dollar"></i> Ticket Price
+                            </label>
+                            <input type="number" id="ticketPrice" min="0" step="0.01" placeholder="15.00" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="totalSeats">
+                                <i class="bi bi-people"></i> Available Seats
+                            </label>
+                            <input type="number" id="totalSeats" min="1" placeholder="150" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="showType">
+                                <i class="bi bi-badge-3d"></i> Show Type
+                            </label>
+                            <select id="showType" required>
+                                <option value="">Choose show type...</option>
+                                <option value="2d">2D</option>
+                                <option value="3d">3D</option>
+                                <option value="imax">IMAX</option>
+                                <option value="4dx">4DX</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        
-                        <select required>
-                            <option value="">Choose a movie...</option>
-                            <option>12 Angry Men</option>
-                            <option>Inception</option>
-                            <option>The Dark Knight</option>
+                        <label for="language">
+                            <i class="bi bi-translate"></i> Language
+                        </label>
+                        <select id="language" required>
+                            <option value="">Choose language...</option>
+                            <option value="english">English</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="tamil">Tamil</option>
+                            <option value="telugu">Telugu</option>
+                            <option value="malayalam">Malayalam</option>
                         </select>
                     </div>
-                    
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeScheduleDetailsModal()">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn-primary">
+                            <i class="bi bi-calendar-check"></i> Schedule Show
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 
+    <!-- Scheduled Shows Section -->
+    <div class="scheduled-shows-section" style="margin-top: 3rem;">
+        <div class="section-header">
+            <h2>Scheduled Shows</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="today">Today</button>
+                <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+            </div>
+        </div>
+        
+        <div id="scheduledShowsList" class="scheduled-shows-list">
+            <!-- Sample scheduled show -->
+            <div class="scheduled-show-card">
+                <div class="show-movie-info">
+                    <img src="../../Theater/images/image.png" alt="Movie">
+                    <div class="show-details">
+                        <h4>Inception</h4>
+                        <p class="show-meta">
+                            <span><i class="bi bi-calendar3"></i> Jan 15, 2026</span>
+                            <span><i class="bi bi-clock"></i> 7:00 PM</span>
+                            <span><i class="bi bi-display"></i> Screen 2</span>
+                        </p>
+                        <p class="show-meta">
+                            <span class="badge">3D</span>
+                            <span>English</span>
+                            <span class="price">$15.00</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="show-stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Seats Available</span>
+                        <span class="stat-value">145/200</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Revenue</span>
+                        <span class="stat-value">$825</span>
+                    </div>
+                </div>
+                <div class="show-actions">
+                    <button class="btn-icon" title="Edit Show">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                    <button class="btn-icon danger" title="Cancel Show" onclick="cancelShow(this)">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/theater.js"></script>
 </body>

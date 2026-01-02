@@ -117,3 +117,100 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Subplatform Authentication
+const SUBPLATFORM_CREDENTIALS = {
+    admin: {
+        email: 'sanket@gmail.com',
+        password: '123456789',
+        redirectUrl: 'Admin/dashboard.html'
+    },
+    theater: {
+        email: 'demo@gmail.com',
+        password: '123456789',
+        redirectUrl: 'Theater/dashboard.html'
+    }
+};
+
+let currentPlatform = null;
+
+function openLoginModal(platform) {
+    currentPlatform = platform;
+    const modal = document.getElementById('subplatformModal');
+    const modalIcon = document.getElementById('modalIcon');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
+    const loginError = document.getElementById('loginError');
+    
+    // Reset form and error
+    document.getElementById('subplatformLoginForm').reset();
+    loginError.classList.remove('show');
+    loginError.textContent = '';
+    
+    // Set modal content based on platform
+    if (platform === 'admin') {
+        modalIcon.className = 'bi bi-shield-lock-fill';
+        modalTitle.textContent = 'Admin Portal';
+        modalSubtitle.textContent = 'Sign in to access admin dashboard';
+    } else {
+        modalIcon.className = 'bi bi-building';
+        modalTitle.textContent = 'Theater Portal';
+        modalSubtitle.textContent = 'Sign in to manage your theater';
+    }
+    
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLoginModal() {
+    const modal = document.getElementById('subplatformModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    currentPlatform = null;
+}
+
+function handleSubplatformLogin(event) {
+    event.preventDefault();
+    
+    const email = document.getElementById('platformEmail').value;
+    const password = document.getElementById('platformPassword').value;
+    const loginError = document.getElementById('loginError');
+    
+    const credentials = SUBPLATFORM_CREDENTIALS[currentPlatform];
+    
+    if (email === credentials.email && password === credentials.password) {
+        // Store session
+        localStorage.setItem(`${currentPlatform}Session`, JSON.stringify({
+            email: email,
+            platform: currentPlatform,
+            loginTime: new Date().toISOString()
+        }));
+        
+        showNotification(`Welcome to ${currentPlatform === 'admin' ? 'Admin' : 'Theater'} Portal!`, 'success');
+        
+        // Redirect after short delay
+        setTimeout(() => {
+            window.location.href = credentials.redirectUrl;
+        }, 1000);
+    } else {
+        loginError.textContent = 'Invalid email or password. Please try again.';
+        loginError.classList.add('show');
+    }
+    
+    return false;
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('subplatformModal');
+    if (event.target === modal) {
+        closeLoginModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeLoginModal();
+    }
+});

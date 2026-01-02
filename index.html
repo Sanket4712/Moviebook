@@ -132,12 +132,9 @@
             </div>
             <div class="cta-signup">
                 <p>Ready to book your next movie? Join thousands of movie lovers today.</p>
-                <div class="hero-signup">
-                    <input type="email" placeholder="Email address" class="email-input">
-                    <button class="btn-get-started" onclick="location.href='auth/signup.html'">
-                        Get Started <i class="bi bi-chevron-right"></i>
-                    </button>
-                </div>
+                <button class="btn-get-started" onclick="location.href='auth/signup.html'">
+                    Get Started <i class="bi bi-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -160,6 +157,13 @@
                     </ul>
                 </div>
                 <div class="footer-section">
+                    <h4>Subplatforms</h4>
+                    <ul>
+                        <li><a href="#" onclick="openLoginModal('admin'); return false;">Admin Portal</a></li>
+                        <li><a href="#" onclick="openLoginModal('theater'); return false;">Theater Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
@@ -174,6 +178,40 @@
             </div>
         </div>
     </footer>
+
+    <!-- Login Modal for Subplatforms -->
+    <div id="subplatformModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeLoginModal()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="bi" id="modalIcon"></i>
+                </div>
+                <h2 id="modalTitle"></h2>
+                <p id="modalSubtitle"></p>
+            </div>
+            <form id="subplatformLoginForm" onsubmit="handleSubplatformLogin(event)">
+                <div class="form-group">
+                    <label for="platformEmail">
+                        <i class="bi bi-envelope"></i> Email Address
+                    </label>
+                    <input type="email" id="platformEmail" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="platformPassword">
+                        <i class="bi bi-lock"></i> Password
+                    </label>
+                    <input type="password" id="platformPassword" name="password" required placeholder="Enter your password">
+                </div>
+                <div id="loginError" class="error-message"></div>
+                <button type="submit" class="btn-submit">
+                    <i class="bi bi-box-arrow-in-right"></i> Sign In
+                </button>
+            </form>
+        </div>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>
