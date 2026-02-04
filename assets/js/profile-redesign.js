@@ -3,31 +3,28 @@
 
 // Handle sign out
 function handleSignOut() {
-    if (confirm('Are you sure you want to sign out?')) {
-        localStorage.clear();
-        window.location.href = '../auth/login.html';
-    }
+    window.location.href = '../auth/logout.php';
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Tab switching functionality
     const profileTabs = document.querySelectorAll('.profile-tab');
     const tabContents = document.querySelectorAll('.tab-content');
-    
+
     profileTabs.forEach(tab => {
-        tab.addEventListener('click', function() {
+        tab.addEventListener('click', function () {
             const targetTab = this.dataset.tab;
-            
+
             // Remove active states from all
             profileTabs.forEach(t => t.classList.remove('active'));
             tabContents.forEach(c => {
                 c.classList.remove('active');
                 c.style.animation = 'none';
             });
-            
+
             // Add active state to clicked tab
             this.classList.add('active');
-            
+
             // Show target content with animation
             const targetContent = document.getElementById(targetTab);
             if (targetContent) {
@@ -42,10 +39,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Like button toggle
     const actionBtns = document.querySelectorAll('.action-btn');
     actionBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', function (e) {
             e.stopPropagation();
             const icon = this.querySelector('i');
-            
+
             if (icon.classList.contains('bi-heart')) {
                 icon.classList.remove('bi-heart');
                 icon.classList.add('bi-heart-fill');
@@ -61,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Poster card click handler
     const posterCards = document.querySelectorAll('.poster-card');
     posterCards.forEach(card => {
-        card.addEventListener('click', function() {
+        card.addEventListener('click', function () {
             // Could navigate to film details page
             console.log('Opening film details...');
         });
@@ -70,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Activity item click handler
     const activityItems = document.querySelectorAll('.activity-item');
     activityItems.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             console.log('Opening activity details...');
         });
     });
@@ -78,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Diary entry click handler
     const diaryEntries = document.querySelectorAll('.diary-entry');
     diaryEntries.forEach(entry => {
-        entry.addEventListener('click', function() {
+        entry.addEventListener('click', function () {
             console.log('Opening diary entry...');
         });
     });
@@ -86,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // List block click handler
     const listBlocks = document.querySelectorAll('.list-block');
     listBlocks.forEach(block => {
-        block.addEventListener('click', function() {
+        block.addEventListener('click', function () {
             console.log('Opening list...');
         });
     });
@@ -94,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // New list button
     const newListBtn = document.querySelector('.btn-new-list');
     if (newListBtn) {
-        newListBtn.addEventListener('click', function(e) {
+        newListBtn.addEventListener('click', function (e) {
             e.stopPropagation();
             alert('Create new list feature coming soon!');
         });

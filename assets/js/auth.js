@@ -1,6 +1,6 @@
 // Authentication JavaScript
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Login Form
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const signupForm = document.getElementById('signupForm');
     if (signupForm) {
         signupForm.addEventListener('submit', handleSignup);
-        
+
         // Password strength checker
         const passwordInput = document.getElementById('signupPassword');
         if (passwordInput) {
             passwordInput.addEventListener('input', checkPasswordStrength);
         }
-        
+
         // Confirm password validation
         const confirmPassword = document.getElementById('confirmPassword');
         if (confirmPassword) {
@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Toggle Password Visibility
     const toggleButtons = document.querySelectorAll('.toggle-password');
     toggleButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             const input = this.previousElementSibling;
             const icon = this.querySelector('i');
-            
+
             if (input.type === 'password') {
                 input.type = 'text';
                 icon.classList.remove('fa-eye');
@@ -47,158 +47,109 @@ document.addEventListener('DOMContentLoaded', function() {
     // Social Login Buttons
     const socialButtons = document.querySelectorAll('.btn-social');
     socialButtons.forEach(btn => {
-        btn.addEventListener('click', function() {
+        btn.addEventListener('click', function () {
             const provider = this.classList.contains('google') ? 'Google' : 'Facebook';
             showNotification(`${provider} login coming soon!`, 'success');
         });
     });
 });
 
-// Handle Login
+// Handle Login - Now submits to PHP backend
 function handleLogin(e) {
-    e.preventDefault();
-    
+    // Allow form to submit to PHP - just do basic validation
     const formData = new FormData(e.target);
     const email = formData.get('email');
     const password = formData.get('password');
-    const remember = formData.get('remember');
-    
-    // Validation
+
+    // Basic client-side validation
     if (!email || !password) {
+        e.preventDefault();
         showNotification('Please fill in all fields', 'error');
-        return;
+        return false;
     }
-    
-    // Demo credentials
-    const DEMO_EMAIL = 'yashpatil@gmail.com';
-    const DEMO_PASSWORD = '123456789';
-    
-    // Check demo credentials
-    if (email === DEMO_EMAIL && password === DEMO_PASSWORD) {
-        showNotification('Logging in...', 'success');
-        
-        // Simulate API call
-        setTimeout(() => {
-            const user = {
-                email: email,
-                name: 'Yash Patil',
-                loggedIn: true,
-                loginTime: new Date().toISOString()
-            };
-            
-            // Store user session
-            if (remember) {
-                localStorage.setItem('moviebook_user', JSON.stringify(user));
-            } else {
-                sessionStorage.setItem('moviebook_user', JSON.stringify(user));
-            }
-            
-            showNotification('Login successful! Redirecting...', 'success');
-            
-            // Redirect to user home page
-            setTimeout(() => {
-                window.location.href = '../User/home.html';
-            }, 1500);
-        }, 1000);
-    } else {
-        showNotification('Invalid email or password', 'error');
-    }
+
+    // Show loading message
+    showNotification('Logging in...', 'success');
+
+    // Let the form submit to process_login.php
+    return true;
 }
 
-// Handle Signup
+// Handle Signup - Now submits to PHP backend
 function handleSignup(e) {
-    e.preventDefault();
-    
     const formData = new FormData(e.target);
-    const firstName = formData.get('firstName');
-    const lastName = formData.get('lastName');
+    const fullName = formData.get('fullName');
     const email = formData.get('email');
     const phone = formData.get('phone');
     const password = formData.get('password');
     const confirmPassword = formData.get('confirmPassword');
     const termsAccepted = formData.get('terms');
-    
-    // Validation
-    if (!firstName || !lastName || !email || !phone || !password || !confirmPassword) {
+
+    // Basic client-side validation
+    if (!fullName || !email || !phone || !password || !confirmPassword) {
+        e.preventDefault();
         showNotification('Please fill in all required fields', 'error');
-        return;
+        return false;
     }
-    
+
     if (!termsAccepted) {
+        e.preventDefault();
         showNotification('Please accept the Terms & Conditions', 'error');
-        return;
+        return false;
     }
-    
+
     if (password !== confirmPassword) {
+        e.preventDefault();
         showNotification('Passwords do not match', 'error');
-        return;
+        return false;
     }
-    
+
     if (password.length < 8) {
+        e.preventDefault();
         showNotification('Password must be at least 8 characters long', 'error');
-        return;
+        return false;
     }
-    
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
+        e.preventDefault();
         showNotification('Please enter a valid email address', 'error');
-        return;
+        return false;
     }
-    
-    // Here you would normally make an API call
-    // For demo purposes, we'll simulate a successful signup
+
+    // Show loading message
     showNotification('Creating your account...', 'success');
-    
-    // Simulate API call
-    setTimeout(() => {
-        const user = {
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            phone: phone,
-            name: `${firstName} ${lastName}`,
-            loggedIn: true,
-            signupTime: new Date().toISOString()
-        };
-        
-        // Store user session
-        localStorage.setItem('moviebook_user', JSON.stringify(user));
-        
-        showNotification('Account created successfully! Redirecting...', 'success');
-        
-        // Redirect to user dashboard
-        setTimeout(() => {
-            window.location.href = '../User/movie-list.html';
-        }, 1500);
-    }, 1500);
+
+    // Let the form submit to process_signup.php
+    return true;
 }
 
 // Password Strength Checker
 function checkPasswordStrength(e) {
     const password = e.target.value;
     const strengthBar = document.querySelector('.strength-bar');
-    
+
     if (!strengthBar) return;
-    
+
     let strength = 0;
-    
+
     // Length
     if (password.length >= 8) strength++;
     if (password.length >= 12) strength++;
-    
+
     // Contains lowercase and uppercase
     if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
-    
+
     // Contains numbers
     if (password.match(/[0-9]/)) strength++;
-    
+
     // Contains special characters
     if (password.match(/[^a-zA-Z0-9]/)) strength++;
-    
+
     // Update strength bar
     strengthBar.classList.remove('weak', 'medium', 'strong');
-    
+
     if (strength <= 2) {
         strengthBar.classList.add('weak');
     } else if (strength <= 4) {
@@ -212,7 +163,7 @@ function checkPasswordStrength(e) {
 function validatePasswordMatch(e) {
     const password = document.getElementById('signupPassword').value;
     const confirmPassword = e.target.value;
-    
+
     if (confirmPassword && password !== confirmPassword) {
         e.target.setCustomValidity('Passwords do not match');
         e.target.style.borderColor = '#e53935';
@@ -225,12 +176,12 @@ function validatePasswordMatch(e) {
 // Check if user is already logged in
 function checkAuthStatus() {
     const user = localStorage.getItem('moviebook_user') || sessionStorage.getItem('moviebook_user');
-    
+
     if (user) {
         const userData = JSON.parse(user);
         return userData;
     }
-    
+
     return null;
 }
 
@@ -239,9 +190,9 @@ function logout() {
     localStorage.removeItem('moviebook_user');
     sessionStorage.removeItem('moviebook_user');
     showNotification('Logged out successfully', 'success');
-    
+
     setTimeout(() => {
-        window.location.href = '../auth/login.html';
+        window.location.href = '../auth/login.php';
     }, 1000);
 }
 
@@ -251,7 +202,7 @@ function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
-    
+
     // Style the notification
     notification.style.cssText = `
         position: fixed;
@@ -267,9 +218,9 @@ function showNotification(message, type = 'info') {
         font-size: 14px;
         font-weight: 500;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Remove after 3 seconds
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease';

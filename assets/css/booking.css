@@ -1,342 +1,852 @@
-/* Booking Specific Styles */
+/* =============================================
+   MovieBook - Premium Booking Experience
+   Refined BookMyShow-Style Design
+   Theme: Black + Red + White
+============================================= */
 
-.booking-page {
-    min-height: 100vh;
-    background-color: #f8f9fa;
-    padding: 2rem 0;
+:root {
+    --mb-primary: #e50914;
+    --mb-primary-dark: #b8070f;
+    --mb-primary-glow: rgba(229, 9, 20, 0.4);
+    --mb-bg-dark: #0a0a0a;
+    --mb-bg-card: #141414;
+    --mb-bg-card-hover: #1a1a1a;
+    --mb-border: rgba(255, 255, 255, 0.08);
+    --mb-text: #ffffff;
+    --mb-text-muted: #8c8c8c;
+    --mb-success: #1db954;
+    --mb-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --mb-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.5);
+    --mb-radius: 12px;
+    --mb-radius-lg: 16px;
+    --mb-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* =============================================
+   Base Layout
+============================================= */
+.booking-page {
+    min-height: 100vh;
+    background: var(--mb-bg-dark);
+    padding: 1.5rem 0 3rem;
+    color: var(--mb-text);
+}
+
+.booking-page .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* =============================================
+   Header - Compact & Clean
+============================================= */
 .booking-header {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .btn-back {
-    background: transparent;
-    border: 2px solid #ddd;
-    padding: 0.7rem 1.5rem;
-    border-radius: var(--border-radius);
+    width: 42px;
+    height: 42px;
+    background: var(--mb-bg-card);
+    border: 1px solid var(--mb-border);
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    transition: all 0.3s ease;
+    justify-content: center;
+    color: var(--mb-text-muted);
+    font-size: 1rem;
+    transition: var(--mb-transition);
 }
 
 .btn-back:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
+    background: var(--mb-primary);
+    border-color: var(--mb-primary);
+    color: white;
+    transform: translateX(-2px);
 }
 
-/* Movie Booking Info */
+.booking-header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--mb-text);
+    letter-spacing: -0.5px;
+}
+
+/* =============================================
+   Movie Info Card - Premium Feel
+============================================= */
 .movie-booking-info {
-    background: white;
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
+    background: linear-gradient(135deg, var(--mb-bg-card) 0%, #1c1c1c 100%);
+    padding: 1.25rem;
+    border-radius: var(--mb-radius-lg);
     display: flex;
-    gap: 1.5rem;
+    gap: 1.25rem;
     align-items: center;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+    box-shadow: var(--mb-shadow);
+    border: 1px solid var(--mb-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-booking-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--mb-primary), transparent);
 }
 
 .movie-booking-info img {
-    border-radius: var(--border-radius);
+    width: 70px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    flex-shrink: 0;
 }
 
 .movie-booking-details h2 {
-    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    margin-bottom: 0.35rem;
+    color: var(--mb-text);
+    font-weight: 600;
 }
 
-/* Booking Steps */
-.booking-steps {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 3rem;
-    background: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.step {
-    flex: 1;
+.movie-booking-details p {
+    color: var(--mb-text-muted);
+    font-size: 0.85rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    position: relative;
+    gap: 0.5rem;
 }
 
-.step::after {
-    content: '';
-    position: absolute;
-    left: 100%;
-    top: 50%;
-    width: 100%;
-    height: 2px;
-    background: #ddd;
-    z-index: -1;
+.movie-booking-details p i {
+    color: #ffc107;
 }
 
-.step:last-child::after {
-    display: none;
-}
-
-.step.active .step-number {
-    background: var(--primary-color);
-    color: white;
-}
-
-.step.active::after {
-    background: var(--primary-color);
-}
-
-.step-number {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #ddd;
+/* =============================================
+   Step Progress - Animated & Glowing
+============================================= */
+.booking-steps {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    gap: 0;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--mb-bg-card);
+    border-radius: var(--mb-radius-lg);
+    border: 1px solid var(--mb-border);
 }
 
-/* Date Selection */
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 1;
+    max-width: 140px;
+    position: relative;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: var(--mb-transition);
+}
+
+/* Connector Line */
+.step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 22px;
+    left: calc(50% + 24px);
+    width: calc(100% - 48px);
+    height: 2px;
+    background: var(--mb-border);
+    transition: background 0.5s ease;
+}
+
+.step.completed:not(:last-child)::after {
+    background: var(--mb-success);
+}
+
+.step.active:not(:last-child)::after {
+    background: linear-gradient(90deg, var(--mb-primary), var(--mb-border));
+}
+
+.step-number {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--mb-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--mb-text-muted);
+    transition: var(--mb-transition);
+    position: relative;
+    z-index: 1;
+}
+
+.step span:last-child {
+    font-size: 0.75rem;
+    color: var(--mb-text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+/* Active Step */
+.step.active .step-number {
+    background: var(--mb-primary);
+    border-color: var(--mb-primary);
+    color: white;
+    box-shadow: 0 0 0 4px var(--mb-primary-glow);
+    animation: stepPulse 2s ease-in-out infinite;
+}
+
+.step.active span:last-child {
+    color: var(--mb-text);
+    font-weight: 600;
+}
+
+/* Completed Step */
+.step.completed .step-number {
+    background: var(--mb-success);
+    border-color: var(--mb-success);
+    color: white;
+}
+
+.step.completed .step-number::before {
+    content: '✓';
+    font-size: 1rem;
+}
+
+.step.completed .step-number span {
+    display: none;
+}
+
+@keyframes stepPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 4px var(--mb-primary-glow);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(229, 9, 20, 0.2);
+    }
+}
+
+/* =============================================
+   Content Sections - Cards
+============================================= */
 .date-selection,
 .theater-selection,
 .seat-selection {
-    background: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: var(--mb-bg-card);
+    padding: 1.5rem;
+    border-radius: var(--mb-radius-lg);
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--mb-border);
+    box-shadow: var(--mb-shadow);
 }
 
 .date-selection h3,
 .theater-selection h3,
 .seat-selection h3 {
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    color: var(--mb-text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
+/* =============================================
+   Date Cards - Refined
+============================================= */
 .date-cards {
     display: flex;
-    gap: 1rem;
+    gap: 0.6rem;
     overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.date-cards::-webkit-scrollbar {
+    display: none;
 }
 
 .date-card {
-    min-width: 100px;
-    padding: 1rem;
-    border: 2px solid #ddd;
-    border-radius: var(--border-radius);
+    min-width: 72px;
+    padding: 0.9rem 0.6rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid var(--mb-border);
+    border-radius: 10px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--mb-transition);
+    flex-shrink: 0;
 }
 
 .date-card:hover {
-    border-color: var(--primary-color);
+    border-color: rgba(229, 9, 20, 0.4);
+    background: rgba(229, 9, 20, 0.08);
+    transform: translateY(-2px);
 }
 
 .date-card.active {
-    border-color: var(--primary-color);
-    background: var(--primary-color);
-    color: white;
+    border-color: var(--mb-primary);
+    background: var(--mb-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--mb-primary-glow);
 }
 
 .date-card .day {
     display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+    color: var(--mb-text-muted);
+    text-transform: uppercase;
 }
 
-/* Theater Selection */
+.date-card .date {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--mb-text);
+}
+
+.date-card.active .day,
+.date-card.active .date {
+    color: white;
+}
+
+/* =============================================
+   Theater Cards - Compact
+============================================= */
 .theater-card {
-    padding: 1.5rem;
-    border: 2px solid #ddd;
-    border-radius: var(--border-radius);
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--mb-border);
+    border-radius: var(--mb-radius);
+    margin-bottom: 0.75rem;
+    transition: var(--mb-transition);
+}
+
+.theater-card:hover {
+    border-color: rgba(229, 9, 20, 0.3);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.theater-card:last-child {
+    margin-bottom: 0;
+}
+
+.theater-info {
     margin-bottom: 1rem;
 }
 
 .theater-info h4 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: var(--mb-text);
+    font-weight: 600;
 }
 
 .theater-info p {
-    color: #666;
+    color: var(--mb-text-muted);
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
 }
 
+.theater-info p i {
+    color: var(--mb-primary);
+    font-size: 0.75rem;
+}
+
+/* Showtime Slots */
 .showtime-slots {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
 }
 
 .time-slot {
-    padding: 0.7rem 1.5rem;
-    border: 2px solid #ddd;
-    background: white;
-    border-radius: 25px;
+    padding: 0.55rem 1rem;
+    background: transparent;
+    border: 1.5px solid var(--mb-border);
+    border-radius: 6px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--mb-transition);
+    color: var(--mb-text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
 .time-slot:hover {
-    border-color: var(--primary-color);
+    border-color: var(--mb-primary);
+    color: var(--mb-primary);
+    background: rgba(229, 9, 20, 0.08);
 }
 
 .time-slot.active {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
+    background: var(--mb-primary);
+    border-color: var(--mb-primary);
     color: white;
+    box-shadow: 0 4px 12px var(--mb-primary-glow);
 }
 
-/* Seat Selection */
+/* =============================================
+   Seat Selection - Premium Grid
+============================================= */
+.seat-selection {
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .screen-indicator {
     text-align: center;
     margin-bottom: 2rem;
+    perspective: 400px;
 }
 
 .screen {
-    background: linear-gradient(to bottom, #ddd, #f8f9fa);
-    padding: 1rem 4rem;
-    border-radius: 10px 10px 50% 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+    padding: 0.5rem 4rem;
+    border-radius: 4px;
     display: inline-block;
-    color: #666;
-    font-weight: bold;
+    color: var(--mb-text-muted);
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    transform: rotateX(-25deg);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .seat-map {
-    max-width: 600px;
-    margin: 0 auto 2rem;
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+}
+
+.seat-category {
+    margin-bottom: 1.5rem;
+}
+
+.seat-category-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0 0.5rem;
+}
+
+.seat-category-label span:first-child {
+    font-size: 0.75rem;
+    color: var(--mb-text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.seat-category-label span:last-child {
+    font-size: 0.8rem;
+    color: var(--mb-primary);
+    font-weight: 600;
 }
 
 .seat-row {
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
+    gap: 6px;
+    margin-bottom: 6px;
     align-items: center;
+    justify-content: center;
 }
 
 .row-label {
-    width: 30px;
-    font-weight: bold;
-    color: #666;
+    width: 20px;
+    font-weight: 700;
+    color: var(--mb-text-muted);
+    font-size: 0.7rem;
+    text-align: center;
+    flex-shrink: 0;
 }
 
 .seat {
-    width: 40px;
-    height: 40px;
-    border: 2px solid #4caf50;
-    background: white;
-    border-radius: 5px 5px 0 0;
+    width: 28px;
+    height: 26px;
+    border: 1.5px solid var(--mb-success);
+    background: rgba(29, 185, 84, 0.1);
+    border-radius: 4px 4px 8px 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    position: relative;
 }
 
-.seat:hover:not(.occupied) {
-    background: #e3f2fd;
-    border-color: var(--primary-color);
+.seat:hover:not(.occupied):not(.selected) {
+    background: rgba(229, 9, 20, 0.2);
+    border-color: var(--mb-primary);
+    transform: scale(1.15);
+    z-index: 2;
 }
 
 .seat.selected {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
+    background: var(--mb-primary);
+    border-color: var(--mb-primary);
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px var(--mb-primary-glow);
+    animation: seatPop 0.25s ease;
 }
 
 .seat.occupied {
-    background: #ddd;
-    border-color: #999;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
     cursor: not-allowed;
 }
 
+@keyframes seatPop {
+    0% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Seat Legend */
 .seat-legend {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     justify-content: center;
-    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid var(--mb-border);
 }
 
 .legend-item {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--mb-text-muted);
 }
 
 .seat.small {
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 16px;
+    cursor: default;
+    flex-shrink: 0;
 }
 
-/* Booking Summary */
+.seat.small:hover {
+    transform: none;
+}
+
+/* =============================================
+   Booking Summary - Sticky Premium
+============================================= */
 .booking-summary {
-    background: white;
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: linear-gradient(145deg, var(--mb-bg-card) 0%, #1c1c1c 100%);
+    padding: 1.5rem;
+    border-radius: var(--mb-radius-lg);
+    box-shadow: var(--mb-shadow-lg);
+    border: 1px solid var(--mb-border);
     position: sticky;
-    top: 100px;
+    top: 80px;
 }
 
 .booking-summary h3 {
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    color: var(--mb-text);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.booking-summary h3::before {
+    content: '🎟️';
+    font-size: 1.1rem;
 }
 
 .summary-details {
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
 }
 
 .summary-row {
     display: flex;
     justify-content: space-between;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid #eee;
+    align-items: center;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--mb-border);
+    font-size: 0.85rem;
+}
+
+.summary-row:last-of-type:not(.total) {
+    border-bottom: none;
+}
+
+.summary-row span:first-child {
+    color: var(--mb-text-muted);
+}
+
+.summary-row span:last-child {
+    color: var(--mb-text);
+    font-weight: 500;
 }
 
 .summary-row.total {
     border-bottom: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: var(--primary-color);
+    border-top: 2px solid var(--mb-primary);
+    margin-top: 0.75rem;
+    padding-top: 1rem;
 }
 
+.summary-row.total span:first-child {
+    font-size: 0.95rem;
+    color: var(--mb-text);
+    font-weight: 600;
+}
+
+.summary-row.total span:last-child {
+    font-size: 1.3rem;
+    color: var(--mb-primary);
+    font-weight: 700;
+}
+
+/* Proceed Button */
 .btn-proceed {
     width: 100%;
-    padding: 1rem;
-    background: var(--primary-color);
+    padding: 0.9rem;
+    background: var(--mb-primary);
     color: white;
     border: none;
-    border-radius: var(--border-radius);
-    font-size: 1.1rem;
-    font-weight: bold;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--mb-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.btn-proceed:hover {
-    background: #b20710;
+.btn-proceed:hover:not(:disabled) {
+    background: var(--mb-primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 24px var(--mb-primary-glow);
 }
 
-@media (max-width: 768px) {
+.btn-proceed:disabled {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--mb-text-muted);
+    cursor: not-allowed;
+}
+
+.btn-proceed i {
+    font-size: 0.85rem;
+}
+
+/* =============================================
+   Two Column Layout
+============================================= */
+.booking-content {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.booking-main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* =============================================
+   Responsive
+============================================= */
+@media (max-width: 900px) {
+    .booking-content {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-summary {
+        position: static;
+        order: 1;
+    }
+}
+
+@media (max-width: 600px) {
     .booking-steps {
-        flex-direction: column;
+        padding: 0.75rem;
     }
-    
-    .step::after {
-        display: none;
+
+    .step span:last-child {
+        font-size: 0.65rem;
     }
-    
+
+    .step-number {
+        width: 36px;
+        height: 36px;
+        font-size: 0.85rem;
+    }
+
+    .date-card {
+        min-width: 60px;
+        padding: 0.7rem 0.5rem;
+    }
+
+    .time-slot {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
     .seat {
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 22px;
     }
+
+    .seat-row {
+        gap: 4px;
+    }
+}
+
+/* =============================================
+   Subtle Animations
+============================================= */
+.summary-value-update {
+    animation: valueFlash 0.3s ease;
+}
+
+@keyframes valueFlash {
+    0% {
+        color: var(--mb-text);
+    }
+
+    50% {
+        color: var(--mb-primary);
+        transform: scale(1.05);
+    }
+
+    100% {
+        color: var(--mb-text);
+        transform: scale(1);
+    }
+}
+
+/* Loading State */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid var(--mb-primary);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =============================================
+   No Shows / Empty State
+============================================= */
+.no-shows {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--mb-text-muted);
+}
+
+.no-shows i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+}
+
+.no-shows p {
+    margin: 0.5rem 0;
+}
+
+.no-shows a {
+    color: var(--mb-primary);
+    text-decoration: none;
+}
+
+.no-shows a:hover {
+    text-decoration: underline;
+}
+
+/* Slot Price Display */
+.time-slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.slot-price {
+    font-size: 0.65rem;
+    color: var(--mb-success);
+    font-weight: 500;
+}
+
+.time-slot.active .slot-price {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.no-today-shows {
+    color: var(--mb-text-muted);
+    font-size: 0.8rem;
+    font-style: italic;
 }

@@ -1,0 +1,199 @@
+<?php require_once '../includes/admin_check.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - MovieBook Admin</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../logo.png" alt="MOVIEBOOK" class="admin-logo">
+                <h2>Admin Control</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.php" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="users.php" class="nav-link">
+                    <i class="bi bi-people"></i>
+                    <span>Users Management</span>
+                </a>
+                <a href="theaters.php" class="nav-link">
+                    <i class="bi bi-building"></i>
+                    <span>Theater Requests</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="movies.php" class="nav-link">
+                    <i class="bi bi-film"></i>
+                    <span>Movies</span>
+                </a>
+                <a href="bookings.php" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="revenue.php" class="nav-link">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Revenue & Earnings</span>
+                </a>
+                <a href="analytics.php" class="nav-link">
+                    <i class="bi bi-graph-up"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="reports.php" class="nav-link">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="settings.php" class="nav-link active">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link logout">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Top Bar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h1>Settings</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search settings...">
+                    </div>
+                    <button class="notification-btn">
+                        <i class="bi bi-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="admin-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&size=40&background=e50914&color=fff" alt="Admin">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Platform Settings -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-sliders"></i> Platform Settings</h2>
+                        <button class="btn-approve">
+                            <i class="bi bi-save"></i> Save Changes
+                        </button>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div class="revenue-item">
+                            <div class="revenue-label">
+                                <i class="bi bi-percent"></i>
+                                <span>Platform Charge (%)</span>
+                            </div>
+                            <input type="number" value="15" style="background: var(--admin-dark); border: 1px solid var(--admin-border); color: var(--admin-text); padding: 0.6rem 1rem; border-radius: 6px; width: 200px;">
+                        </div>
+
+                        <div class="revenue-item">
+                            <div class="revenue-label">
+                                <i class="bi bi-currency-rupee"></i>
+                                <span>Minimum Booking Amount (₹)</span>
+                            </div>
+                            <input type="number" value="100" style="background: var(--admin-dark); border: 1px solid var(--admin-border); color: var(--admin-text); padding: 0.6rem 1rem; border-radius: 6px; width: 200px;">
+                        </div>
+
+                        <div class="revenue-item">
+                            <div class="revenue-label">
+                                <i class="bi bi-ticket"></i>
+                                <span>Max Tickets Per Booking</span>
+                            </div>
+                            <input type="number" value="10" style="background: var(--admin-dark); border: 1px solid var(--admin-border); color: var(--admin-text); padding: 0.6rem 1rem; border-radius: 6px; width: 200px;">
+                        </div>
+
+                        <div class="revenue-item">
+                            <div class="revenue-label">
+                                <i class="bi bi-clock"></i>
+                                <span>Cancellation Window (hours)</span>
+                            </div>
+                            <input type="number" value="2" style="background: var(--admin-dark); border: 1px solid var(--admin-border); color: var(--admin-text); padding: 0.6rem 1rem; border-radius: 6px; width: 200px;">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notification Settings -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-bell"></i> Notification Settings</h2>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--admin-gray); border-radius: 8px; border: 1px solid var(--admin-border);">
+                            <span>Send email notifications to users</span>
+                            <label style="position: relative; display: inline-block; width: 60px; height: 30px;">
+                                <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                                <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--admin-red); border-radius: 30px; transition: 0.4s;"></span>
+                            </label>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--admin-gray); border-radius: 8px; border: 1px solid var(--admin-border);">
+                            <span>Send SMS notifications for bookings</span>
+                            <label style="position: relative; display: inline-block; width: 60px; height: 30px;">
+                                <input type="checkbox" checked style="opacity: 0; width: 0; height: 0;">
+                                <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--admin-red); border-radius: 30px; transition: 0.4s;"></span>
+                            </label>
+                        </div>
+
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: var(--admin-gray); border-radius: 8px; border: 1px solid var(--admin-border);">
+                            <span>Auto-approve theaters with verified documents</span>
+                            <label style="position: relative; display: inline-block; width: 60px; height: 30px;">
+                                <input type="checkbox" style="opacity: 0; width: 0; height: 0;">
+                                <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--admin-border); border-radius: 30px; transition: 0.4s;"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security Settings -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-shield-check"></i> Security Settings</h2>
+                    </div>
+                    <div class="quick-actions">
+                        <button class="action-btn">
+                            <i class="bi bi-key"></i>
+                            <span>Change Password</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="bi bi-shield-lock"></i>
+                            <span>Two-Factor Auth</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="bi bi-clock-history"></i>
+                            <span>Login History</span>
+                        </button>
+                        <button class="action-btn">
+                            <i class="bi bi-person-badge"></i>
+                            <span>Admin Roles</span>
+                        </button>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

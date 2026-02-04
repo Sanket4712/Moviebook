@@ -1,27 +1,27 @@
 // Movie Booking Home Page JavaScript
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Check if user is logged in
     checkUserLogin();
-    
-    // Add event listeners to all book ticket buttons
-    const bookButtons = document.querySelectorAll('.btn-book-ticket');
+
+    // Add event listeners to all book ticket buttons (EXCLUDE watchlist buttons)
+    const bookButtons = document.querySelectorAll('.btn-book-ticket:not(.btn-watchlist)');
     bookButtons.forEach(btn => {
         btn.addEventListener('click', handleBookTicket);
     });
-    
+
     // Add event listeners to notify buttons
     const notifyButtons = document.querySelectorAll('.btn-notify');
     notifyButtons.forEach(btn => {
         btn.addEventListener('click', handleNotify);
     });
-    
+
     // Location selector
     const locationSelector = document.querySelector('.location');
     if (locationSelector) {
         locationSelector.addEventListener('click', showLocationModal);
     }
-    
+
     // Search functionality
     const searchInput = document.querySelector('.search-box input');
     if (searchInput) {
@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
 // Check if user is logged in
 function checkUserLogin() {
     const user = JSON.parse(localStorage.getItem('moviebook_user') || sessionStorage.getItem('moviebook_user') || 'null');
-    
+
     if (!user || !user.loggedIn) {
-        // User not logged in, redirect to login page
-        window.location.href = '../auth/login.html';
+        // User not logged in - session is managed by PHP
+        // Skip client-side redirect as PHP handles auth
         return;
     }
-    
+
     console.log('User logged in:', user.name || user.email);
 }
 
@@ -46,17 +46,17 @@ function checkUserLogin() {
 function handleBookTicket(e) {
     const movieCard = e.target.closest('.movie-card');
     const movieTitle = movieCard.querySelector('h3').textContent;
-    
+
     // Store selected movie and redirect to booking page
     sessionStorage.setItem('selectedMovie', movieTitle);
-    window.location.href = 'movie-booking/booking.html';
+    window.location.href = 'booking.php';
 }
 
 // Handle notify button click
 function handleNotify(e) {
     const movieCard = e.target.closest('.movie-card');
     const movieTitle = movieCard.querySelector('h3').textContent;
-    
+
     showNotification(`You will be notified when ${movieTitle} is released!`, 'success');
 }
 
@@ -65,7 +65,7 @@ function showLocationModal() {
     // For demo, just show alert
     const locations = ['Kolhapur', 'Delhi', 'Bangalore', 'Pune', 'Hyderabad', 'Chennai'];
     const selected = prompt('Select your city:\n\n' + locations.join('\n'));
-    
+
     if (selected && locations.includes(selected)) {
         document.querySelector('.location span').textContent = selected;
         localStorage.setItem('moviebook_location', selected);
@@ -76,17 +76,17 @@ function showLocationModal() {
 // Handle search
 function handleSearch(e) {
     const query = e.target.value.toLowerCase().trim();
-    
+
     if (query.length < 2) {
         return;
     }
-    
+
     // Simple search implementation
     const movieCards = document.querySelectorAll('.movie-card');
     movieCards.forEach(card => {
         const title = card.querySelector('h3').textContent.toLowerCase();
         const genre = card.querySelector('.genre')?.textContent.toLowerCase() || '';
-        
+
         if (title.includes(query) || genre.includes(query)) {
             card.style.display = 'block';
         } else {
@@ -101,7 +101,7 @@ function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
-    
+
     // Style the notification
     notification.style.cssText = `
         position: fixed;
@@ -117,9 +117,9 @@ function showNotification(message, type = 'info') {
         font-size: 14px;
         font-weight: 500;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     // Remove after 3 seconds
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease';

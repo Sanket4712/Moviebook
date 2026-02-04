@@ -1,21 +1,17 @@
 // Collections Page JavaScript
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Check if user is logged in
     checkUserLogin();
-    
+
     // Load user collections
     loadCollections();
 });
 
 // Check if user is logged in
 function checkUserLogin() {
-    const user = JSON.parse(localStorage.getItem('moviebook_user') || sessionStorage.getItem('moviebook_user') || 'null');
-    
-    if (!user || !user.loggedIn) {
-        window.location.href = '../auth/login.html';
-        return;
-    }
+    // Session is managed by PHP - skip client-side check
+    return;
 }
 
 // Load collections from localStorage
@@ -27,33 +23,33 @@ function loadCollections() {
 // Create new collection
 function createNewCollection() {
     const collectionName = prompt('Enter collection name:');
-    
+
     if (!collectionName || collectionName.trim() === '') {
         return;
     }
-    
+
     // Get existing collections
     const collections = JSON.parse(localStorage.getItem('moviebook_collections') || '{}');
-    
+
     // Create new collection
     const collectionId = collectionName.toLowerCase().replace(/\s+/g, '-');
-    
+
     if (collections[collectionId]) {
         showNotification('Collection already exists!', 'error');
         return;
     }
-    
+
     collections[collectionId] = {
         name: collectionName,
         movies: [],
         createdAt: new Date().toISOString()
     };
-    
+
     // Save to localStorage
     localStorage.setItem('moviebook_collections', JSON.stringify(collections));
-    
+
     showNotification('Collection created successfully!', 'success');
-    
+
     // Reload page
     setTimeout(() => {
         location.reload();
@@ -63,7 +59,7 @@ function createNewCollection() {
 // Add movie to collection
 function addToCollection(movieId, collectionId) {
     const collections = JSON.parse(localStorage.getItem('moviebook_collections') || '{}');
-    
+
     if (!collections[collectionId]) {
         collections[collectionId] = {
             name: collectionId,
@@ -71,7 +67,7 @@ function addToCollection(movieId, collectionId) {
             createdAt: new Date().toISOString()
         };
     }
-    
+
     if (!collections[collectionId].movies.includes(movieId)) {
         collections[collectionId].movies.push(movieId);
         localStorage.setItem('moviebook_collections', JSON.stringify(collections));
@@ -86,7 +82,7 @@ function showNotification(message, type = 'info') {
     const notification = document.createElement('div');
     notification.className = `notification ${type}`;
     notification.textContent = message;
-    
+
     notification.style.cssText = `
         position: fixed;
         top: 80px;
@@ -101,9 +97,9 @@ function showNotification(message, type = 'info') {
         font-size: 14px;
         font-weight: 500;
     `;
-    
+
     document.body.appendChild(notification);
-    
+
     setTimeout(() => {
         notification.style.animation = 'slideOut 0.3s ease';
         setTimeout(() => {
