@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies Management - MovieBook Admin</title>
+    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <img src="../logo.png" alt="MOVIEBOOK" class="admin-logo">
+                <h2>Admin Control</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="users.html" class="nav-link">
+                    <i class="bi bi-people"></i>
+                    <span>Users Management</span>
+                </a>
+                <a href="theaters.html" class="nav-link">
+                    <i class="bi bi-building"></i>
+                    <span>Theater Requests</span>
+                    <span class="badge">5</span>
+                </a>
+                <a href="movies.html" class="nav-link active">
+                    <i class="bi bi-film"></i>
+                    <span>Movies</span>
+                </a>
+                <a href="bookings.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Bookings</span>
+                </a>
+                <a href="revenue.html" class="nav-link">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Revenue & Earnings</span>
+                </a>
+                <a href="analytics.html" class="nav-link">
+                    <i class="bi bi-graph-up"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="reports.html" class="nav-link">
+                    <i class="bi bi-file-earmark-text"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="settings.html" class="nav-link">
+                    <i class="bi bi-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="nav-link logout">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Top Bar -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button class="menu-toggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <h1>Movies Management</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search movies...">
+                    </div>
+                    <button class="notification-btn">
+                        <i class="bi bi-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="admin-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&size=40&background=e50914&color=fff" alt="Admin">
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+                <!-- Movie Stats -->
+                <section class="stats-section">
+                    <div class="stat-card primary">
+                        <div class="stat-icon">
+                            <i class="bi bi-film"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Movies</h3>
+                            <p class="stat-number">1,245</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> 45 added this month
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card success">
+                        <div class="stat-icon">
+                            <i class="bi bi-play-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Now Showing</h3>
+                            <p class="stat-number">156</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> Across all theaters
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <div class="stat-icon">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Upcoming Releases</h3>
+                            <p class="stat-number">42</p>
+                            <span class="stat-change">
+                                Next 30 days
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card danger">
+                        <div class="stat-icon">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Avg Rating</h3>
+                            <p class="stat-number">4.2</p>
+                            <span class="stat-change positive">
+                                <i class="bi bi-arrow-up"></i> 0.3 from last month
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Add New Movie -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-plus-circle"></i> Add New Movie</h2>
+                        <button class="btn-approve">
+                            <i class="bi bi-film"></i> Add Movie
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Top Movies -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-trophy"></i> Top Performing Movies</h2>
+                        <select class="time-filter">
+                            <option>This Week</option>
+                            <option>This Month</option>
+                            <option>All Time</option>
+                        </select>
+                    </div>
+                    <div class="top-movies">
+                        <div class="movie-rank-item">
+                            <span class="rank gold">1</span>
+                            <div class="movie-rank-info">
+                                <h4>Avengers: Endgame</h4>
+                                <p>12,450 bookings | Rating: 4.8/5</p>
+                            </div>
+                            <span class="revenue-badge">₹3,45,600</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank silver">2</span>
+                            <div class="movie-rank-info">
+                                <h4>Inception</h4>
+                                <p>8,340 bookings | Rating: 4.7/5</p>
+                            </div>
+                            <span class="revenue-badge">₹2,10,400</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank bronze">3</span>
+                            <div class="movie-rank-info">
+                                <h4>Interstellar</h4>
+                                <p>7,890 bookings | Rating: 4.6/5</p>
+                            </div>
+                            <span class="revenue-badge">₹1,95,200</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank">4</span>
+                            <div class="movie-rank-info">
+                                <h4>The Dark Knight</h4>
+                                <p>6,520 bookings | Rating: 4.7/5</p>
+                            </div>
+                            <span class="revenue-badge">₹1,65,800</span>
+                        </div>
+
+                        <div class="movie-rank-item">
+                            <span class="rank">5</span>
+                            <div class="movie-rank-info">
+                                <h4>Oppenheimer</h4>
+                                <p>5,890 bookings | Rating: 4.5/5</p>
+                            </div>
+                            <span class="revenue-badge">₹1,48,900</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- All Movies List -->
+                <section class="section-card">
+                    <div class="card-header">
+                        <h2><i class="bi bi-collection-play"></i> All Movies</h2>
+                        <div style="display: flex; gap: 1rem;">
+                            <select class="time-filter">
+                                <option>All Movies</option>
+                                <option>Now Showing</option>
+                                <option>Upcoming</option>
+                                <option>Archived</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem;">
+                        <div style="background: var(--admin-gray); border: 1px solid var(--admin-border); border-radius: 12px; overflow: hidden; transition: all 0.3s;">
+                            <div style="height: 300px; background: linear-gradient(135deg, var(--admin-red), var(--admin-red-dark)); display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-film" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
+                            </div>
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Avengers: Endgame</h4>
+                                <p style="color: var(--admin-text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Action, Sci-Fi</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                    <span style="color: var(--admin-warning);">
+                                        <i class="bi bi-star-fill"></i> 4.8
+                                    </span>
+                                    <span class="revenue-badge" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;">₹3.4L</span>
+                                </div>
+                                <button class="btn-approve" style="width: 100%; padding: 0.5rem; font-size: 0.85rem;">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--admin-gray); border: 1px solid var(--admin-border); border-radius: 12px; overflow: hidden;">
+                            <div style="height: 300px; background: linear-gradient(135deg, #28a745, #20c997); display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-film" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
+                            </div>
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Inception</h4>
+                                <p style="color: var(--admin-text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Thriller, Sci-Fi</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                    <span style="color: var(--admin-warning);">
+                                        <i class="bi bi-star-fill"></i> 4.7
+                                    </span>
+                                    <span class="revenue-badge" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;">₹2.1L</span>
+                                </div>
+                                <button class="btn-approve" style="width: 100%; padding: 0.5rem; font-size: 0.85rem;">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--admin-gray); border: 1px solid var(--admin-border); border-radius: 12px; overflow: hidden;">
+                            <div style="height: 300px; background: linear-gradient(135deg, #007bff, #0056b3); display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-film" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
+                            </div>
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 0.5rem;">Interstellar</h4>
+                                <p style="color: var(--admin-text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Sci-Fi, Drama</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                    <span style="color: var(--admin-warning);">
+                                        <i class="bi bi-star-fill"></i> 4.6
+                                    </span>
+                                    <span class="revenue-badge" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;">₹1.9L</span>
+                                </div>
+                                <button class="btn-approve" style="width: 100%; padding: 0.5rem; font-size: 0.85rem;">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+
+                        <div style="background: var(--admin-gray); border: 1px solid var(--admin-border); border-radius: 12px; overflow: hidden;">
+                            <div style="height: 300px; background: linear-gradient(135deg, #ffc107, #ff9800); display: flex; align-items: center; justify-content: center;">
+                                <i class="bi bi-film" style="font-size: 4rem; color: rgba(255,255,255,0.3);"></i>
+                            </div>
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 0.5rem;">The Dark Knight</h4>
+                                <p style="color: var(--admin-text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Action, Crime</p>
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                                    <span style="color: var(--admin-warning);">
+                                        <i class="bi bi-star-fill"></i> 4.7
+                                    </span>
+                                    <span class="revenue-badge" style="font-size: 0.75rem; padding: 0.3rem 0.6rem;">₹1.6L</span>
+                                </div>
+                                <button class="btn-approve" style="width: 100%; padding: 0.5rem; font-size: 0.85rem;">
+                                    <i class="bi bi-pencil"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="../assets/js/admin.js"></script>
+</body>
+</html>

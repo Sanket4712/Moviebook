@@ -1,0 +1,459 @@
+/* My Profile Page - Letterboxd Inspired Premium Design */
+
+.profile-content {
+    padding: 50px 40px;
+    max-width: 1200px;
+}
+
+/* Profile Header Card */
+.profile-header-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 60px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(229, 9, 20, 0.1);
+    animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-avatar-wrapper {
+    flex-shrink: 0;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    display: block;
+    border: 2px solid #e50914;
+}
+
+.profile-header-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.profile-name-section {
+    margin-bottom: 24px;
+}
+
+.profile-name {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+.profile-email {
+    font-size: 14px;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.2px;
+}
+
+.profile-email i {
+    color: #e50914;
+    font-size: 13px;
+}
+
+.profile-stats-compact {
+    display: flex;
+    gap: 32px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-number {
+    font-size: 24px;
+    font-weight: 600;
+    color: #e50914;
+    letter-spacing: 0.3px;
+}
+
+.stat-name {
+    font-size: 12px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+/* Sections */
+.profile-section {
+    margin-bottom: 70px;
+    animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
+    animation-delay: 0.1s;
+}
+
+.section-title {
+    margin-bottom: 28px;
+}
+
+.section-title h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #fff;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.section-title h2 i {
+    color: #e50914;
+    font-size: 22px;
+}
+
+.section-subtitle {
+    font-size: 13px;
+    color: #888;
+    letter-spacing: 0.2px;
+}
+
+/* Diary Section */
+.diary-section {
+    margin-bottom: 80px;
+}
+
+.diary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.diary-entry {
+    display: flex;
+    gap: 24px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    border-left: 3px solid #e50914;
+    transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.diary-entry:hover {
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateX(4px);
+}
+
+.diary-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 60px;
+    padding-top: 4px;
+}
+
+.day {
+    font-size: 20px;
+    font-weight: 600;
+    color: #e50914;
+    letter-spacing: 0.3px;
+}
+
+.month-year {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.diary-movie {
+    display: flex;
+    gap: 16px;
+    flex: 1;
+}
+
+.diary-poster {
+    width: 60px;
+    height: 90px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.diary-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.diary-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #fff;
+    letter-spacing: 0.2px;
+}
+
+.diary-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+
+.diary-rating i {
+    color: #ffd700;
+    font-size: 12px;
+}
+
+.diary-rating span {
+    color: #aaa;
+    margin-left: 4px;
+    letter-spacing: 0.2px;
+}
+
+.diary-note {
+    font-size: 13px;
+    color: #bbb;
+    line-height: 1.5;
+    letter-spacing: 0.2px;
+}
+
+/* Poster Rows */
+.poster-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+}
+
+.poster-card {
+    cursor: pointer;
+    animation: fadeInUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+.poster-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #1a1a1a;
+    margin-bottom: 12px;
+}
+
+.poster-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.poster-card:hover .poster-image img {
+    transform: scale(1.04);
+}
+
+.poster-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.28s ease-out;
+}
+
+.poster-card:hover .poster-overlay {
+    opacity: 1;
+}
+
+.btn-poster-action {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e50914;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.25s ease-out;
+}
+
+.btn-poster-action:hover {
+    background: #f40612;
+    transform: scale(1.08);
+    box-shadow: 0 6px 16px rgba(229, 9, 20, 0.4);
+}
+
+.poster-info {
+    padding: 0;
+}
+
+.poster-info h4 {
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0.2px;
+}
+
+.poster-year {
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+    letter-spacing: 0.2px;
+}
+
+/* Sign Out Button */
+.btn-signout {
+    background: transparent;
+    border: 1px solid rgba(229, 9, 20, 0.3);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease-out;
+    letter-spacing: 0.2px;
+}
+
+.btn-signout:hover {
+    background: rgba(229, 9, 20, 0.15);
+    border-color: #e50914;
+    color: #e50914;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .profile-content {
+        padding: 30px 16px;
+    }
+
+    .profile-header-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 24px;
+    }
+
+    .profile-header-info {
+        text-align: center;
+    }
+
+    .profile-stats-compact {
+        justify-content: center;
+    }
+
+    .profile-name {
+        font-size: 24px;
+    }
+
+    .poster-row {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 16px;
+    }
+
+    .diary-entry {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .diary-date {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        min-width: unset;
+    }
+
+    .diary-movie {
+        width: 100%;
+    }
+
+    .section-title h2 {
+        font-size: 20px;
+    }
+
+    .profile-section {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-content {
+        padding: 20px 12px 80px;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .profile-name {
+        font-size: 20px;
+    }
+
+    .profile-stats-compact {
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 18px;
+    }
+
+    .poster-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .poster-image {
+        margin-bottom: 8px;
+    }
+
+    .poster-info h4 {
+        font-size: 12px;
+    }
+
+    .diary-entry {
+        padding: 12px;
+    }
+
+    .diary-poster {
+        width: 50px;
+        height: 75px;
+    }
+
+    .diary-info h3 {
+        font-size: 14px;
+    }
+
+    .diary-note {
+        font-size: 12px;
+    }
+}

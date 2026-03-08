@@ -1,0 +1,235 @@
+<?php require_once 'includes/session.php'; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieBook - Book Tickets & Share Your Reviews</title>
+    <link rel="stylesheet" href="assets/css/landing.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="landing-body">
+    <!-- Header -->
+    <header class="landing-header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="logo.png" alt="MOVIEBOOK" class="logo-img">
+            </div>
+            <div class="header-actions">
+                <?php if (isLoggedIn()): ?>
+                    <a href="User/home.php" class="btn-signin" style="text-decoration: none;">Dashboard</a>
+                <?php else: ?>
+                    <button class="btn-signin" onclick="location.href='auth/login.php'">Sign In</button>
+                <?php endif; ?>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Showcase -->
+    <section class="hero-showcase">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">Your Movie Experience Starts Here</h1>
+            <p class="hero-subtitle">Book tickets for the latest releases and share your movie reviews with fellow film enthusiasts.</p>
+            <div class="hero-cta">
+                <?php if (isLoggedIn()): ?>
+                    <button class="btn-get-started" onclick="location.href='User/home.php'">
+                        Go to Dashboard <i class="bi bi-chevron-right"></i>
+                    </button>
+                <?php else: ?>
+                    <button class="btn-get-started" onclick="location.href='auth/signup.php'">
+                        Get Started <i class="bi bi-chevron-right"></i>
+                    </button>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curved Separator -->
+    <div class="curved-separator">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,0 Q720,120 1440,0 L1440,120 L0,120 Z" fill="#000"></path>
+        </svg>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features-showcase">
+        <div class="features-wrapper">
+            <h2 class="features-title">Why Choose MovieBook?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-ticket-perforated-fill"></i>
+                    </div>
+                    <h3>Book Tickets Instantly</h3>
+                    <p>Reserve your seats for the latest blockbusters. Choose your preferred cinema, showtime, and seats with our easy booking system.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <h3>Rate and Review Movies</h3>
+                    <p>Share your thoughts on the latest films. Read reviews from other movie lovers and discover what's worth watching.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-film"></i>
+                    </div>
+                    <h3>Discover New Releases</h3>
+                    <p>Browse through our extensive collection of currently showing and upcoming movies. Filter by genre, rating, and theater location.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <h3>Join the Community</h3>
+                    <p>Connect with fellow movie enthusiasts. Follow users with similar tastes, create watchlists, and get personalized recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curved Separator -->
+    <div class="curved-separator">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+            <path d="M0,0 Q720,120 1440,0 L1440,120 L0,120 Z" fill="#000"></path>
+        </svg>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-heading">Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is MovieBook?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>MovieBook is your one-stop platform for booking movie tickets and sharing reviews. Discover the latest releases, reserve your seats at nearby theaters, and connect with a community of movie lovers.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Is MovieBook free to use?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Creating an account and browsing movies is completely free. You only pay for the movie tickets you book. There are no subscription fees or hidden charges.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do I book tickets?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Simply browse movies, select your preferred theater and showtime, choose your seats, and complete the payment. You'll receive a confirmation email with your ticket details instantly.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can I cancel my booking?</span>
+                        <i class="bi bi-plus-lg"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, you can cancel your booking up to 2 hours before the showtime. Refunds will be processed according to the theater's cancellation policy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cta-signup">
+                <p>Ready to book your next movie? Join thousands of movie lovers today.</p>
+                <?php if (isLoggedIn()): ?>
+                    <button class="btn-get-started" onclick="location.href='User/home.php'">
+                        Browse Movies <i class="bi bi-chevron-right"></i>
+                    </button>
+                <?php else: ?>
+                    <button class="btn-get-started" onclick="location.href='auth/signup.php'">
+                        Get Started <i class="bi bi-chevron-right"></i>
+                    </button>
+                <?php endif; ?>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MovieBook</h3>
+                    <p>Your ultimate movie booking platform</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Subplatforms</h4>
+                    <ul>
+                        <li><a href="#" onclick="openLoginModal('admin'); return false;">Admin Portal</a></li>
+                        <li><a href="#" onclick="openLoginModal('theater'); return false;">Theater Portal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MovieBook. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal for Subplatforms -->
+    <div id="subplatformModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeLoginModal()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+            <div class="modal-header">
+                <div class="modal-icon">
+                    <i class="bi" id="modalIcon"></i>
+                </div>
+                <h2 id="modalTitle"></h2>
+                <p id="modalSubtitle"></p>
+            </div>
+            <form id="subplatformLoginForm" onsubmit="return handleSubplatformLogin(event)">
+                <div class="form-group">
+                    <label for="platformEmail">
+                        <i class="bi bi-envelope"></i> Email Address
+                    </label>
+                    <input type="email" id="platformEmail" name="email" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="platformPassword">
+                        <i class="bi bi-lock"></i> Password
+                    </label>
+                    <input type="password" id="platformPassword" name="password" required placeholder="Enter your password">
+                </div>
+                <div id="loginError" class="error-message"></div>
+                <button type="submit" class="btn-submit">
+                    <i class="bi bi-box-arrow-in-right"></i> Sign In
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

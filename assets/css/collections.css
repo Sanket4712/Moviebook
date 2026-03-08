@@ -1,0 +1,205 @@
+/* Collections Page Styles - Premium Edition */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0 40px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(229, 9, 20, 0.15);
+}
+
+.page-header h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.3px;
+}
+
+.btn-create-collection {
+    background: #e50914;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.3px;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-create-collection:hover {
+    background: #f40612;
+    transform: scale(1.04);
+    box-shadow: 0 6px 16px rgba(229, 9, 20, 0.4);
+}
+
+/* Horizontal Collection Rows */
+.collection-row {
+    margin: 50px 0;
+}
+
+.collection-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(229, 9, 20, 0.12);
+}
+
+.collection-title-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.collection-title-box i {
+    font-size: 26px;
+    color: #e50914;
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.collection-title-box:hover i {
+    transform: scale(1.1);
+}
+
+.collection-title-box h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+.collection-title-box .movie-count {
+    font-size: 13px;
+    color: #aaa;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 5px 14px;
+    border-radius: 12px;
+    transition: all 0.28s ease-out;
+    letter-spacing: 0.2px;
+}
+
+.collection-header:hover .movie-count {
+    background: rgba(229, 9, 20, 0.15);
+    color: #ddd;
+}
+
+.see-all {
+    color: #e50914;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: gap 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease-out;
+    letter-spacing: 0.2px;
+}
+
+.see-all:hover {
+    gap: 10px;
+    color: #f40612;
+}
+
+/* Horizontal Scrollable Movies */
+.movies-scroll {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 15px;
+    scroll-behavior: smooth;
+}
+
+.movies-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+
+.movies-scroll::-webkit-scrollbar-track {
+    background: #1a1a1a;
+    border-radius: 4px;
+}
+
+.movies-scroll::-webkit-scrollbar-thumb {
+    background: #e50914;
+    border-radius: 4px;
+}
+
+.movies-scroll::-webkit-scrollbar-thumb:hover {
+    background: #f40612;
+}
+
+.movie-card-small {
+    min-width: 150px;
+    cursor: pointer;
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+.movie-card-small:hover {
+    transform: scale(1.04);
+}
+
+.movie-card-small img {
+    width: 150px;
+    height: 225px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: box-shadow 0.28s ease-out, transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: block;
+}
+
+.movie-card-small:hover img {
+    box-shadow: 0 12px 24px rgba(229, 9, 20, 0.35);
+    transform: scale(1.03);
+}
+
+.movie-card-small h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 150px;
+    letter-spacing: 0.2px;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin: 30px 0 25px;
+    }
+    
+    .collection-title-box h2 {
+        font-size: 20px;
+    }
+    
+    .collection-title-box i {
+        font-size: 20px;
+    }
+    
+    .movie-card-small {
+        min-width: 120px;
+    }
+    
+    .movie-card-small img {
+        width: 120px;
+        height: 180px;
+    }
+    
+    .movie-card-small h4 {
+        width: 120px;
+        font-size: 13px;
+    }
+}
